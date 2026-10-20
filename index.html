@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mot notebook — 기술경영</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Gaegu:wght@400;700&family=Geist:wght@400;500&family=Gowun+Dodum&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<style>
+  .home-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; padding: 64px 0 24px; position: relative; }
+  .ticket { position: relative; max-width: 360px; margin-left: auto; background: #fff; border: 1.5px solid var(--charcoal); border-radius: 18px; padding: 22px 24px; box-shadow: var(--shadow-card); transform: rotate(3deg); }
+  .ticket .route { display: flex; align-items: center; gap: 10px; font-family: var(--font-ui); font-size: 13px; color: var(--muted); }
+  .ticket .route b { font-family: var(--font-display); font-size: 34px; color: var(--charcoal); font-weight: 400; }
+  .ticket .route .line { flex: 1; height: 0; border-top: 2px dashed var(--orange); position: relative; }
+  .ticket .route .line::after { content: "✈"; position: absolute; left: 45%; top: -12px; color: var(--orange); font-size: 16px; }
+  .ticket .rows { margin-top: 16px; border-top: 1px dashed var(--line); padding-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; font-family: var(--font-ui); font-size: 12px; color: var(--muted); }
+  .ticket .rows span { display: block; color: var(--charcoal); font-size: 15px; font-weight: 500; margin-top: 2px; }
+  .ticket .stamp { position: absolute; right: -18px; bottom: -22px; font-family: var(--font-hand); color: var(--orange); font-size: 24px; transform: rotate(-10deg); background: var(--cream); border: 1.5px solid var(--orange); border-radius: 999px; padding: 4px 14px; }
+  .overall { font-family: var(--font-ui); font-size: 14px; color: var(--muted); margin-top: 18px; }
+  .overall .bar { height: 8px; border-radius: 8px; background: #fff0e6; border: 1px solid var(--line); overflow: hidden; max-width: 360px; margin-top: 6px; }
+  .overall .bar i { display: block; height: 100%; width: 0; background: var(--orange); transition: width .4s; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .info-grid .box h4 { margin-top: 0; }
+  .weeks { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; font-family: var(--font-ui); font-size: 13.5px; }
+  .weeks div { background: #fff; border: 1.5px solid var(--charcoal); border-radius: 10px; padding: 8px 10px; }
+  .weeks div b { display: block; color: var(--orange); font-size: 12px; }
+  .weeks div.exam { background: var(--charcoal); color: #fff; border-color: var(--charcoal); }
+  .weeks div.exam b { color: #ffd2b8; }
+  .weeks div.here { border-color: var(--orange); box-shadow: inset 0 0 0 1px var(--orange); }
+  @media (max-width: 860px) { .home-hero { grid-template-columns: 1fr; } .ticket { margin: 30px auto 10px; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="home-hero">
+    <div>
+      <span class="kicker">기술경영 · 2026-2 · IE3300034</span>
+      <h1 class="display">meet your<br>mot notebook</h1>
+      <p class="lede" style="font-size:20px;max-width:560px">중간고사 범위 1 ~ 8장 (혁신이란 → 패턴 → 유형·원천 → 누가 혁신? → 전략 → 플랫폼 → 수익화 → IP 보호) 을 슬라이드 문장 그대로 <span class="mk">빠짐없이</span> 정리한 공부 노트. 퀴즈와 모의고사는 시험처럼 <b>전부 객관식</b>이에요.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="pill primary" href="ch01-intro.html">처음부터 시작하기 →</a>
+        <a class="pill" href="summary.html">★ 한눈에 요약</a>
+        <a class="pill" href="compare.html">★ 한눈에 비교</a>
+        <a class="pill" href="quiz.html">★ 퀴즈</a>
+        <a class="pill" href="mock.html">★ 모의고사</a>
+        <a class="pill" href="#review">시험 직전 한 장</a>
+      </div>
+      <div class="overall"><span class="ov-text">진도 불러오는 중…</span><div class="bar"><i></i></div></div>
+    </div>
+    <div style="position:relative">
+      <div class="ticket">
+        <div class="route"><div><b>IDEA</b><br>invention</div><div class="line"></div><div style="text-align:right"><b>$</b><br>profit</div></div>
+        <div class="rows">
+          <div>class<span>기술경영</span></div>
+          <div>gate<span>1 → 8장</span></div>
+          <div>exam<span>10/22 (목) 9시</span></div>
+          <div>format<span>객관식 · 50분</span></div>
+        </div>
+        <div class="stamp">midterm ready</div>
+      </div>
+      <div data-sticker="bolt" data-rot="-14" style="left:0;bottom:-30px;width:46px;height:60px"></div>
+      <div data-sticker="star" data-rot="11" style="right:-6px;top:-34px;width:52px;height:52px"></div>
+    </div>
+  </div>
+
+  <div id="reviewBox"></div>
+
+  <h2 class="part-title" style="margin-top:56px"><small>the big picture</small>how it all connects</h2>
+  <div class="roadmap" style="flex-wrap:wrap">
+    <span class="node">01 혁신 = 결과 + 과정</span><span class="arr">→</span>
+    <span class="node">02 패턴: S곡선·PLC·확산</span><span class="arr">→</span>
+    <span class="node">03 어떤 혁신, 어디서?</span><span class="arr">→</span>
+    <span class="node hot">04 누가 혁신? (애로우)</span><span class="arr">→</span>
+    <span class="node">05 어떻게 전략?</span><span class="arr">→</span>
+    <span class="node">06 누가 표준이 되나</span><span class="arr">→</span>
+    <span class="node hot">07 누가 돈을 버나 (Teece)</span><span class="arr">→</span>
+    <span class="node">08 어떻게 지키나 (IP)</span>
+  </div>
+
+  <div class="ch-grid">
+    <a class="ch-card" href="ch01-intro.html" data-ch="01">
+      <span class="nl">39 slides</span><div class="no">01</div>
+      <h3>what is innovation</h3><div class="ko">Introduction to MOT</div>
+      <ul><li>창조적 파괴 · Mark I vs Mark II</li><li>발명 ≠ 혁신 · 쥐덫의 오류 · 정의 3개</li><li>혁신 유형 · 왜 어려운가 · R&amp;D 통계</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+    <a class="ch-card" href="ch02-patterns.html" data-ch="02">
+      <span class="nl">37 + 8 slides</span><div class="no">02</div>
+      <h3>patterns</h3><div class="ko">Patterns in Innovative Activity</div>
+      <ul><li>GPT · 콘드라티예프 장기파동</li><li>S-곡선 · 범선 효과 · 지배적 디자인 · PLC</li><li>로저스 · 캐즘 · 확산 모형 5개 (배스)</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+    <a class="ch-card" href="ch03-sources.html" data-ch="03">
+      <span class="nl">38 slides</span><div class="no">03</div>
+      <h3>types &amp; sources</h3><div class="ko">Sources and Patterns of Innovation</div>
+      <ul><li>혁신 유형 네 쌍 · 기술 사이클</li><li>창의성 · 발명가 · 소비자 혁신 · R&amp;D</li><li>흡수능력 · Bayh-Dole · 클러스터 · 파급</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+    <a class="ch-card" href="ch04-who.html" data-ch="04">
+      <span class="nl">31 slides + 예제</span><div class="no">04</div>
+      <h3>who innovates</h3><div class="ko">Who innovates, and why?</div>
+      <ul><li>애로우 모델 A·B·C · 자기잠식 vs 효율성</li><li>InnovaPNU 계산 · DMA · 정책</li><li>newness vs smallness · 혁신가의 딜레마</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+    <a class="ch-card" href="ch05-strategy.html" data-ch="05">
+      <span class="nl">29 slides</span><div class="no">05</div>
+      <h3>innovation strategy</h3><div class="ko">Innovation Strategy</div>
+      <ul><li>RBV + MBV · Five Forces · VRIN</li><li>혁신 전략 5요소 · 70-20-10 · Intel</li><li>이상적 전략 4유형 · Push vs Pull</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+    <a class="ch-card" href="ch06-platform.html" data-ch="06">
+      <span class="nl">38 slides</span><div class="no">06</div>
+      <h3>platforms</h3><div class="ko">Value in Platforms</div>
+      <ul><li>수익체증 · 학습 · 네트워크 외부성</li><li>독립적 가치 · 구매자 효용 지도 · 무차별 지역</li><li>모듈화 3단계 · 플랫폼 생태계</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+    <a class="ch-card" href="ch07-profit.html" data-ch="07">
+      <span class="nl">34 slides</span><div class="no">07</div>
+      <h3>profiting</h3><div class="ko">Profiting from Innovation</div>
+      <ul><li>이익 분배 · 이중마진화 계산</li><li>Teece: 수명주기 · 전유성 · 보완적 자산</li><li>홀드업 · 협력 or 경쟁 · 공개의 역설</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+    <a class="ch-card" href="ch08-ip.html" data-ch="08">
+      <span class="nl">36 slides</span><div class="no">08</div>
+      <h3>IP protection</h3><div class="ko">IP Protection</div>
+      <ul><li>공식 vs 비공식 · 특허 요건 · 비용</li><li>디자인 · 저작권 · 실용신안 · Sui generis</li><li>특허와 VRIN · 파리협약 · PCT · CRISPR</li></ul>
+      <div class="mini-bar"><i></i></div>
+    </a>
+  </div>
+
+  <h2 class="part-title"><small>chap 00</small>course info</h2>
+  <section class="card" id="course">
+    <h2>수업 안내</h2>
+    <span class="slide-ref">Chap00 p.4 – 11</span>
+    <div class="info-grid">
+      <div class="box"><h4>교수 · 수업</h4><p style="font-size:15px">이석희 교수 (제10공학관 10603호)<br>화·목 09:00 – 10:15, 10공학관 303호<br>대면수업</p></div>
+      <div class="box"><h4>교재</h4><p style="font-size:15px">Melissa A. Schilling, 『기술경영과 혁신전략』, 맥그로힐에듀케이션코리아 (2023)<br><span style="color:var(--muted)">부교재: 박용태, 『기술과 경영』, 생능출판사 (2017)</span></p></div>
+      <div class="box"><h4>성적</h4>
+        <div class="tbl-wrap"><table class="t" style="font-size:14px"><tbody>
+          <tr><td>출석</td><td>10%</td></tr><tr><td>팀 발표 + 과제</td><td>15% + 10%</td></tr><tr><td>중간고사</td><td>30%</td></tr><tr><td>기말고사</td><td>35%</td></tr>
+        </tbody></table></div></div>
+      <div class="box"><h4>시험</h4><ul style="font-size:14.5px"><li>중간고사 <b>10월 22일(목) 9시</b>, 범위 Week 1~7</li><li>시험시간 <b>50분</b>, Closed Book</li><li>수업 강의자료 중심</li><li>미응시 시 F</li></ul></div>
+    </div>
+    <h3>중간고사 범위</h3>
+    <div class="weeks">
+      <div class="here"><b>1주</b>Ch01 Introduction to MOT</div><div class="here"><b>2주</b>Ch02 패턴 · Ch03 원천</div><div class="here"><b>3주</b>Ch04 누가 혁신 · Ch05 전략</div><div class="here"><b>4주</b>Ch05 Supp (발표)</div><div class="here"><b>5주</b>Ch06 플랫폼</div><div class="here"><b>6주</b>Ch07 수익화</div><div class="here"><b>7주</b>Ch08 IP 보호</div><div class="exam"><b>8주</b>중간고사</div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);margin-top:10px">테두리 강조 = 이 노트에 들어 있는 범위. 발표 주차의 기업 사례 Supplement 는 팀 발표 내용이라 강의 슬라이드만 넣었어요.</p>
+  </section>
+
+  <h2 class="part-title" id="review"><small>시험 직전에 이것만 보기</small>one-page cheat sheet</h2>
+  <section class="card">
+    <h2>숫자 · 공식 · 순서 모음</h2>
+    <div class="tbl-wrap"><table class="t">
+      <thead><tr><th>개념</th><th>외울 것</th><th>장</th></tr></thead>
+      <tbody>
+        <tr><td>Mark I / Mark II</td><td>1911 『경제발전의 이론』 기업가·entrepreneurial / 1942 『자본주의, 사회주의, 민주주의』 대기업·routinized</td><td>01</td></tr>
+        <tr><td>Solow</td><td>\(Y = A K^{\alpha} L^{1-\alpha}\), A = TFP, α ≈ 0.3–0.4</td><td>01</td></tr>
+        <tr><td>R&amp;D 구성</td><td>기초 5–20% · 응용 15–25% · 실험적 개발 65–85%</td><td>01</td></tr>
+        <tr><td>장기파동</td><td>40–60년 주기, 점점 짧아짐 (60 → 55 → 50 → 40 → 30)</td><td>02</td></tr>
+        <tr><td>S-곡선</td><td>출현 → 급격한 성장 → 성장 둔화 → 성숙기</td><td>02</td></tr>
+        <tr><td>PLC 경쟁 기반</td><td>유동기 성능 → 전환기 다양성(차별화) → 고착기 가격 / entries &gt; · = · &lt; exits</td><td>02</td></tr>
+        <tr><td>로저스</td><td>2.5 · 13.5 · 34 · 34 · 16 (%), 캐즘 = 초기 수용자 ↔ 초기 다수</td><td>02</td></tr>
+        <tr><td>확산 모형</td><td>\(p\) 선형 · \(p(N_t-N)\) 포화 · \(qN\) 지수 · \(qN(N_t-N)\) 로지스틱 (최대 \(N_t/2\)) · \((p+qN)(N_t-N)\) 배스</td><td>02</td></tr>
+        <tr><td>혁신 유형 4쌍</td><td>제품/공정 · 급진적/점진적 · 역량강화/역량소실 · 구조적/부품</td><td>03</td></tr>
+        <tr><td>애로우</td><td>인센티브 B(독점) &lt; A(완전경쟁) &lt; C(사회계획자), B 가 낮은 이유 = 자기잠식</td><td>04</td></tr>
+        <tr><td>독점 공식</td><td>\(p = a - q\), 한계비용 c: \(q = \frac{a-c}{2},\ p = \frac{a+c}{2},\ \pi = \left(\frac{a-c}{2}\right)^2\)</td><td>04</td></tr>
+        <tr><td>InnovaPNU</td><td>156.25 → 2025 (순이익 1868.75) · 급진적: c′ ≤ 50, F ≤ 625</td><td>04</td></tr>
+        <tr><td>DMA</td><td>MAU 4,500만 / 매출 75억 유로 · 과징금 10% (반복 20%)</td><td>04</td></tr>
+        <tr><td>VRIN</td><td>Valuable · Rare · Inimitable · Non-substitutable</td><td>05·08</td></tr>
+        <tr><td>혁신 전략 5요소</td><td>목표 · 중점 분야 · 혁신 유형 &amp; 위험 · 예산 &amp; 자원 · R&amp;D 조직</td><td>05</td></tr>
+        <tr><td>70-20-10</td><td>핵심 70 · 인접 20 · 파격적 10</td><td>05</td></tr>
+        <tr><td>이상적 전략</td><td>선제적 DuPont·Apple · 활동적 MS·Dell · 대응적 Ryanair · 수동적 Ratiopharm</td><td>05</td></tr>
+        <tr><td>구매자 효용 지도</td><td>구매·전달·사용·보충·유지·처분 × 생산성·단순·편리·위험·즐거움·친환경 = 36칸</td><td>06</td></tr>
+        <tr><td>이중마진화</td><td>\(P_S = 1/2,\ q = 1/4,\ \pi_S = 1/8,\ \pi_{IN} = 1/16\), 총 3/16 &lt; 통합 1/4, 가격 3/4</td><td>07</td></tr>
+        <tr><td>Teece 매트릭스</td><td>강+독점 = 공유 · 강+경쟁 = 혁신기업 · 약+독점 = 자산 소유자 · 약+경쟁 = 소비자</td><td>07</td></tr>
+        <tr><td>특허 기간</td><td>출원일부터 20년 (제약·농약 25년) · 18개월 공개 · 등록 결정 평균 16개월 (EPO 약 4년)</td><td>08</td></tr>
+        <tr><td>기타 IP 기간</td><td>디자인 출원일 20년 (연장 불가, 공개 후 12개월 내 출원) · 저작권 사후 70년 · 실용신안 10년 · 반도체 배치설계 10년 · 품종 20–25년</td><td>08</td></tr>
+        <tr><td>국제 출원</td><td>파리협약(1883, 181개국) 우선권 12개월 · PCT 각국 진입 30개월 · USPTO 유지료 3.5·7.5·11.5년</td><td>08</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let done = 0, total = 0;
+    document.querySelectorAll('.ch-card').forEach(card => {
+      const id = card.dataset.ch;
+      const d = (window.RL_STORE && RL_STORE.get('done-' + id)) || {};
+      const t = (window.RL_STORE && RL_STORE.get('total-' + id)) || 0;
+      const n = Object.values(d).filter(Boolean).length;
+      done += n; total += t;
+      if (t) card.querySelector('.mini-bar i').style.width = Math.round(n / t * 100) + '%';
+    });
+    const ov = document.querySelector('.overall');
+    if (total) {
+      const pct = Math.round(done / total * 100);
+      ov.querySelector('.ov-text').textContent = `전체 진도: ${done} / ${total} 섹션 이해 완료 (${pct}%)`;
+      ov.querySelector('.bar i').style.width = pct + '%';
+    } else {
+      ov.querySelector('.ov-text').textContent = '각 섹션의 “이해했으면 체크” 버튼을 누르면 여기 진도가 쌓여요.';
+    }
+
+    // 🔁 복습 필요로 표시한 섹션 모아 보기
+    const PAGES = { '01': ['01. 혁신이란', 'ch01-intro.html'], '02': ['02. 혁신 패턴', 'ch02-patterns.html'], '03': ['03. 유형·원천', 'ch03-sources.html'], '04': ['04. 누가 혁신?', 'ch04-who.html'], '05': ['05. 혁신 전략', 'ch05-strategy.html'], '06': ['06. 플랫폼', 'ch06-platform.html'], '07': ['07. 수익화', 'ch07-profit.html'], '08': ['08. IP 보호', 'ch08-ip.html'], sum: ['한눈에 요약', 'summary.html'], cmp: ['한눈에 비교', 'compare.html'] };
+    const groups = Object.keys(PAGES).map(k => {
+      const r = (window.RL_STORE && RL_STORE.get('review-' + k)) || {};
+      return [k, Object.entries(r).sort((a, b) => a[1].at - b[1].at)];
+    }).filter(([, items]) => items.length);
+    document.querySelectorAll('.ch-card').forEach(card => {
+      const g = groups.find(([k]) => k === card.dataset.ch);
+      if (g) card.insertAdjacentHTML('beforeend', `<span class="rev-count">🔁 복습 ${g[1].length}</span>`);
+    });
+    const box = document.getElementById('reviewBox');
+    if (groups.length) {
+      const n = groups.reduce((a, [, it]) => a + it.length, 0);
+      box.innerHTML = `<section class="card review-home"><h2>🔁 복습할 것 <span class="ko">${n}개</span></h2>
+        <p style="font-size:15px;color:var(--muted);margin:0 0 6px">각 섹션 오른쪽 위 <b>🔁 복습</b> 버튼으로 표시한 곳이에요. 다 봤으면 그 섹션에서 버튼을 다시 눌러 해제하세요.</p>
+        <div class="rh-grid">${groups.map(([k, items]) => `<div class="rh-col"><div class="rh-ch">${PAGES[k][0]}</div>${items.map(([id, v]) => `<a href="${PAGES[k][1]}#${id}">${(v.t || id).replace(/</g, '&lt;')}</a>`).join('')}</div>`).join('')}</div></section>`;
+    }
+  });
+</script>
+</body>
+</html>

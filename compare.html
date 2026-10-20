@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한눈에 비교 — mot notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Gaegu:wght@400;700&family=Geist:wght@400;500&family=Gowun+Dodum&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script defer src="assets/notes.js"></script>
+<style>
+  table.t.cmp th:first-child, table.t.cmp td:first-child { background: #fff0e6; font-family: var(--font-ui); font-size: 14px; white-space: nowrap; }
+  table.t.cmp td { vertical-align: top; }
+  .key { font-family: var(--font-hand); color: var(--sienna); font-size: 22px; line-height: 1.3; margin: 10px 0 0; }
+  .key::before { content: "구분 포인트 → "; color: var(--muted); font-size: 18px; }
+  .ch-link { font-family: var(--font-ui); font-size: 13px; color: var(--muted); }
+  .filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
+  .filter button { font-family: var(--font-ui); font-size: 13px; border: 1px solid var(--line); background: #fff; border-radius: 16px; padding: 5px 12px; cursor: pointer; color: var(--charcoal); }
+  .filter button.on { background: var(--charcoal); color: #fff; border-color: var(--charcoal); }
+</style>
+</head>
+<body data-ch="cmp">
+
+<div class="wrap">
+  <div class="hero">
+    <span class="kicker">헷갈리는 것끼리 나란히</span>
+    <h1 class="display">compare<br>side by side</h1>
+    <p class="lede">객관식에 잘 나오는 “A vs B” 를 전부 표로 모았어요. 표 아래 <span class="mk">구분 포인트</span> 한 줄만 기억해도 보기 대부분이 걸러져요.</p>
+    <div class="filter" id="filter">
+      <button type="button" class="on" data-f="all">전체</button>
+      <button type="button" data-f="01">01 혁신이란</button>
+      <button type="button" data-f="02">02 패턴</button>
+      <button type="button" data-f="03">03 유형·원천</button>
+      <button type="button" data-f="04">04 누가 혁신?</button>
+      <button type="button" data-f="05">05 전략</button>
+      <button type="button" data-f="06">06 플랫폼</button>
+      <button type="button" data-f="07">07 수익화</button>
+      <button type="button" data-f="08">08 IP</button>
+    </div>
+    <div class="meta">장별 요약은 → <a href="summary.html">한눈에 요약</a></div>
+    <div data-sticker="pin" data-rot="-8" style="right:8%;top:70px;width:50px;height:66px"></div>
+    <div data-sticker="box" data-rot="10" style="right:19%;top:200px;width:54px;height:54px"></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="toc"></aside>
+    <main class="lesson">
+
+<section class="card" id="c-mark" data-ch="01 04" data-toc="Mark I vs Mark II">
+  <h2>슘페터 Mark I vs Mark II</h2><span class="ch-link">01 · 04장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>Mark I</th><th>Mark II</th></tr></thead>
+    <tbody>
+      <tr><td>연도·저서</td><td>1911 (04장 표기 1912) 『경제발전의 이론』</td><td>1942 『자본주의, 사회주의, 민주주의』</td></tr>
+      <tr><td>혁신 주체</td><td>기업가 · 신생기업</td><td>대기업 (사내 R&amp;D)</td></tr>
+      <tr><td>시장 구조</td><td>분산된 시장, 진입 자유</td><td>독점력을 가진 시장</td></tr>
+      <tr><td>체제</td><td>entrepreneurial regime</td><td>routinized regime</td></tr>
+      <tr><td>예시</td><td>초기 카카오</td><td>삼성전자 반도체</td></tr>
+    </tbody>
+  </table></div>
+  <p class="key">작고 새로운 기업 = I · 크고 독점적인 기업 = II</p>
+</section>
+
+<section class="card" id="c-def" data-ch="01" data-toc="혁신의 정의 3명">
+  <h2>Hauschildt vs Porter vs Afuah</h2><span class="ch-link">01장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th>학자</th><th>정의</th><th>키워드</th></tr></thead>
+    <tbody>
+      <tr><td>Hauschildt</td><td>기존과 현저히 다른, 질적으로 새로운 제품이나 프로세스</td><td>질적으로 새로운</td></tr>
+      <tr><td>Porter</td><td>상업화된 새로운 방식</td><td>상업화</td></tr>
+      <tr><td>Afuah</td><td>도입하는 조직에 있어 새로운 아이디어의 채택</td><td>채택</td></tr>
+      <tr><td>(혁신경영)</td><td>새로운 것을 창출하고 활용하기 위한 프로세스를 구축하는 것</td><td>프로세스 구축</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-inv" data-ch="01" data-toc="발명 vs 혁신">
+  <h2>발명 (Invention) vs 혁신 (Innovation)</h2><span class="ch-link">01장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>발명</th><th>혁신</th></tr></thead>
+    <tbody>
+      <tr><td>범위</td><td>아이디어 → 발견 → 연구 → 개발 → 발명</td><td>발명 + <b>출시 + 활용</b></td></tr>
+      <tr><td>예</td><td>와이퍼 글라스, 머리 세탁기, 4,400개 쥐덫 특허</td><td>Prozac, MRI</td></tr>
+    </tbody>
+  </table></div>
+  <p class="key">모든 발명이 혁신인 것은 아니다</p>
+</section>
+
+<section class="card" id="c-plc" data-ch="02" data-toc="PLC 3단계">
+  <h2>유동기 vs 전환기 vs 고착기</h2><span class="ch-link">02장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>유동기</th><th>전환기</th><th>고착기</th></tr></thead>
+    <tbody>
+      <tr><td>혁신</td><td>빈번한 대규모 제품 변화</td><td>대규모 공정 변화</td><td>점진적 개선</td></tr>
+      <tr><td>경쟁 기반</td><td>기능적 성능</td><td>제품 다양성</td><td>가격</td></tr>
+      <tr><td>진입·퇴출</td><td>entries &gt; exits</td><td>=</td><td>entries &lt; exits</td></tr>
+      <tr><td>공정 변화 비용</td><td>낮음</td><td>중간</td><td>높음</td></tr>
+      <tr><td>설비</td><td>소규모, 사용자 인근</td><td>범용 + 특화 부문</td><td>대규모 특화</td></tr>
+      <tr><td>취약점</td><td>모방자, breakthrough</td><td>효율·품질 높은 생산자</td><td>대체재 기술 혁신</td></tr>
+      <tr><td>조직 통제</td><td>비공식·기업가적</td><td>프로젝트·태스크 그룹</td><td>구조·규칙·목표</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-rogers" data-ch="02" data-toc="로저스 5분류">
+  <h2>로저스 수용자 5분류</h2><span class="ch-link">02장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th>분류</th><th>비율</th><th>한 단어</th><th>구분 포인트</th></tr></thead>
+    <tbody>
+      <tr><td>혁신 수용자</td><td>2.5%</td><td>모험적</td><td>글로벌 관계망, 게이트키핑</td></tr>
+      <tr><td>초기 수용자</td><td>13.5%</td><td>오피니언 리더</td><td>지역 전도사, 승인 도장</td></tr>
+      <tr><td>초기 다수</td><td>34%</td><td>신중한</td><td>약 1/3, 리더는 드묾</td></tr>
+      <tr><td>후기 다수</td><td>34%</td><td>필요·압력</td><td>경제적 필요, 동료 압력</td></tr>
+      <tr><td>최후 수용자</td><td>16%</td><td>과거 기준</td><td>localite, 고립, 의심</td></tr>
+    </tbody>
+  </table></div>
+  <p class="key">캐즘 = 13.5% 와 34% (초기 수용자 ↔ 초기 다수) 사이</p>
+</section>
+
+<section class="card" id="c-diff" data-ch="02" data-toc="확산 모형 5개">
+  <h2>확산 모형 비교</h2><span class="ch-link">02장 Supp</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th>식</th><th>고려하는 것</th><th>곡선</th></tr></thead>
+    <tbody>
+      <tr><td>\(p\)</td><td>독립적 채택만, 유한성 X</td><td>선형</td></tr>
+      <tr><td>\(p(N_t - N)\)</td><td>독립적 + 유한성</td><td>negative exponential (포화)</td></tr>
+      <tr><td>\(qN\)</td><td>모방(네트워크)만, 유한성 X</td><td>exponential (지수 증가)</td></tr>
+      <tr><td>\(qN(N_t - N)\)</td><td>모방 + 유한성</td><td>로지스틱 S자, 최대 \(N_t/2\)</td></tr>
+      <tr><td>\((p + qN)(N_t - N)\)</td><td>독립 + 모방 + 유한성</td><td>배스 (초기부터 상승)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-types" data-ch="03" data-toc="혁신 유형 4쌍">
+  <h2>혁신 유형 네 쌍</h2><span class="ch-link">03장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th>쌍</th><th>왼쪽 (예)</th><th>오른쪽 (예)</th><th>구분 포인트</th></tr></thead>
+    <tbody>
+      <tr><td>제품 vs 공정</td><td>산출물 (UPS 새 유통 서비스)</td><td>수행 방식 (테슬라, 쿠팡, 포스코)</td><td>한 기업의 제품 혁신 = 다른 기업의 공정 혁신</td></tr>
+      <tr><td>급진적 vs 점진적</td><td>완전히 다름 (카카오뱅크)</td><td>약간의 변경 (현대차 페이스리프트)</td><td>상대적: 시간 · 관찰자</td></tr>
+      <tr><td>역량강화 vs 역량소실</td><td>보유 지식 이용 (삼성 D램→낸드)</td><td>기존 역량 진부화 (두산 → 중공업)</td><td>특정 기업의 관점</td></tr>
+      <tr><td>구조적 vs 부품</td><td>부품 간 관계 변화 (Z 폴드)</td><td>부품만 변화 (48V 마일드 하이브리드)</td><td>구조적은 부품 변화도 동시에</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-push" data-ch="03 05" data-toc="Push vs Pull (3장·5장)">
+  <h2>Science/Technology Push vs Demand/Market Pull</h2><span class="ch-link">03 · 05장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>Push</th><th>Pull</th></tr></thead>
+    <tbody>
+      <tr><td>3장 흐름</td><td>과학적 발견 → 발명 → 제조 → 마케팅 (선형)</td><td>고객 제안 → 발명 → 제조</td></tr>
+      <tr><td>5장 출발점</td><td>엔지니어·과학자가 신기술 탐색, 무엇을 만들지는 그다음</td><td>마케팅 중심 경영진이 시장·수요로, 어떤 기술인지는 그다음</td></tr>
+      <tr><td>예</td><td>mRNA 백신</td><td>“내 위치를 알고 싶어.”</td></tr>
+      <tr><td>문제점</td><td>쉬운 연구 분야 집중, 자기 해결책 집착, 기업 이익과 불일치 (아이리버 mp3)</td><td>쉬운 요구사항 집중, 특정 사례 집착, 점진적 개선만 (삼성전자, KCC)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="key">해답 = Combination (마케팅 + 과학 전문가 협력)</p>
+</section>
+
+<section class="card" id="c-rd" data-ch="03" data-toc="기초 vs 응용 vs 개발">
+  <h2>기초연구 vs 응용연구 vs 개발</h2><span class="ch-link">03장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>목표</th><th>현대차 배터리</th><th>R&amp;D 비중 (1장)</th></tr></thead>
+    <tbody>
+      <tr><td>기초연구</td><td>근본원리 이해, 상업적 적용 염두 X</td><td>전고체 소재·반응 메커니즘</td><td>5–20%</td></tr>
+      <tr><td>응용연구</td><td>실용적인 특정 요구 충족</td><td>양산 적용 에너지 밀도·안전성</td><td>15–25%</td></tr>
+      <tr><td>(실험적) 개발</td><td>유용한 기구·물질·과정을 만듦</td><td>아이오닉5, EV9 양산</td><td>65–85%</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-arrow" data-ch="04" data-toc="애로우 Case A·B·C">
+  <h2>애로우 Case A vs B vs C</h2><span class="ch-link">04장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>A. 완전경쟁 → 독점</th><th>B. 독점 → 독점</th><th>C. 사회계획자</th></tr></thead>
+    <tbody>
+      <tr><td>혁신 전</td><td>이익 0 (가격 = c₀)</td><td>□EFGH</td><td>사회적 편익 △EJK</td></tr>
+      <tr><td>혁신 후</td><td>□ABCD</td><td>□ABCD</td><td>△AIK (가격 c₁)</td></tr>
+      <tr><td>이득</td><td>□ABCD</td><td>□ABCD − □EFGH</td><td>□AIJE</td></tr>
+      <tr><td>인센티브</td><td>중간</td><td><b>가장 낮음</b> (자기잠식)</td><td><b>가장 높음</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-eff" data-ch="04" data-toc="효율성 vs 자기잠식 효과">
+  <h2>효율성 효과 vs 자기잠식 효과</h2><span class="ch-link">04장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>효율성 효과</th><th>자기잠식 효과</th></tr></thead>
+    <tbody>
+      <tr><td>언제</td><td>혁신이 기존 제품보다 <b>약간만</b> 더 나은 경우</td><td>혁신이 <b>급진적·획기적</b>이어서 기존 제품 대체</td></tr>
+      <tr><td>누가 혁신?</td><td>기존 독점기업 (독점 지위를 지키려 필사적)</td><td>신규 진입자 (기존 기업은 기존 이익을 잃음)</td></tr>
+      <tr><td>논리</td><td>이중독점의 두 번째 &lt; 유일한 독점</td><td>혁신 후 이익 − 혁신 전 이익이 작음</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-new" data-ch="04" data-toc="newness vs smallness">
+  <h2>신생기업의 부담 vs 작은 기업의 부담</h2><span class="ch-link">04장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>Liabilities of newness</th><th>Liabilities of smallness</th></tr></thead>
+    <tbody>
+      <tr><td>실패 원인</td><td>역할/업무 배정, 명성·경험 부족, 이해관계자 관계 구축, “낯선 사람들” 간 상호작용</td><td>제한된 자원, 기술 다양성 부족, 완충장치 부재, 취업시장 불리, 낮은 시장지배력, 조직적 여유 부족</td></tr>
+      <tr><td>장점</td><td>경로의존성 X, 관성 X, 개방적 문화, 맞춤 인재·재교육 불필요</td><td>유연한 프로세스, 명확한 구조, 간결·직접 소통, 신속한 의사결정, 직무 만족도</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-disr" data-ch="04" data-toc="파괴적 vs 급진적 혁신">
+  <h2>파괴적 혁신 vs 급진적 혁신</h2><span class="ch-link">03 · 04장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>파괴적 (Christensen)</th><th>급진적</th></tr></thead>
+    <tbody>
+      <tr><td>기준</td><td><b>시장적</b>: 처음엔 열등, 틈새·신규 시장에서 시작해 주류 대체</td><td><b>기술적</b>: 기존과 아주 새롭고 완전히 다름</td></tr>
+      <tr><td>기술</td><td>기술적으로 단순</td><td>새로움이 큼</td></tr>
+      <tr><td>예</td><td>유압식 굴삭기, 3.5인치 HDD</td><td>카카오뱅크</td></tr>
+      <tr><td>아닌 예</td><td>우버 (처음부터 월등, 기존 시장 대체)</td><td>현대차 페이스리프트 (점진적)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-rbv" data-ch="05" data-toc="RBV vs MBV">
+  <h2>자원기반 관점 vs 시장기반 관점</h2><span class="ch-link">05장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>RBV (Resource-based view)</th><th>MBV (Market-based view)</th></tr></thead>
+    <tbody>
+      <tr><td>방향</td><td>내부</td><td>외부</td></tr>
+      <tr><td>SWOT</td><td>강점 · 약점</td><td>기회 · 위협</td></tr>
+      <tr><td>도구</td><td>VRIN</td><td>Porter’s Five Forces</td></tr>
+    </tbody>
+  </table></div>
+  <p class="key">둘을 통합 → 기업전략 → 혁신전략의 방향</p>
+</section>
+
+<section class="card" id="c-ideal" data-ch="05" data-toc="이상적 혁신 전략 4유형">
+  <h2>선제적 vs 활동적 vs 대응적 vs 수동적</h2><span class="ch-link">05장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>선제적</th><th>활동적</th><th>대응적</th><th>수동적</th></tr></thead>
+    <tbody>
+      <tr><td>예</td><td>DuPont, Apple</td><td>Microsoft, Dell</td><td>Ryanair</td><td>Ratiopharm</td></tr>
+      <tr><td>혁신</td><td>급진적 &amp; 점진적</td><td>주로 점진적</td><td>전적으로 점진적</td><td>가끔 점진적</td></tr>
+      <tr><td>지식 출처</td><td>과학, R&amp;D, 협력, 선도 사용자</td><td>사내 R&amp;D, 협력</td><td>경쟁사, 고객</td><td>경쟁사, 고객</td></tr>
+      <tr><td>위험</td><td>고위험 포트폴리오</td><td>중·저위험</td><td>저위험만</td><td>위험 감수 없음</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-bets" data-ch="05" data-toc="Big bets vs Hedging vs Wait">
+  <h2>불확실성 하 세 가지 입장</h2><span class="ch-link">05장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th>입장</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td>Taking big bets</td><td>급진적 혁신을 목표로 한 대규모 투자 (Intel 아키텍처 연구소)</td></tr>
+      <tr><td>Hedging bets</td><td>다양한 옵션에 대한 투자, 점진적 혁신</td></tr>
+      <tr><td>Wait and see</td><td>다른 기업이 먼저 위험을 감수하게 하고 나중에 모방</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-net" data-ch="06" data-toc="직접 vs 간접 네트워크 효과">
+  <h2>직접 vs 간접 네트워크 효과</h2><span class="ch-link">06장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>직접</th><th>간접</th></tr></thead>
+    <tbody>
+      <tr><td>원천</td><td>같은·유사 제품 <b>사용자 수</b></td><td><b>호환성·보완재</b></td></tr>
+      <tr><td>예</td><td>철도, 통신</td><td>Windows (응용 프로그램)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-val" data-ch="06" data-toc="독립적 가치 vs 네트워크 가치">
+  <h2>기술의 독립적 가치 vs 네트워크 외부성 가치</h2><span class="ch-link">06장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>독립적 가치</th><th>네트워크 외부성 가치</th></tr></thead>
+    <tbody>
+      <tr><td>요소</td><td>기능 · 심미적 가치 · 사용 용이성</td><td>고객기반 규모 · 보완재 가용성</td></tr>
+      <tr><td>예</td><td>초기 아이폰 카메라, Z 폴드 디자인, ChatGPT 인터페이스</td><td>카카오톡, 앱스토어 생태계</td></tr>
+      <tr><td>도구</td><td>구매자 효용 지도 (36칸)</td><td>점유율 대비 가치 그래프 (무차별 지역)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-mod" data-ch="06" data-toc="통합 vs 플랫폼 vs 모듈화">
+  <h2>완전한 통합 vs 플랫폼 vs 완전한 모듈화</h2><span class="ch-link">06장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>완전한 통합</th><th>플랫폼</th><th>완전한 모듈화</th></tr></thead>
+    <tbody>
+      <tr><td>조합 결정권</td><td>제조사</td><td>플랫폼 스폰서</td><td>소비자/시장</td></tr>
+      <tr><td>상호 특화</td><td>높음</td><td>일부 (핵심만 표준)</td><td>없음</td></tr>
+      <tr><td>품질·호환성</td><td>제조사 통제</td><td>스폰서가 관리감독</td><td>불확실</td></tr>
+      <tr><td>예 (단계)</td><td>① Magnavox Odyssey, 테슬라</td><td>② Wii U, App Store (애플 심사·30%)</td><td>③ Android 기기</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-eco" data-ch="06" data-toc="생태계 vs 경계">
+  <h2>플랫폼 생태계 vs 플랫폼 경계</h2><span class="ch-link">06장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>플랫폼 생태계</th><th>플랫폼 경계</th></tr></thead>
+    <tbody>
+      <tr><td>개념</td><td>시스템의 구조, 상호의존성, 핵심이 중재</td><td>시스템의 경계 유동성, 여러 플랫폼 동시 참여</td></tr>
+      <tr><td>예</td><td>게임기 &amp; 게임, 스트리밍 &amp; 음원</td><td>HBO on Demand vs Amazon Prime</td></tr>
+      <tr><td>선택</td><td>플랫폼 <b>안에서</b> 선택</td><td>플랫폼 <b>자체를</b> 선택</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-teece" data-ch="07" data-toc="Teece 2×2 매트릭스">
+  <h2>전유성 × 보완적 자산 → 누가 이익?</h2><span class="ch-link">07장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>보완적 자산 독점적 소유</th><th>경쟁적 시장에서 조달 가능</th></tr></thead>
+    <tbody>
+      <tr><td>강한 전유성</td><td>혁신기업 + 자산 소유자 공유</td><td>혁신기업</td></tr>
+      <tr><td>약한 전유성</td><td>보완적 자산 소유자</td><td>소비자</td></tr>
+    </tbody>
+  </table></div>
+  <p class="key">독보적인 입지에 있는 누군가가 이익을 얻는다</p>
+</section>
+
+<section class="card" id="c-ca" data-ch="07" data-toc="범용 vs 특화 vs 상호특화">
+  <h2>범용 vs 특화 vs 상호특화 보완적 자산</h2><span class="ch-link">07장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>범용</th><th>특화</th><th>상호특화</th></tr></thead>
+    <tbody>
+      <tr><td>의존</td><td>서로 의존 X (경쟁적 조달)</td><td>한쪽이 일방적으로 의존</td><td>서로 강하게 의존</td></tr>
+      <tr><td>예</td><td>컴퓨터를 위한 전기</td><td>컨테이너 운송 트럭 (평판형 전환 가능)</td><td>Stryker 무릎 시스템 + 기구 세트, iOS + 앱</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-ci" data-ch="07" data-toc="계약 vs 통합">
+  <h2>보완적 자산: 계약 vs 통합</h2><span class="ch-link">07장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>계약 (외주)</th><th>통합 (계열화)</th></tr></thead>
+    <tbody>
+      <tr><td>장점</td><td>낮은 자본, 소규모 파트너 평판 상승</td><td>모방을 어렵게</td></tr>
+      <tr><td>단점</td><td>전문 자산 확보 어려움, 파트너 의존, 모방 쉬움</td><td>시간 소요, 자본집약, 되돌리기 어려움</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-mkt" data-ch="07" data-toc="제품시장 vs 아이디어시장">
+  <h2>제품시장 vs 아이디어시장</h2><span class="ch-link">07장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>제품시장 (경쟁)</th><th>아이디어시장 (협력)</th></tr></thead>
+    <tbody>
+      <tr><td>방식</td><td>기존 제품과 경쟁 / 보완</td><td>라이선스 (Dolby) · 매각 (Instagram) · 제휴 (Sony &amp; Ericsson)</td></tr>
+      <tr><td>필요</td><td>보완적 자산 확보, 공격적·신속, 집행 가능한 IPR</td><td>좋은 가격, 협상력</td></tr>
+      <tr><td>리스크/장점</td><td>기존 기업의 대응</td><td>장점: 경쟁 완화, 성장, 추격 비용 절감 / 리스크: 공개의 역설, 낮은 협상력, 탐색 비용</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-hold" data-ch="07" data-toc="홀드업 vs 공개의 역설">
+  <h2>홀드업 문제 vs 공개의 역설 vs 이중마진화</h2><span class="ch-link">07장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>무엇?</th><th>해결</th></tr></thead>
+    <tbody>
+      <tr><td>이중마진화</td><td>독점 공급자·독점 혁신기업이 순차적으로 마진 → 수량·총이윤 감소</td><td>수직통합, 복수 공급자, 이부가격, 장기계약</td></tr>
+      <tr><td>홀드업</td><td>관계특화적 투자 후 상대가 재협상 요구</td><td>공동 R&amp;D, 공동 투자, 장기계약</td></tr>
+      <tr><td>공개의 역설</td><td>알려 줘야 값을 받는데, 알면 안 사도 됨</td><td>IPR, 계약</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-ip" data-ch="08" data-toc="공식 vs 비공식 IP">
+  <h2>공식적 vs 비공식적 보호</h2><span class="ch-link">08장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th>공식적</th><th>비공식적</th></tr></thead>
+    <tbody>
+      <tr><td>특허, 등록디자인, 상표, 저작권, <b>비밀유지계약</b></td><td><b>비밀유지/보안</b>, 리드타임·선점자 우위, 설계 복잡성, 전환비용, 네트워크 외부효과</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-rights" data-ch="08" data-toc="특허·디자인·저작권·실용신안">
+  <h2>특허 vs 디자인 vs 저작권 vs 실용신안</h2><span class="ch-link">08장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>특허</th><th>디자인</th><th>저작권</th><th>실용신안</th></tr></thead>
+    <tbody>
+      <tr><td>보호 대상</td><td>유용한 아이디어 (기능·구조·방법)</td><td>외관 (형상·모양·색채, 미감)</td><td>독창적 표현</td><td>기존 발명의 개선·보완</td></tr>
+      <tr><td>요건</td><td>신규성, 진보성, 산업상 이용 가능성</td><td>신규성, 창작비용이성, 공업상 이용 가능성</td><td>등록 불필요</td><td>진보성 기준 낮음</td></tr>
+      <tr><td>기간</td><td>출원일 20년 (제약 25)</td><td>출원일 20년, 연장 불가</td><td>사후 70년</td><td>약 10년</td></tr>
+      <tr><td>특징</td><td>18개월 공개, 평균 16개월 등록</td><td>8~12개월, 공개 후 12개월 내 출원</td><td>자동 발생, 오픈소스 기반</td><td>빠르고 저렴</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-country" data-ch="08" data-toc="한국 vs 유럽 vs 미국">
+  <h2>한국 vs 유럽 vs 미국</h2><span class="ch-link">08장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>한국 (KIPO)</th><th>유럽 (EPO)</th><th>미국 (USPTO)</th></tr></thead>
+    <tbody>
+      <tr><td>SW 특허</td><td>HW 결합 구체적 실현</td><td>물리적/기술적 효과</td><td>추상적 아이디어 여부</td></tr>
+      <tr><td>BM</td><td>ICT 결합 시 인정</td><td>원칙적 불인정</td><td>ICT 결합 시 인정</td></tr>
+      <tr><td>동식물</td><td>품종보호법</td><td>품종보호법</td><td>식물특허 별도</td></tr>
+      <tr><td>비용</td><td>가장 저렴 (200~400만)</td><td>관납료 최고 (1,000만+)</td><td>대리인 비용 높음 (1,500~2,000만+)</td></tr>
+      <tr><td>기본 청구항</td><td>없음 (1개부터)</td><td>15개</td><td>독립항 3 / 총 20</td></tr>
+      <tr><td>감면</td><td>중소·벤처·대학 70~100%</td><td>제한적</td><td>중소 60% / 초소형 80%</td></tr>
+      <tr><td>유지료</td><td>매년</td><td>매년, 국가별</td><td>3회 (3.5·7.5·11.5년)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="c-pct" data-ch="08" data-toc="파리협약 vs PCT">
+  <h2>파리협약 vs PCT</h2><span class="ch-link">08장</span>
+  <div class="tbl-wrap"><table class="t cmp">
+    <thead><tr><th></th><th>파리협약 (1883)</th><th>PCT</th></tr></thead>
+    <tbody>
+      <tr><td>핵심</td><td>내국민대우 + 우선권</td><td>하나의 국제출원 = 여러 나라 동시 출원 효과</td></tr>
+      <tr><td>숫자</td><td>12개월 이내 출원 시 최초 출원일 인정, 181개국</td><td>각국 진입 최대 약 30개월 유예</td></tr>
+      <tr><td>주의</td><td>권리는 나라별</td><td>국제특허 등록 아님, 각국 특허청이 결정</td></tr>
+    </tbody>
+  </table></div>
+  <p class="key">파리협약 = 날짜 지켜 주기 · PCT = 고를 시간 벌어 주기</p>
+</section>
+
+    </main>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bar = document.getElementById('filter');
+    bar.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      bar.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+      const f = b.dataset.f;
+      document.querySelectorAll('section.card[data-ch]').forEach(s => {
+        const show = f === 'all' || s.dataset.ch.split(' ').includes(f);
+        s.hidden = !show;
+        const link = document.querySelector(`.toc a[data-id="${s.id}"]`);
+        if (link) link.parentElement.hidden = !show;
+      });
+    });
+  });
+</script>
+</body>
+</html>

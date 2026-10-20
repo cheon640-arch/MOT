@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01. 혁신이란 — mot notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Gaegu:wght@400;700&family=Geist:wght@400;500&family=Gowun+Dodum&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script defer src="assets/notes.js"></script>
+</head>
+<body data-ch="01">
+
+<div class="wrap">
+  <div class="hero">
+    <span class="kicker">1장 · Introduction to MOT</span>
+    <h1 class="display">what is<br>innovation?</h1>
+    <p class="lede">혁신은 <span class="mk">결과물(output)이자 과정(process)</span>. 슘페터의 창조적 파괴, Mark I · Mark II, 발명과 혁신의 차이, 혁신의 유형, 그리고 혁신이 왜 그렇게 어려운지.</p>
+    <div class="meta">원본: Chapter 01. Introduction to MOT.pdf (39 slides)</div>
+    <div data-sticker="bolt" data-rot="-8" style="right:7%;top:80px;width:56px;height:74px"></div>
+    <div data-sticker="star" data-rot="10" style="right:20%;top:200px;width:50px;height:50px"></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="toc"></aside>
+    <main class="lesson">
+
+<h2 class="part-title"><small>part 0</small>강의 개요</h2>
+
+<section class="card" id="big3" data-toc="세 가지 큰 질문">
+  <h2>이 강의의 세 가지 큰 질문</h2>
+  <span class="slide-ref">p.2 – 4</span>
+  <div class="cols">
+    <div class="box"><h4>▲ 중간고사 범위</h4><ul>
+      <li>혁신은 어디에서 비롯되는가?
+        <ul><li>“혁신”이란 무엇을 의미하는가?</li><li>누가, 그리고 왜 혁신을 하는가?</li></ul></li>
+      <li>기업은 왜, 그리고 무엇을 위해 혁신해야 하는가?
+        <ul><li>기업 전략의 일환으로 본 혁신?</li><li>기업은 혁신을 통해 어떻게 이익을 확보할 수 있는가?</li></ul></li>
+    </ul></div>
+    <div class="box"><h4>▼ 기말고사 범위</h4><ul>
+      <li>혁신을 어떻게 실행하나요?
+        <ul><li>혁신 프로세스는 어떻게 설계하나요?</li><li>어떤 도구와 기법을 사용해야 할까요?</li><li>프로세스, 인력, 인터페이스 등을 어떻게 관리하나요?</li></ul></li>
+    </ul></div>
+  </div>
+  <div class="note"><span class="hand">시험 정보 (수업 소개 p.7)</span>중간고사 10월 22일(목) 9시 · 50분 · Closed Book · 범위 Week 1~7 (1~8장). 수업 강의자료 중심.</div>
+</section>
+
+<section class="card" id="mri" data-toc="혁신: 진보와 이익 (MRI)">
+  <h2>Innovation: Progress and Profits</h2>
+  <span class="slide-ref">p.3</span>
+  <p>MRI 한 대가 나오기까지 — 발견에서 상용화까지 수십 년이 걸린다.</p>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>시기</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td>1940년대</td><td>핵자기공명 발견 → 노벨물리학상 (1952)</td></tr>
+      <tr><td>1970년대</td><td>영상화 기술 발명 → 노벨생리학상 (2003)</td></tr>
+      <tr><td>1980년대</td><td>최초의 임상용 MRI 스캐너 병원 도입</td></tr>
+      <tr><td>1990년 – 현재</td><td>고도화 및 고해상도 (SIEMENS)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<h2 class="part-title"><small>part 1</small>What is innovation – and why does it matter?</h2>
+
+<section class="card" id="eu" data-toc="혁신 ~ 기업성과, 경제성장">
+  <h2>혁신 ~ 기업 성과, 경제 성장</h2>
+  <span class="slide-ref">p.6</span>
+  <blockquote>“혁신은 현대 경제에서 성장의 주요 원동력입니다. OECD의 추산에 따르면, 고소득 국가에서 기술, 연구개발(R&amp;D), 소프트웨어와 같은 무형자산에 대한 혁신 투자가 <b>노동생산성 증가분의 60~70%</b>를 차지하는 것으로 나타났습니다. 또한 혁신은 일자리 창출에도 긍정적인 영향을 미칩니다. EU 회원국의 혁신 성과가 높을수록 고용률도 높아집니다.”<br><small>— European Commission, State of the Innovation Union, 2015 (Views in Europe)</small></blockquote>
+</section>
+
+<section class="card" id="schumpeter" data-toc="슘페터: 창조적 파괴">
+  <h2>슘페터: 혁신 = 창조적 파괴</h2>
+  <span class="slide-ref">p.7</span>
+  <div class="label"><span class="tag">정의</span><p>혁신 Innovation : <span class="blank">창조적 파괴 Creative Destruction</span> — J. A. Schumpeter (1942) (b. 1883 – d. 1950)</p></div>
+  <blockquote>“새로운 상품, 새로운 기술, 새로운 공급원, 새로운 형태의 조직이 가져오는 경쟁… 결정적인 비용 또는 품질 우위를 점하고, 기존 기업들의 이익이나 생산량의 변동이 아닌 <b>그 기반과 존립 자체를 위협하는 경쟁</b>.”</blockquote>
+  <ul>
+    <li>Question. 기존 시장을 대체한 새로운 비즈니스 사례?</li>
+    <li>1950년 이전 사회과학 TOP 3: ① 칼 마르크스 「자본론」 ② 애덤 스미스 「국부론」 ③ 슘페터 「자본주의, 사회주의, 민주주의」</li>
+  </ul>
+</section>
+
+<section class="card" id="mark" data-toc="슘페터 가설 Mark I vs Mark II">
+  <h2>슘페터 가설 Mark I, Mark II</h2>
+  <span class="slide-ref">p.8 – 11</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th></th><th>Mark I (초기, 1911년의 슘페터)</th><th>Mark II (후기, 1942년의 슘페터)</th></tr></thead>
+    <tbody>
+      <tr><td>저서</td><td>『경제발전의 이론』</td><td>『자본주의, 사회주의, 민주주의』</td></tr>
+      <tr><td>핵심 주장</td><td>"혁신은 <b>시장 진입이 자유롭고 기업 규모가 작을수록</b> 활발해진다"</td><td>"<b>대기업과 독점적 시장 지위</b>가 오히려 혁신에 유리하다"</td></tr>
+      <tr><td>혁신 주체</td><td>개인 기업가(entrepreneur)가 기존 대기업의 저항을 뚫고 신생기업이 진입하며 이루어짐</td><td>혁신이 대기업 내부의 관료화된 R&amp;D 조직으로 이전 (혁신 자체가 일상 업무)</td></tr>
+      <tr><td>체제</td><td><span class="blank">entrepreneurial regime</span> · 혁신가 innovator · 창조적 파괴 creative destruction</td><td><span class="blank">routinized regime</span></td></tr>
+      <tr><td>배경</td><td>오스트리아·독일의 19세기 후반~20세기 초 자본주의. 개인 발명가·기업가가 철도, 전기, 화학 등에서 새로운 산업을 일으키던 <b>2차 산업혁명 초기</b> 국면</td><td>미국 이주(1932년 하버드 부임) 이후, 1920~30년대 미국 대기업 자본주의를 직접 목격. GE, DuPont, Bell Labs 등이 사내연구소를 설립하고 혁신을 "제도화"</td></tr>
+      <tr><td>질문</td><td>"자본주의는 왜, 어떻게 발전하는가" (균형을 깨는 기업가의 역할 강조)</td><td>"자본주의는 지속 가능한가"라는 정치경제학적 질문</td></tr>
+      <tr><td>예시</td><td><b>초기 카카오</b> (2010년 카카오톡): 개인 개발자 중심 소규모 팀이 기존 통신사·포털의 저항 없이 시장 창출</td><td><b>삼성전자 반도체</b>: 막대한 시설투자, 축적된 공정기술, 장기 R&amp;D 조직력이 진입장벽 → 신생기업의 창조적 파괴가 사실상 불가능</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><span class="hand">Mark II 의 비관적 결론</span>자본주의의 성공(대기업화, 혁신의 관료화, 기업가정신의 소멸)으로 혁신이 대기업 속에서 “일상화”되면, 기업가정신 자체가 소멸하고, 오히려 이것이 자본주의를 정당화하는 기반(사유재산, 개인 창의성에 대한 사회적 존중)을 약화시킨다.</div>
+  <figure class="fig">
+    <svg viewBox="0 0 640 200" font-family="Geist, Gowun Dodum, sans-serif" font-size="13">
+      <defs><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b1a07"/></marker></defs>
+      <rect x="10" y="20" width="290" height="160" rx="16" fill="#fff0e6" stroke="#ff6f1e"/>
+      <text x="155" y="46" text-anchor="middle" font-weight="600" fill="#ce500a">Mark I · 기업가 체제</text>
+      <circle cx="70" cy="110" r="22" fill="#fff" stroke="#2b1a07"/><text x="70" y="114" text-anchor="middle">신생</text>
+      <rect x="180" y="80" width="90" height="60" rx="8" fill="#fff" stroke="#a8a29e"/><text x="225" y="114" text-anchor="middle" fill="#6b5d4f">기존 대기업</text>
+      <path d="M95 110H175" stroke="#2b1a07" stroke-width="2" marker-end="url(#m1)"/><text x="135" y="100" text-anchor="middle" font-size="11">진입·파괴</text>
+      <text x="155" y="165" text-anchor="middle" font-size="12">작고 진입 자유로운 시장 → 혁신 ↑</text>
+      <rect x="340" y="20" width="290" height="160" rx="16" fill="#fff" stroke="#2b1a07"/>
+      <text x="485" y="46" text-anchor="middle" font-weight="600">Mark II · 일상화 체제</text>
+      <rect x="380" y="64" width="210" height="80" rx="10" fill="#f7efe9" stroke="#2b1a07"/><text x="485" y="88" text-anchor="middle">대기업</text>
+      <rect x="430" y="98" width="110" height="34" rx="8" fill="#ff6f1e"/><text x="485" y="120" text-anchor="middle" fill="#fff">사내 R&amp;D 연구소</text>
+      <text x="485" y="165" text-anchor="middle" font-size="12">독점력·대규모 → 혁신이 일상 업무</text>
+    </svg>
+  </figure>
+</section>
+
+<section class="card" id="baumol" data-toc="보멀 · 콥-더글라스 · 경쟁">
+  <h2>윌리엄 보멀 William Baumol (2002)</h2>
+  <span class="slide-ref">p.12 – 14</span>
+  <div class="cols">
+    <div class="box"><h4>① 경제성장은 혁신이 주도</h4><p>“18세기 이후 이루어진 경제성장의 거의 전부는 궁극적으로 혁신에서 기인한다.”</p></div>
+    <div class="box"><h4>② 자본주의에서 혁신은 생존전략</h4><p>“…자본주의 하에서 혁신 활동은… 필수불가결한 것… 기업에게는 생사의 문제… 여러 주요 산업에서 혁신은 <b>가격을 대신하는 경쟁의 핵심 요소</b>가 되었다.”</p></div>
+  </div>
+  <h3>콥-더글라스 생산함수 Cobb-Douglas Production function</h3>
+  <p>1928년 미국 제조업의 노동과 자본이 실제로 산출량에 얼마나 기여하는지를 통계적으로 검증하고 싶어 했는데, 생산량에 대한 함수가 없던 시절.</p>
+  <div class="cols">
+    <div class="box"><h4>Q. 제품을 생산하는 데 필요한 두 가지 요소?</h4><div class="eq">\[Y = K^{\alpha} L^{1-\alpha}\]</div><p style="font-size:15px">Y = 총산출(GDP), K = 자본 투입, L = 노동 투입, α = 자본의 산출 탄력성 (보통 0.3~0.4)</p></div>
+    <div class="box"><h4>Q. 두 가지만 있으면 될까요? → Solow</h4><div class="eq">\[Y = A K^{\alpha} L^{1-\alpha}\]</div><p style="font-size:15px"><b>A = 총요소생산성 (TFP, Solow Residual)</b> — 자본·노동으로 설명되지 않는 나머지 = 기술·혁신</p></div>
+  </div>
+  <div class="note"><span class="hand">왜 혁신과 자본주의는 밀접하게 연결되어 있을까?</span><b>“경쟁”</b> (p.14)</div>
+</section>
+
+<section class="card" id="sainsbury" data-toc="장기간에 걸친 혁신 (Sainsbury)">
+  <h2>장기간에 걸친 혁신: Sainsbury</h2>
+  <span class="slide-ref">p.15 – 20</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>시기</th><th>모습</th><th>Question</th></tr></thead>
+    <tbody>
+      <tr><td>1900년대</td><td>19세기 영국의 식료품점 (점원이 물건을 꺼내 줌)</td><td></td></tr>
+      <tr><td>1950년대</td><td>셀프서비스: “모든 상품의 가격과 중량은 명확하게 표시되어 있습니다. 원하는 것을 그냥 가져가시면 됩니다.”</td><td>고객들이 이용을 꺼린 이유? 프로세스 혁신을 한 이유?</td></tr>
+      <tr><td>2000년대</td><td>셀프 체크아웃, 온라인 쇼핑</td><td>유럽의 셀프 체크아웃 라인은 왜 비어 있을까? 유럽은 왜 택배 문화가 발달하지 않았을까?</td></tr>
+      <tr><td>현재</td><td>영국 슈퍼마켓 체인 업계 2위 (Since 1869)</td><td></td></tr>
+      <tr><td>2017년 → 2023</td><td>무인 매장 → 미국 8개 매장 폐쇄 결정(2023)</td><td>① 비싼 가격(인건비 &lt; 유지보수, 기술비용) ② 데이터 문제 ③ 현금 없는 상점 진입장벽 ④ 고객들의 예측 못할 행동</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><span class="hand">이러한 변화들이 사람들의 삶에 어떤 의미?</span>“기업에게는 <b>수익</b>” · “소비자에게는 <b>편리, 효율</b>” (p.20)</div>
+</section>
+
+<section class="card" id="prozac" data-toc="수익 (Prozac) vs 재앙 (Iridium)">
+  <h2>혁신은 엄청난 수익을… 하지만 재정적 재앙이 될 수도</h2>
+  <span class="slide-ref">p.21 – 22</span>
+  <div class="cols">
+    <div class="box"><h4>✅ PROZAC (항우울제, Eli Lilly)</h4><ul>
+      <li>Eli Lilly: 현재 연매출 89조 원, Mounjaro 개발사</li>
+      <li>1988년 – 2001년: 매출액 210억 달러 (한화 약 30조 원)</li>
+      <li>역사상 가장 많이 팔린 의약품 중 하나</li>
+      <li>회사 총매출의 약 3분의 1</li>
+      <li>Q. 1988–2001(총 13년)까지 표시된 이유? 그 이후에는? → <b>특허 만료 → 제네릭</b></li>
+      <li>Q. 특허 보호 20년, 제약사는 25년인 이유? (8장)</li>
+    </ul></div>
+    <div class="box"><h4>❌ 이리듐(Iridium) 위성전화</h4><ul>
+      <li>780km 저궤도에 66개 위성을 발사, 전 세계를 커버하려는 통신위성 셀룰러 서비스</li>
+      <li>60억 달러 이상의 손실 (이 중 모토로라 손실 약 35억 달러)</li>
+      <li>목표: 언제 어디서나 전화 연결 가능</li>
+      <li><b>기술: 성공</b>, 1998년 말 서비스 개시</li>
+      <li><b>사업: 실패</b>, 2003년 서비스 중단 — 휴대폰 가격 3,000달러, 분당 최대 7달러 국제전화 요금, 파산 전 고객 수 고작 15,000명</li>
+      <li>Q. 지금 유사한 사업을 하는 기업?</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="card" id="invention" data-toc="발명 ≠ 혁신 · 쥐덫의 오류">
+  <h2>모든 발명(invention)이 혁신인 것은 아니다</h2>
+  <span class="slide-ref">p.23 – 25</span>
+  <ul><li>예: 와이퍼 글라스(콘센트 꽂아야 작동?!), 머리 세탁기</li></ul>
+  <h3>The best innovation may be “low-tech”</h3>
+  <ul>
+    <li>에머슨 (Ralph Waldo Emerson, 시인, 1803 – 1882): “더 나은 쥐덫을 만들면 울창한 숲속에도 소비자는 찾아올 것” (제품이 뛰어나면 시장은 따라온다)</li>
+    <li>→ 미국 특허청(USPTO) <b>4,400개</b> 쥐덫 특허 등록 / 1899년 쥐덫 특허 John Mast (Woodstream Inc, PA)</li>
+  </ul>
+  <div class="label"><span class="tag">핵심</span><p><span class="blank">더 나은 쥐덫의 오류 The Better Mousetrap Fallacy</span> : “소비자는 완벽한 기술(High-Tech)이 아니라, 문제를 가장 쉽고 가성비 있게 해결해 주는 직관적인 솔루션(Low-Tech)을 원한다.”</p></div>
+  <div class="note"><span class="hand">혁신을 통해 수익을 창출하려면 무엇이 필요할까요? (p.25)</span>→ 7장 (전유성, 보완적 자산)에서 본격적으로!</div>
+</section>
+
+<section class="card" id="def" data-toc="혁신의 정의 · 혁신경영">
+  <h2>Definitions</h2>
+  <span class="slide-ref">p.26</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>학자</th><th>정의</th></tr></thead>
+    <tbody>
+      <tr><td><span class="blank">Hauschildt</span></td><td>“혁신이란 기존에 존재하던 것과는... 현저히 다른, 질적으로 새로운 제품이나 프로세스를 말한다.”</td></tr>
+      <tr><td><span class="blank">Porter</span></td><td>“<b>상업화된</b> 새로운 방식.”</td></tr>
+      <tr><td><span class="blank">Afuah</span></td><td>“도입하는 조직에 있어 새로운 아이디어의 <b>채택</b>.”</td></tr>
+    </tbody>
+  </table></div>
+  <div class="label"><span class="tag">정의</span><p><span class="blank">혁신경영(Innovation management)</span>이란 새로운 것을 창출하고 활용하기 위한 <b>프로세스를 구축</b>하는 것이다.</p></div>
+</section>
+
+<section class="card" id="process" data-toc="혁신 = 결과물 + 프로세스">
+  <h2>혁신은 결과물일 뿐만 아니라 하나의 프로세스이기도 하다</h2>
+  <span class="slide-ref">p.27</span>
+  <figure class="fig">
+    <svg viewBox="0 0 720 170" font-family="Geist, Gowun Dodum, sans-serif" font-size="13">
+      <defs><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b1a07"/></marker></defs>
+      <g text-anchor="middle">
+        <g fill="#fff" stroke="#2b1a07"><rect x="10" y="60" width="86" height="46" rx="10"/><rect x="110" y="60" width="86" height="46" rx="10"/><rect x="210" y="60" width="86" height="46" rx="10"/><rect x="310" y="60" width="86" height="46" rx="10"/><rect x="410" y="60" width="86" height="46" rx="10"/></g>
+        <g fill="#fff0e6" stroke="#ff6f1e"><rect x="510" y="60" width="96" height="46" rx="10"/><rect x="620" y="60" width="90" height="46" rx="10"/></g>
+        <text x="53" y="80">아이디어</text><text x="53" y="97" font-size="11" fill="#6b5d4f">idea</text>
+        <text x="153" y="80">발견</text><text x="153" y="97" font-size="11" fill="#6b5d4f">discovery</text>
+        <text x="253" y="80">연구</text><text x="253" y="97" font-size="11" fill="#6b5d4f">research</text>
+        <text x="353" y="80">개발</text><text x="353" y="97" font-size="11" fill="#6b5d4f">development</text>
+        <text x="453" y="80">발명</text><text x="453" y="97" font-size="11" fill="#6b5d4f">invention</text>
+        <text x="558" y="80">출시</text><text x="558" y="97" font-size="11" fill="#6b5d4f">market launch</text>
+        <text x="665" y="80">활용</text><text x="665" y="97" font-size="11" fill="#6b5d4f">exploitation</text>
+      </g>
+      <g stroke="#2b1a07" marker-end="url(#m2)"><path d="M96 83h12"/><path d="M196 83h12"/><path d="M296 83h12"/><path d="M396 83h12"/><path d="M496 83h12"/><path d="M606 83h12"/></g>
+      <path d="M10 40H496" stroke="#a8a29e" stroke-width="3"/><text x="253" y="30" text-anchor="middle" fill="#6b5d4f" font-weight="600">발명 Invention</text>
+      <path d="M10 130H710" stroke="#ff6f1e" stroke-width="3"/><text x="360" y="152" text-anchor="middle" fill="#ce500a" font-weight="600">혁신 Innovation (발명 + 출시 + 활용)</text>
+    </svg>
+  </figure>
+  <p style="font-size:15px">Source: following Hauschildt. 단, 크게 단순화되어 있음 · 순서는 달라질 수 있음 · 경계는 유동적임 · 피드백 루프는 제외됨</p>
+  <div class="note"><span class="hand">한 줄로</span>발명 = 아이디어 ~ 발명까지 / 혁신 = 거기에 <b>시장 출시와 활용</b>까지 포함.</div>
+</section>
+
+<section class="card" id="pearson" data-toc="해결책 × 요구사항 (Pearson)">
+  <h2>가장 기본적으로 — 해결책과 요구사항의 결합</h2>
+  <span class="slide-ref">p.28</span>
+  <figure class="fig">
+    <svg viewBox="0 0 520 330" font-family="Geist, Gowun Dodum, sans-serif" font-size="13">
+      <defs><marker id="m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b1a07"/></marker></defs>
+      <path d="M80 290V20" stroke="#2b1a07" marker-end="url(#m3)"/><path d="M80 290H500" stroke="#2b1a07" marker-end="url(#m3)"/>
+      <path d="M290 30V290M80 160H490" stroke="#a8a29e" stroke-dasharray="4 4"/>
+      <text x="30" y="160" text-anchor="middle" transform="rotate(-90 30 160)">시장에서 새로운 요소 (필요)</text>
+      <text x="290" y="322" text-anchor="middle">해결책의 참신함</text>
+      <text x="185" y="306" text-anchor="middle" fill="#6b5d4f">low</text><text x="395" y="306" text-anchor="middle" fill="#6b5d4f">high</text>
+      <text x="64" y="228" text-anchor="middle" fill="#6b5d4f" transform="rotate(-90 64 228)">low</text><text x="64" y="95" text-anchor="middle" fill="#6b5d4f" transform="rotate(-90 64 95)">high</text>
+      <g text-anchor="middle">
+        <text x="185" y="72" font-weight="600" fill="#ce500a">마케팅 중심 혁신</text><text x="185" y="96" font-size="12">다이어트약(당뇨병약)</text><text x="185" y="114" font-size="12">숏폼 플랫폼</text>
+        <text x="395" y="72" font-weight="600" fill="#ce500a">시장/기술 동시 혁신</text><text x="395" y="96" font-size="12">생성형 AI</text><text x="395" y="114" font-size="12">자율주행차</text>
+        <text x="185" y="200" font-weight="600" fill="#ce500a">점진적 개선</text><text x="185" y="224" font-size="12">스마트폰 화질 개선</text><text x="185" y="242" font-size="12">노이즈캔슬링 이어폰</text>
+        <text x="395" y="200" font-weight="600" fill="#ce500a">R&amp;D 기술중심 혁신</text><text x="395" y="224" font-size="12">폴더블 디스플레이</text><text x="395" y="242" font-size="12">고대역폭 메모리(HBM)</text><text x="395" y="260" font-size="12">전고체 배터리</text>
+      </g>
+      <text x="100" y="30" fill="#ff6f1e" font-size="12">↑ marketing</text><text x="440" y="282" fill="#ff6f1e" font-size="12">R&amp;D →</text>
+    </svg>
+  </figure>
+  <p style="font-size:15px">Source: following Pearson, “Innovation Strategy”, Technovation, 1990. <b>Question. 전기차? 스마트그리드?</b></p>
+</section>
+
+<section class="card" id="edison" data-toc="Edison: 99% perspiration">
+  <h2>“99% perspiration” (Edison)</h2>
+  <span class="slide-ref">p.29</span>
+  <ul>
+    <li>에디슨의 전기 필라멘트 개발 과정: <b>6,000가지가 넘는</b> 다양한 재료를 시험 (면, 아마, 비단, 코르크, 셀룰로이드, … 연구실 직원들의 수염까지)</li>
+    <li>면실을 그을려 탄화시킨 필라멘트 → 1879년 첫 성공 (45시간 동안 불 밝힘)</li>
+    <li>전 세계의 대나무를 수집 → 일본 교토(하치만)산 대나무를 탄화시켜 만든 필라멘트가 가장 뛰어난 성능 → 전구 수명 1,200시간 이상</li>
+    <li>전구가 대중적으로 보급 (요즘에는 텅스텐)</li>
+  </ul>
+</section>
+
+<section class="card" id="types" data-toc="다양한 유형의 혁신">
+  <h2>다양한 유형의 혁신</h2>
+  <span class="slide-ref">p.30</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>유형</th><th>목적</th><th>어디에 정착?</th></tr></thead>
+    <tbody>
+      <tr><td><span class="blank">제품/서비스 혁신</span> (Product / Service innovation)</td><td>매출 창출/증대를 위한 것</td><td><b>시장</b>에서 자리 잡아야 함</td></tr>
+      <tr><td><span class="blank">프로세스 혁신</span> (Process innovation)</td><td>상품 또는 서비스의 생산을 가능하게 하거나 개선하기 위한 것</td><td><b>조직 내</b>에서 정착되어야 함</td></tr>
+      <tr><td><span class="blank">비즈니스 모델 혁신</span> (Business model innovation)</td><td>가치 제안, 프로세스, 제품, 서비스 등의 재구성</td><td>예시. 조립식 가구를 판매하는 <b>이케아</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="trap"><h4>BUT, 명확한 구분이 항상 가능한 것은 아님</h4><ul>
+    <li>제품 혁신과 프로세스 혁신은 종종 함께 이루어짐 (예시. 3D 프린팅으로 새로운 유형의 터빈 블레이드 생산)</li>
+    <li>구분이 어려운 경우가 많음 (예시. 제약산업, 서비스 분야)</li>
+    <li><b>공급자에게는 제품 혁신이 구매자에게는 프로세스 혁신</b>이 될 수 있음</li>
+  </ul></div>
+</section>
+
+<section class="card" id="difficult" data-toc="왜 어려운가 (In Summary)">
+  <h2>In Summary — Really, really difficult!</h2>
+  <span class="slide-ref">p.31</span>
+  <div class="cols">
+    <div class="box"><ul>
+      <li>혁신은 <b>위험</b>을 수반한다. (기술, 수요, 경쟁)</li>
+      <li>막대한 비용</li>
+      <li>다른 당사자에게 파급효과 &amp; 모방 유발</li>
+      <li>보호 필요 (*반드시 특허일 필요는 없음)</li>
+      <li>일상적인 사업 운영 밖에서 발생</li>
+    </ul></div>
+    <div class="box"><ul>
+      <li>창조적 파괴는 기존 시장의 저항 유발</li>
+      <li>많은 주체의 협력이 필요한 경우 다수</li>
+      <li>첨단기술보다 저기술일 때 더 나을 수 있음</li>
+      <li>니즈와 기술적 해결책 사이의 새로운 조합 찾기</li>
+    </ul></div>
+  </div>
+  <div class="label"><span class="tag">핵심</span><p>혁신 관리(management of innovation)는 다른 기능(functions)을 넘어서는 다른 <b>기술(skills), 도구(tools), 인센티브(incentives) 및 조직구조(organization)</b>를 필요로 한다.</p></div>
+</section>
+
+<section class="card" id="macro" data-toc="거시적 레벨 (R&D 통계)">
+  <h2>거시적 레벨에서의 혁신 (The Macro Level)</h2>
+  <span class="slide-ref">p.32 – 34</span>
+  <p>혁신의 원천으로서의 연구개발(R&amp;D)은 경제 및 사회적으로 매우 중요한 의미</p>
+  <ul>
+    <li>글로벌 총 R&amp;D 지출액은 약 <b>4,000조 원</b> (2024년 기준), OECD 및 세계 주요국의 연구개발 투자는 지속적인 증가</li>
+    <li>대부분 국가에서 기업 R&amp;D 지출 10%~20%는 정부 등 공공자금 지출로 충당</li>
+    <li>전체 R&amp;D 지출 중 <b>기초연구 5~20%, 응용연구 15~25%, 실험적 개발 65~85%</b></li>
+    <li>빅테크 및 주요 대기업의 R&amp;D 지출 규모가 급격히 확대 — 글로벌 R&amp;D 투자 및 성과는 빅테크 및 일부 글로벌 대기업에 크게 집중</li>
+    <li>중소기업의 R&amp;D 활동은 종종 공식적인 통계로 제대로 측정되지 않으며, 비공식적인 성격</li>
+  </ul>
+  <div class="cols">
+    <div class="box"><h4>기업 R&amp;D 투자 Top 10</h4><div class="tbl-wrap"><table class="t" style="font-size:14px">
+      <thead><tr><th>순위</th><th>기업</th><th>국가</th><th>투자액</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>아마존</td><td>미국</td><td>약 97~111조</td></tr>
+        <tr><td>2</td><td>알파벳</td><td>미국</td><td>약 63~68조</td></tr>
+        <tr><td>3</td><td>메타</td><td>미국</td><td>약 58~60조</td></tr>
+        <tr><td>4</td><td>마이크로소프트</td><td>미국</td><td>약 42~45조</td></tr>
+        <tr><td>5</td><td>애플</td><td>미국</td><td>약 42~45조</td></tr>
+        <tr><td>6</td><td>화웨이</td><td>중국</td><td>약 32~35조</td></tr>
+        <tr><td>7</td><td>폭스바겐</td><td>독일</td><td>약 30조</td></tr>
+        <tr><td>8</td><td>삼성전자</td><td>한국</td><td>약 28~30조</td></tr>
+        <tr><td>9</td><td>인텔</td><td>미국</td><td>약 22~24조</td></tr>
+        <tr><td>10</td><td>로슈</td><td>스위스</td><td>약 21조</td></tr>
+      </tbody></table></div></div>
+    <div class="box"><h4>국가 R&amp;D 지출 Top 10</h4><div class="tbl-wrap"><table class="t" style="font-size:14px">
+      <thead><tr><th>순위</th><th>국가</th><th>지출액</th><th>비중</th><th>R&amp;D/GDP</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>중국</td><td>약 1,100조</td><td>27.4%</td><td>2.7%</td></tr>
+        <tr><td>2</td><td>미국</td><td>약 1,094조</td><td>27.2%</td><td>3.5%</td></tr>
+        <tr><td>3</td><td>일본</td><td>약 260조</td><td>6.5%</td><td>3.5%</td></tr>
+        <tr><td>4</td><td>독일</td><td>약 185조</td><td>4.6%</td><td>3.1%</td></tr>
+        <tr><td>5</td><td><b>한국</b></td><td>약 177조</td><td>4.4%</td><td><b>5.0–5.3%</b></td></tr>
+        <tr><td>6</td><td>영국</td><td>약 121조</td><td>3.0%</td><td>2.8%</td></tr>
+        <tr><td>7</td><td>인도</td><td>약 106조</td><td>2.6%</td><td>0.7%</td></tr>
+        <tr><td>8</td><td>프랑스</td><td>약 92조</td><td>2.3%</td><td>2.2%</td></tr>
+        <tr><td>9</td><td>튀르키예</td><td>약 60조</td><td>1.5%</td><td>1.4%</td></tr>
+        <tr><td>10</td><td>브라질</td><td>약 54조</td><td>1.3%</td><td>1.2%</td></tr>
+      </tbody></table></div></div>
+  </div>
+  <h3>산업 분야별 R&amp;D 비율 (총 민간 R&amp;D 약 2,160조 원)</h3>
+  <p>ICT Software &amp; Services <b>25%</b> · ICT Hardware &amp; Electronics <b>22%</b> · Health &amp; Pharmaceuticals <b>20%</b> · Automobiles &amp; Parts <b>14%</b> · Industrials 7% · 기타 (Chemicals &amp; Energy, Aerospace &amp; Defense, Consumer Goods, Telecom, Others)</p>
+  <div class="note"><span class="hand">시험 포인트</span>한국은 총액 5위지만 <b>R&amp;D/GDP 비중은 5.0–5.3%로 최상위</b>. 산업별로는 ICT 소프트웨어가 1위.</div>
+</section>
+
+<h2 class="part-title"><small>part 2</small>Examples of problems in innovation</h2>
+
+<section class="card" id="problems" data-toc="주인-대리인 문제 · 바사호">
+  <h2>Innovation is not at all easy…</h2>
+  <span class="slide-ref">p.36 – 37</span>
+  <div class="cols">
+    <div class="box"><h4>주인-대리인 문제 Principal-Agent problems</h4>
+      <p><b>제록스 팔로알토 연구소(PARC)</b>, 1973년</p>
+      <p>연구자의 지적 호기심 (<b>대리인</b> 목표) vs 회사의 수익 목표 (<b>주인</b> 목표) 불일치</p>
+      <p style="font-size:15px;color:var(--muted)">→ GUI, 마우스, 이더넷을 만들고도 수익은 애플 등이 가져감 (7장 연결)</p></div>
+    <div class="box"><h4>조직의 문제: The Vasa (바사호 문제)</h4><ul>
+      <li>1625년 스웨덴 국왕 구스타브 2세 아돌프 "세계 최강의 전함" 건조 지시</li>
+      <li>화려한 장식과 함께 64개의 청동 대포를 탑재한 대형 함선</li>
+      <li>1628년 8월 10일, 첫 출항에서 스톡홀름 항구에서 바로 침몰 ‘위쪽이 너무 무겁게 설계’</li>
+      <li>1961년에 인양 (Vasa Museum 전시 중)</li>
+      <li><b>“문제를 인지한 공학자들이 건의할 수 있는 거버넌스가 없음”</b></li>
+      <li>비슷한 예: 북한 최현급 구축함 침몰</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="card" id="wrap" data-toc="Wrap-up">
+  <h2>Wrap-up</h2>
+  <span class="slide-ref">p.38</span>
+  <ul>
+    <li>혁신은 <b>결과물(output)이자 과정(process)</b></li>
+    <li>성공적인 혁신은 ‘필요(Need)’와 ‘해결책(Solution)’의 결합</li>
+    <li>추후 배우겠지만, ‘필요 관련(need-related)’ 지식과 ‘해결책 관련(solution-related)’ 지식을 보유하는 것은 중요한 차이를 만들어 냄</li>
+    <li>혁신의 유형은 제품, 공정, 서비스(Product, Process, Service) 등 다양</li>
+    <li>혁신이 기업과 사회에 미치는 막대한 영향</li>
+    <li>연구개발(R&amp;D)은 혁신 활동의 필수적인 원동력이지만 <b>필요(충분) 원동력은 아님</b>
+      <ul><li>일반적으로 R&amp;D는 <b>해결책 관련 지식만</b> 생산</li><li>모든 산업 분야에 공식적인 R&amp;D가 있는 것은 아님</li></ul></li>
+    <li>혁신은 위험하며 관리하기 어렵다! 그러나 그 중요성이 매우 크기 때문에 반드시 관리되어야 함</li>
+    <li>혁신의 특성상, 혁신은 “다른 방식”으로 관리되어야 함</li>
+  </ul>
+</section>
+
+<section class="card tint" id="quiz01" data-toc="셀프 체크">
+  <h2>Self-check</h2>
+  <details class="quiz"><summary>Mark I 과 Mark II 의 혁신 주체와 체제 이름은?</summary><div class="ans">Mark I (1911, 경제발전의 이론): 기업가·신생기업, entrepreneurial regime. Mark II (1942, 자본주의·사회주의·민주주의): 대기업 사내 R&amp;D, routinized regime.</div></details>
+  <details class="quiz"><summary>Solow 모형에서 A 는?</summary><div class="ans">총요소생산성(TFP) = Solow residual. 자본·노동으로 설명되지 않는 부분 (기술, 혁신).</div></details>
+  <details class="quiz"><summary>이리듐은 기술·사업 중 무엇이 실패?</summary><div class="ans">기술은 성공(1998 서비스 개시), 사업은 실패(2003 중단, 고객 15,000명).</div></details>
+  <details class="quiz"><summary>“상업화된 새로운 방식”은 누구의 정의?</summary><div class="ans">Porter. (Hauschildt: 질적으로 새로운 제품·프로세스, Afuah: 조직에 새로운 아이디어의 채택)</div></details>
+  <details class="quiz"><summary>제록스 PARC 사례는 어떤 문제?</summary><div class="ans">주인-대리인 문제 (연구자의 지적 호기심 vs 회사의 수익 목표). 바사호는 조직(거버넌스)의 문제.</div></details>
+  <div class="quiz-cta"><div class="qc-text"><span class="hand">다 풀어 봤으면?</span><b>01장 퀴즈</b><span>객관식으로 바로 채점하고 틀린 건 오답노트에 모아 줘요.</span></div><div class="qc-btns"><a class="pill primary" href="quiz.html?ch=01">01장 퀴즈 풀기 →</a><a class="pill small" href="quiz.html?ch=all">전체 퀴즈</a></div></div>
+</section>
+
+<nav class="ch-nav"></nav>
+    </main>
+  </div>
+</div>
+</body>
+</html>

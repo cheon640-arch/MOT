@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한눈에 요약 — mot notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Gaegu:wght@400;700&family=Geist:wght@400;500&family=Gowun+Dodum&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script defer src="assets/notes.js"></script>
+<style>
+  .sum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+  .sum-grid > div { min-width: 0; }
+  .oneliner { font-family: var(--font-hand); color: var(--sienna); font-size: 25px; line-height: 1.3; margin: 4px 0 10px; }
+  .must { background: #fff; border: 1px solid var(--charcoal); border-radius: 12px; padding: 10px 14px; }
+  .must h4, .trap h4 { margin: 0 0 4px; font-family: var(--font-display); font-size: 17px; }
+  .trap { background: #fff0e6; border: 1px dashed var(--sienna); border-radius: 12px; padding: 10px 14px; }
+  .trap li::marker { content: "⚠ "; }
+  .go { font-family: var(--font-ui); font-size: 14px; }
+  @media (max-width: 760px) { .sum-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-ch="sum">
+
+<div class="wrap">
+  <div class="hero">
+    <span class="kicker">시험 전 30분 · 8개 장을 한 페이지로</span>
+    <h1 class="display">everything<br>at a glance</h1>
+    <p class="lede">장마다 <span class="mk">한 줄 요약</span> → 핵심 개념 → 꼭 외울 것 → 자주 헷갈리는 점 순서로 정리했어요. 더 자세한 건 각 장 링크로!</p>
+    <div class="meta">비교표만 따로 보려면 → <a href="compare.html">한눈에 비교</a></div>
+    <div data-sticker="bolt" data-rot="8" style="right:8%;top:70px;width:50px;height:64px"></div>
+    <div data-sticker="star" data-rot="-10" style="right:18%;top:200px;width:52px;height:52px"></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="toc"></aside>
+    <main class="lesson">
+
+<section class="card" id="map" data-toc="전체 흐름 지도">
+  <h2>The Big Map <span class="ko">전체 흐름 지도</span></h2>
+  <p>중간고사 범위는 강의의 첫 번째 큰 질문 — <b>“혁신은 어디에서 비롯되고, 기업은 왜·무엇을 위해 혁신하며, 어떻게 이익을 확보하는가?”</b> — 에 대한 답이에요.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 720 300" font-family="Geist, Gowun Dodum, sans-serif" font-size="13">
+      <defs><marker id="bm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b1a07"/></marker></defs>
+      <rect x="230" y="12" width="260" height="44" rx="22" fill="#2b1a07"/><text x="360" y="39" text-anchor="middle" fill="#fff">01 혁신 = 발명 + 출시 + 활용</text>
+      <g fill="none" stroke="#2b1a07" marker-end="url(#bm)"><path d="M300 56L150 95"/><path d="M420 56L570 95"/><path d="M150 150V180"/><path d="M570 150V180"/></g>
+      <g fill="#fff" stroke="#2b1a07"><rect x="20" y="96" width="260" height="54" rx="14"/><rect x="440" y="96" width="260" height="54" rx="14"/></g>
+      <g text-anchor="middle"><text x="150" y="118" font-weight="600">혁신은 어디에서? (이해)</text><text x="150" y="138" font-size="12" fill="#6b5d4f">02 패턴 · 03 유형·원천 · 04 누가</text>
+        <text x="570" y="118" font-weight="600">기업은 어떻게? (전략)</text><text x="570" y="138" font-size="12" fill="#6b5d4f">05 전략 · 06 플랫폼 · 07 수익 · 08 IP</text></g>
+      <g fill="#fff0e6" stroke="#ff6f1e"><rect x="20" y="182" width="120" height="50" rx="12"/><rect x="160" y="182" width="120" height="50" rx="12"/><rect x="300" y="182" width="120" height="50" rx="12"/><rect x="440" y="182" width="120" height="50" rx="12"/><rect x="580" y="182" width="120" height="50" rx="12"/></g>
+      <g text-anchor="middle" fill="#ce500a"><text x="80" y="203">S곡선 · PLC</text><text x="80" y="221" font-size="11">언제 바뀌나</text><text x="220" y="203">로저스 · 배스</text><text x="220" y="221" font-size="11">어떻게 퍼지나</text><text x="360" y="203">애로우</text><text x="360" y="221" font-size="11">누가 하나</text><text x="500" y="203">네트워크 외부성</text><text x="500" y="221" font-size="11">누가 표준이 되나</text><text x="640" y="203">Teece · 특허</text><text x="640" y="221" font-size="11">누가 돈을 버나</text></g>
+      <text x="360" y="275" text-anchor="middle" font-family="Gaegu" font-size="21" fill="#ce500a">좋은 기술 ≠ 성공 — 확산·표준·보완자산·보호가 함께 있어야 이익</text>
+    </svg>
+  </figure>
+</section>
+
+<section class="card" id="s01" data-toc="01 혁신이란">
+  <h2>01 · Introduction to MOT</h2>
+  <p class="oneliner">“혁신은 결과물이자 과정, 필요와 해결책의 결합”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>혁신 = <b>창조적 파괴</b> (Schumpeter 1942) — 기존 기업의 존립 자체를 위협하는 경쟁</li>
+      <li><b>Mark I</b> (1911): 기업가·신생기업, 진입 자유·소규모 → entrepreneurial (초기 카카오) / <b>Mark II</b> (1942): 대기업·독점, 사내 R&amp;D → routinized (삼성 반도체)</li>
+      <li>Baumol: 성장은 혁신이 주도, 혁신은 생존전략 · Solow: \(Y = AK^\alpha L^{1-\alpha}\)</li>
+      <li>정의: Hauschildt (질적으로 새로운), Porter (상업화된 새로운 방식), Afuah (새 아이디어의 채택)</li>
+      <li>유형: 제품/서비스 (시장) · 프로세스 (조직 내) · 비즈니스 모델 (이케아)</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>Prozac (13년, 특허 만료) vs Iridium (기술 성공, 사업 실패)</li><li>더 나은 쥐덫의 오류 — Low-Tech 가 이길 수 있음</li><li>Pearson 2×2: 마케팅 중심 · 시장/기술 동시 · 점진적 · R&amp;D 기술중심</li><li>R&amp;D: 기초 5–20 / 응용 15–25 / 개발 65–85%</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>R&amp;D 는 필수지만 <b>충분 원동력은 아님</b>, 해결책 관련 지식만 생산</li><li>PARC = 주인-대리인, 바사호 = 조직(거버넌스)</li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch01-intro.html">→ 01장 자세히</a></p>
+</section>
+
+<section class="card" id="s02" data-toc="02 혁신 패턴">
+  <h2>02 · Patterns in Innovative Activity</h2>
+  <p class="oneliner">“혁신은 패턴을 따른다 — 사후적으로만 보일지라도”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>기술 변화는 누적적·진화적, 일부는 혁명적 → 기술경제적 패러다임</li>
+      <li>GPT 조건: 확산 · 후속 개선 · 다른 혁신을 가능하게 (증기기관)</li>
+      <li>콘드라티예프 40–60년, 점점 짧아짐, 6th wave AI</li>
+      <li>S-곡선 4단계, 범선 효과, 이슈(입력 변수·형태), 성배는 아님</li>
+      <li>지배적 디자인 → 퇴출/생존 + 제품→공정 혁신 전환 (모델 T, 폐쇄형 스틸 차체)</li>
+      <li>PLC: 유동기 → 전환기 → 고착기</li>
+      <li>로저스 5분류, 캐즘(Moore), 배스 확산 모형</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>PLC 경쟁: 성능 → 다양성 → 가격 / entries &gt;, =, &lt; exits</li><li>2.5 / 13.5 / 34 / 34 / 16</li><li>p = 혁신계수 (독립), q = 모방계수 (네트워크)</li><li>로지스틱 최대 판매 = \(N_{total}/2\)</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>p, q 는 가격·수량이 아닌 <b>상수</b></li><li>오피니언 리더 = 초기 수용자 (혁신 수용자 아님)</li><li>캐즘 = 초기 수용자 ↔ <b>초기 다수</b></li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch02-patterns.html">→ 02장 자세히</a></p>
+</section>
+
+<section class="card" id="s03" data-toc="03 유형·원천">
+  <h2>03 · Sources and Patterns of Innovation</h2>
+  <p class="oneliner">“어떤 혁신인지 알아야 대응하고, 어디서 오는지 알아야 만든다”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>4쌍: 제품/공정 · 급진적/점진적 (상대적: 시간·관찰자) · 역량강화/소실 (기업 관점) · 구조적/부품</li>
+      <li>Anderson &amp; Tushman: 기술 사이클 (유동기 → 지배적 디자인 → 고착기), 지배적 디자인은 최첨단 아님, 기능 번들</li>
+      <li>원천: 창의성(개인·조직) → ① 혁신가 ② 소비자 ③ 기업 R&amp;D ④ 외부 연계 ⑤ 협력 네트워크</li>
+      <li>Science Push (선형) vs Demand Pull (고객 요구)</li>
+      <li>흡수능력, Bayh-Dole Act (1980), 클러스터·집적경제, 기술 파급</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>카카오뱅크 급진 / 현대차 페이스리프트 점진</li><li>삼성 D램→낸드 강화 / 두산 소비재→중공업 소실</li><li>Z 폴드 구조적 / 48V 마일드 하이브리드 부품</li><li>파급 3요소: 보호 강도 · 지식기반 · 인력 이동성</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>구조적 혁신은 부품 자체 변화도 <b>동시에</b></li><li>발명가는 많이 발명해도 <b>상용화는 드물다</b></li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch03-sources.html">→ 03장 자세히</a></p>
+</section>
+
+<section class="card" id="s04" data-toc="04 누가 혁신?">
+  <h2>04 · Who innovates, and why?</h2>
+  <p class="oneliner">“가장 큰 이익을 얻는(비용이 가장 낮은) 주체가 혁신한다”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>애로우: A 완전경쟁→독점 (이득 □ABCD), B 독점→독점 (□ABCD − □EFGH, 자기잠식), C 사회계획자 (□AIJE)</li>
+      <li>매몰비용 F 감수 순서: B &lt; A &lt; C</li>
+      <li>효율성 효과 (약간 나은 혁신, 독점 유지) vs 자기잠식 효과 (급진적, 기존 기업 손해)</li>
+      <li>실증: 획기적 혁신은 신규 진입자에서</li>
+      <li>정책: 사회적 이익 &gt; 사적 이익 → 시장실패 → F 만 낮춰 주기 (한국 반도체 ↔ 일본 5세대)</li>
+      <li>DMA: 게이트키퍼 규제 = Mark II 제한</li>
+      <li>신생기업 부담(newness) vs 작은 기업 부담(smallness), SAP</li>
+      <li>파괴적 혁신 (Christensen): 단순 → 틈새 → 성능이 수요보다 빠르게 → 주류 대체</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>\(MR = a - 2bq = MC\)</li><li>InnovaPNU 156.25 → 2025, 1868.75, c′ ≤ 50, F ≤ 625</li><li>Seagate 3.5인치 = 고객에게 발목</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>우버는 파괴적 혁신 <b>아님</b> (틈새 X, 처음부터 월등)</li><li>파괴적 ≠ 급진적 (시장적 이유)</li><li>Arrow 급진적 = 독점가격조차 c₀ 보다 낮음</li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch04-who.html">→ 04장 자세히</a></p>
+</section>
+
+<section class="card" id="s05" data-toc="05 혁신 전략">
+  <h2>05 · Innovation Strategy</h2>
+  <p class="oneliner">“Strategy is about making choices!”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>전략 = 장기 목표 + 단계·자원 배분, 장기적 경쟁우위, 변경 비용 큼</li>
+      <li>RBV(내부: 강점·약점) + MBV(외부: Five Forces, 기회·위협) 통합, 기업전략 → 혁신전략</li>
+      <li>VRIN + 모방 어려운 조건 (암묵·경로의존·사회적 복잡·인과 모호·IPR·고유)</li>
+      <li>혁신을 위한 자원 6: 재정·인적·기술·마케팅·조직·네트워킹</li>
+      <li>5요소: 목표 · 중점 분야 · 유형 &amp; 위험 · 예산 &amp; 자원 · R&amp;D 조직</li>
+      <li>Push vs Pull vs Combination, IBM 전략 변화</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>Big bets · Hedging · Wait and see (Intel = big bets)</li><li>70-20-10</li><li>선제 DuPont·Apple / 활동 MS·Dell / 대응 Ryanair / 수동 Ratiopharm</li><li>Honda 핵심역량 = 엔진·파워트레인</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>아이리버 = Push 의 문제 / 삼성·KCC = Pull 의 문제</li><li>stuck in the middle = 기존 경쟁자 간 경쟁</li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch05-strategy.html">→ 05장 자세히</a></p>
+</section>
+
+<section class="card" id="s06" data-toc="06 플랫폼">
+  <h2>06 · Value in Platforms</h2>
+  <p class="oneliner">“기술이 좋아서가 아니라, 많이 쓰여서 표준이 된다”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>수익체증 = 학습효과 + 네트워크 외부성 (직접: 철도·통신 / 간접: Windows)</li>
+      <li>사전학습 · 흡수능력 → 먼저 채택된 기술이 유리</li>
+      <li>자기강화 사이클 (고객기반 ↔ 보완재), MS-DOS, 경로의존성</li>
+      <li>정부 규제 (USB-C, 두벌식), 승자독식 (가솔린차)</li>
+      <li>가치 = 독립적 가치 (기능·심미·사용 용이성) + 네트워크 외부성 가치 (고객기반·보완재)</li>
+      <li>실제 · 인식 · 기대 (NACS, 초기 GPT), 경우 1·2·3, 무차별 지역</li>
+      <li>모듈화 3단계, 플랫폼 생태계 vs 경계, 통합 ↔ 플랫폼 ↔ 모듈화</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>구매자 효용 지도 6 × 6 = 36칸</li><li>NeXT vs Windows</li><li>Odyssey → Wii U → Android</li><li>MS 반독점: 분할 대신 API 공개·호환성</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>보완재 가용성은 독립적 가치가 <b>아님</b></li><li>생태계 = 플랫폼 안에서 선택 / 경계 = 플랫폼 자체를 선택</li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch06-platform.html">→ 06장 자세히</a></p>
+</section>
+
+<section class="card" id="s07" data-toc="07 수익화">
+  <h2>07 · Profiting from Innovation</h2>
+  <p class="oneliner">“혁신가가 아니라 독보적인 입지에 있는 누군가가 이익을 얻는다”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>이익 분배: 혁신가 · 고객 (평가 &gt; 가격) · 공급·보완업체 (판매량) · 모방업체 (R&amp;D 절감)</li>
+      <li>고객: 소비자 잉여, 사중손실</li>
+      <li>이중마진화: 분리하면 수량·총이윤 감소, 병목 자원 통제자가 더 번다</li>
+      <li>Teece 3요소: 수명주기 단계 · 전유성 체제 · 보완적 자산</li>
+      <li>전유성 요인: 전통적 (법적 보호, 비밀유지, 기반기술) + 성격이 다른 (네트워크, 전환비용, 규모, 진입 용이성)</li>
+      <li>패러다임 이전: 지배적 디자인 확립 능력 / 이후: 보완적 자산 통제</li>
+      <li>범용 · 특화 · 상호특화, 계약 vs 통합, 홀드업</li>
+      <li>제품시장(경쟁) vs 아이디어시장(라이선스·매각·제휴), 공개의 역설</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>1/2, 1/4, 1/8, 1/16, 3/16 vs 1/4, 3/4</li><li>Teece 2×2 매트릭스 네 칸</li><li>Strong 특허 = 제약 / 비밀 = 음료·타이어 / Weak = SW·의류</li><li>Comet 1, TYRX → Medtronic</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>전기 = 범용 자산, 트럭 = 특화, Stryker·iOS = 상호특화</li><li>네트워크 효과로 특허 없이도 전유성 가능</li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch07-profit.html">→ 07장 자세히</a></p>
+</section>
+
+<section class="card" id="s08" data-toc="08 IP 보호">
+  <h2>08 · IP Protection</h2>
+  <p class="oneliner">“특허는 출원일부터 20년, 그리고 나라마다 따로”</p>
+  <div class="sum-grid">
+    <div><ul>
+      <li>공식: 특허 · 등록디자인 · 상표 · 저작권 · 비밀유지계약 / 비공식: 비밀유지 · 리드타임 · 설계 복잡성 · 전환비용 · 네트워크 외부효과</li>
+      <li>기능·구조·방법 → 특허, 이름 → 상표, 외관 → 디자인</li>
+      <li>특허 요건: 신규성 · 진보성 · 산업상 이용 가능성 / 불가: 과학적 발견, 수학, 심미, 영구기관, 공공질서</li>
+      <li>국가별 차이: SW (한국 HW 결합, 유럽 기술적 효과, 미국 추상적 아이디어), BM, 식물특허</li>
+      <li>디자인: 신규성 · 창작비용이성 · 공업상 이용 가능성</li>
+      <li>저작권: 표현 보호, 자동 발생, 사후 70년, 오픈소스</li>
+      <li>특허와 VRIN (✅ / ❌ 장롱특허·표준화·공개성·우회기술), 혜택 vs 비용</li>
+      <li>속지주의 · 파리협약 · PCT · EPO/USPTO/KIPO · CRISPR</li>
+    </ul></div>
+    <div>
+      <div class="must"><h4>꼭 외울 것</h4><ul style="font-size:15px"><li>18개월 공개 · 16개월 등록 · 12개월 우선권 · 30개월 PCT</li><li>디자인 20년 연장 불가 · 실용신안 10년</li><li>CRISPR: 선발명 → 선출원 (미국 2013)</li></ul></div>
+      <div class="trap" style="margin-top:10px"><h4>헷갈리는 점</h4><ul style="font-size:15px"><li>비밀유지<b>계약</b> = 공식, 비밀유지 = 비공식</li><li>PCT 출원 ≠ 국제특허 등록</li><li>등록일이 아니라 <b>출원일</b> 기준</li></ul></div>
+    </div>
+  </div>
+  <p class="go"><a href="ch08-ip.html">→ 08장 자세히</a></p>
+</section>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

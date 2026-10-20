@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06. 지배적 디자인·플랫폼 — mot notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Gaegu:wght@400;700&family=Geist:wght@400;500&family=Gowun+Dodum&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script defer src="assets/notes.js"></script>
+</head>
+<body data-ch="06">
+
+<div class="wrap">
+  <div class="hero">
+    <span class="kicker">6장 · Value in Platforms and Methods for Project Selection</span>
+    <h1 class="display">winner<br>takes all</h1>
+    <p class="lede">왜 지배적 디자인이 선택되는가 — <span class="mk">수익체증</span>(학습효과·네트워크 외부성·자기강화 사이클), 정부 규제. 가치의 다양한 측면(독립적 가치 + 네트워크 외부성 가치, 실제·인식·기대), 모듈화와 플랫폼 생태계.</p>
+    <div class="meta">원본: Chapter 06. Value in Platforms and Methods for Project Selection.pdf (38 slides)</div>
+    <div data-sticker="heart" data-rot="-8" style="right:7%;top:90px;width:64px;height:58px"></div>
+    <div data-sticker="ghost" data-rot="8" style="right:21%;top:200px;width:44px;height:50px"></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="toc"></aside>
+    <main class="lesson">
+
+<section class="card" id="netflix" data-toc="Netflix와 스트리밍 경쟁">
+  <h2>Netflix와 스트리밍 서비스 경쟁</h2>
+  <span class="slide-ref">p.4 – 6</span>
+  <ul>
+    <li>2020년까지 Netflix, Hulu, Tencent Video, Disney 등 스트리밍 서비스의 가입자 11억 명 · 현재 Netflix는 190개국 이상에서 <b>3억 명 이상</b> 가입자로 압도적 선두</li>
+    <li>스트리밍 서비스는 일반 상점보다 훨씬 더 다양한 콘텐츠 + 추가 서비스(리뷰, 추천 시스템, 예고편)</li>
+    <li>고객 선호도 데이터를 사용 → 특정 세분 시장에 맞는 <b>오리지널 콘텐츠</b> → 자사 채널에만 <b>독점적인 콘텐츠</b></li>
+    <li>독점 콘텐츠로 인한 구독자 증가가 타사에 배포하는 것보다 유리할 거라는 일종의 모험 — 정확한 비용 대비 수익 산정이 매우 어려움</li>
+  </ul>
+  <p style="font-size:15px">토론문제: 독립적 가치(충실도, 사용 편의성, 추천 시스템)의 차이? 콘텐츠의 차이? 가입 결정 요인? 독점 콘텐츠의 장단점? 결국 몇 개의 “승자”만 남을까?</p>
+</section>
+
+<h2 class="part-title"><small>part 1</small>왜 지배적 디자인이 선택되는가</h2>
+
+<section class="card" id="dd" data-toc="지배적 디자인에 대하여">
+  <h2>지배적 디자인 Dominant design에 대하여..</h2>
+  <span class="slide-ref">p.7</span>
+  <ul>
+    <li>많은 산업에서 <b>단일(또는 소수)의 지배적 디자인</b>을 선택해야 한다는 강한 압력을 받고 있음</li>
+    <li>특정 기술이 지배적 디자인으로 결정되는 데 영향을 미치는 다양한 차원이 있음</li>
+    <li>기업 전략은 이러한 다양한 차원에 영향을 미치고, 기술이 지배적 우위를 차지할 가능성을 높임</li>
+  </ul>
+</section>
+
+<section class="card" id="ir" data-toc="수익체증 ① 학습효과">
+  <h2>기술 수용에 따른 수익체증 (increasing returns to adoption)</h2>
+  <span class="slide-ref">p.9</span>
+  <div class="label"><span class="tag">정의</span><p>특정 기술이 <b>많은 사람들에 의해 사용될수록 기술의 가치가 높아짐</b> — 원천: <span class="blank">학습효과</span>와 <span class="blank">네트워크 외부성</span></p></div>
+  <div class="cols">
+    <div class="box"><h4>학습곡선</h4><ul>
+      <li>원가와 생산성에서 발생하는 <b>누적 생산 효과</b></li>
+      <li>기술이 사용됨에 따라 생산자는 기술을 보다 효율적, 효과적으로 만드는 방법을 배움 (예시. 공장 생산라인 vs AI)</li>
+      <li>생산 초기 높은 단가 (비효율적 공정, 시행착오, 미숙련 인력 등) → 생산 경험의 누적 → 단가 하락</li>
+    </ul></div>
+    <figure class="fig" style="margin:0">
+      <svg viewBox="0 0 300 190" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+        <path d="M40 160V15M40 160H290" stroke="#2b1a07"/>
+        <path d="M45 25 C 70 110, 120 140, 285 150" fill="none" stroke="#ff6f1e" stroke-width="2.6"/>
+        <text x="20" y="90" text-anchor="middle" transform="rotate(-90 20 90)">단위당 비용</text><text x="285" y="180" text-anchor="end">누적 생산량</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section class="card" id="absorb" data-toc="사전학습과 흡수능력">
+  <h2>사전학습과 흡수능력</h2>
+  <span class="slide-ref">p.10</span>
+  <ul>
+    <li><span class="blank">사전학습(prior learning)</span>: 기업의 사전학습에 대한 투자가 흡수능력을 구축함으로써 <b>미래의 학습 속도를 가속화</b>. 기업의 이전 경험은 새로운 정보를 인식하고 활용하는 능력에 영향</li>
+    <li><span class="blank">흡수능력(absorptive capacity)</span>: 기업이 지식을 축적할수록 <b>정보를 이해할 수 있는 미래 능력이 증대</b>되는 현상. 특정 기술을 사용하면 해당 기술에 대한 지식기반이 구축 → 기술을 사용하고 개선하는 데 도움</li>
+    <li>(예시) <b>LG에너지솔루션</b>: 과거 LG화학 시절 축적한 배터리 소재/공정 지식 → 최근 배터리 시장 확장을 빠르게 내재화</li>
+  </ul>
+  <div class="note"><span class="hand">결론</span>☞ 다른 기술보다 <b>먼저 채택된 기술</b>은 발전 가능성이 높고, 다른 기술이 따라잡기 어려운 유리한 위치를 확보할 수 있음</div>
+</section>
+
+<section class="card" id="ne" data-toc="② 네트워크 외부성 (직접·간접)">
+  <h2>네트워크 외부성 (network externality)</h2>
+  <span class="slide-ref">p.11</span>
+  <div class="cols">
+    <div class="box"><h4><span class="blank">직접 네트워크 효과</span></h4><p>동일하거나 유사한 제품의 <b>사용자 수</b>가 증가하면 개별 사용자가 체감하는 제품의 가치도 증가</p><p style="font-size:15px">예시. 물리적으로 네트워크로 연결된 산업 (철도, 통신)</p></div>
+    <div class="box"><h4><span class="blank">간접 네트워크 효과</span></h4><p><b>호환성이나 보완재</b>가 중요한 산업에서도 발생 → 다시 사용자에게 편익</p><p style="font-size:15px">예시. Windows (소프트웨어 응용 프로그램)</p></div>
+  </div>
+</section>
+
+<section class="card" id="cycle" data-toc="자기강화 사이클 · MS-DOS">
+  <h2>자기강화 사이클 (self-reinforcing cycle)</h2>
+  <span class="slide-ref">p.12 – 13</span>
+  <figure class="fig">
+    <svg viewBox="0 0 520 190" font-family="Geist, Gowun Dodum, sans-serif" font-size="13">
+      <defs><marker id="c1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff6f1e"/></marker></defs>
+      <rect x="20" y="70" width="170" height="50" rx="25" fill="#2b1a07"/><text x="105" y="100" text-anchor="middle" fill="#fff">고객기반 (installed base) ↑</text>
+      <rect x="330" y="70" width="170" height="50" rx="25" fill="#fff0e6" stroke="#ff6f1e"/><text x="415" y="100" text-anchor="middle" fill="#ce500a">보완재 가용성 ↑</text>
+      <path d="M150 65 C 220 10, 300 10, 370 65" fill="none" stroke="#ff6f1e" stroke-width="2.4" marker-end="url(#c1)"/>
+      <path d="M370 125 C 300 180, 220 180, 150 125" fill="none" stroke="#ff6f1e" stroke-width="2.4" marker-end="url(#c1)"/>
+      <text x="260" y="22" text-anchor="middle" font-size="12">보완재 생산자에게 매력적</text><text x="260" y="182" text-anchor="middle" font-size="12">사용자에게 매력적 (선순환)</text>
+    </svg>
+  </figure>
+  <p>예시. Microsoft의 Windows 운영체제 → Windows용 응용프로그램 개발 (오피스, 게임, 회계, 주변기기 드라이버 등)</p>
+  <h3>Microsoft의 등장과 부상</h3>
+  <ul>
+    <li>1980년, Microsoft는 PC용 OS가 없었으며 당시 지배적인 OS는 <b>CP/M</b></li>
+    <li>IBM이 CP/M 제작사와 접촉했으나 <b>협상 결렬</b> → Microsoft는 CP/M의 모방품인 <b>MS-DOS</b>를 생산해 IBM PC에 공급</li>
+    <li>IBM PC(및 복제본)의 성공으로 MS-DOS 빠르게 확산 + MS-DOS용 소프트웨어도 훨씬 더 빠른 확산 → Windows는 나중에 MS-DOS와 번들</li>
+    <li>Gary Kildall(CP/M)이 IBM과 계약을 맺었거나, 다른 기업이 IBM PC를 복제할 수 없었더라면, 오늘날 소프트웨어 산업은 매우 달라졌을 것 (→ <b>경로의존성</b>)</li>
+  </ul>
+</section>
+
+<section class="card" id="gov" data-toc="정부 규제 · 승자독식">
+  <h2>정부 규제 &amp; 지배적 디자인 경쟁의 결과: 승자가 독식하는 시장</h2>
+  <span class="slide-ref">p.14 – 15</span>
+  <ul>
+    <li>일부 산업에서는 소비자의 효용을 증진시킬 수 있다는 판단 하에 <b>정부 규제와 법률</b>을 통해 지배적 디자인의 선택 촉진
+      <ul><li>EU의 <b>USB-C</b> 충전단자 의무화 (2024년, 아이폰15부터)</li><li>한글 <b>두벌식</b> 자판 표준화 (1982년) *세벌식</li></ul></li>
+    <li>자연스러운 독점적 상황 → 지배적 디자인 보유 기업은 거대한 수익, 받아들일 수 없는 기업은 시장에서 <b>격리</b> (예시. 아이폰 vs 블랙베리, AppStore vs AppWorld 늦었어…)</li>
+    <li><b>경로의존성</b>에 의한 기술발전 궤도가 수익으로 이어짐 — 기업의 작은 일련의 이벤트들이 궁극적으로 최종 결과물에 영향</li>
+    <li>승자독식 시장은 다른 시장과는 다르게 매우 차별화된 경쟁 요소를 가져야 함</li>
+    <li><b>기술적으로 우수한 제품이 시장에서 항상 승리하는 것은 아님</b></li>
+    <li>지배적 디자인의 설정에 대한 압박이 덜한 시장일수록 다른 성공 전략을 필요로 함</li>
+  </ul>
+  <div class="box"><h4>예: 1897 증기차 · 1899 전기차 · 1908 가솔린차 → 가솔린차가 승자</h4><p>승자독식의 이유: 기술적 우위보다 ‘<b>확장성과 인프라</b>’ — 연료 공급망 확보 용이 (록펠러), 전동 시동장치 발명, 포드의 대량생산 체제 구축 *가솔린차로 굳어진 경로를 전환하는 비용 증가</p></div>
+</section>
+
+<h2 class="part-title"><small>part 2</small>가치의 다양한 측면</h2>
+
+<section class="card" id="value" data-toc="독립적 가치 vs 네트워크 외부성 가치">
+  <h2>1. 기술의 독립적 가치 &nbsp;2. 네트워크 외부성 가치</h2>
+  <span class="slide-ref">p.16 – 17</span>
+  <p>수익체증(increasing return)의 특징이 있는 산업에서 지배적 디자인을 결정짓는 요소</p>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>구분</th><th>요소</th><th>예시</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="3"><b>1. 기술의 독립적 가치</b></td><td>기능</td><td>초창기 아이폰의 카메라·AP 성능이 경쟁 안드로이드 대비 우수</td></tr>
+      <tr><td>심미적 가치</td><td>갤럭시 Z 폴드/플립의 폴더블 디자인이 소비자 선호 창출</td></tr>
+      <tr><td>사용 용이성</td><td>챗GPT의 대화형 인터페이스가 기존 검색엔진보다 직관적이어서 빠르게 확산</td></tr>
+      <tr><td rowspan="2"><b>2. 네트워크 외부성 가치</b></td><td>고객기반 규모</td><td>카카오톡의 국내 메신저 지배력, 전환 시 주변인과의 단절 비용 (비교: WhatsApp)</td></tr>
+      <tr><td>보완재 가용성</td><td>애플 앱스토어·에어팟·애플워치 등 생태계 락인으로 아이폰의 표준적 지위 강화</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="bum" data-toc="구매자 효용 지도 (Kim & Mauborgne)">
+  <h2>기술의 독립적 가치: 구매자 효용 지도 (Buyer Utility Map)</h2>
+  <span class="slide-ref">p.18 – 19</span>
+  <p>Kim &amp; Mauborgne (HBR, 2000). 신기술이 구매자에게 주는 효용을 이해하기 위함. <b>각 셀은 고객에 대한 새로운 가치 제안의 기회</b> (6 × 6 = 36칸)</p>
+  <div class="tbl-wrap"><table class="t" style="font-size:14px">
+    <thead><tr><th>효용 \ 구매자 경험 사이클</th><th>구매</th><th>전달 (배송)</th><th>사용</th><th>보충 (소모품)</th><th>유지 (A/S)</th><th>처분 (중고, 재활용)</th></tr></thead>
+    <tbody>
+      <tr><td>소비자 생산성</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>단순성</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>편리성</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>위험</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>즐거움과 이미지</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>친환경성</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:15px">예시: 인터넷뱅킹 앱, 쿠팡 결제, 새벽배송, 100% 무료 환불/교환, 로고 플레이, 친환경… / Toyota Prius 구매자 효용도 (5세대 하이브리드, 연비 최고 20.9~22.4km/L)</p>
+  <div class="note"><span class="hand">외우기</span>6단계 = <b>구·전·사·보·유·처</b> / 6효용 = <b>생산성·단순·편리·위험·즐거움·친환경</b></div>
+</section>
+
+<section class="card" id="next" data-toc="NeXT vs Windows · 가치의 구성">
+  <h2>2. 네트워크 외부성 가치: NeXT vs Windows</h2>
+  <span class="slide-ref">p.20 – 21</span>
+  <p>신기술이 뚜렷한 기능적 성과가 있더라도 <b>총체적 가치가 저하</b>될 수 있음</p>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>요소</th><th>NeXT 컴퓨터</th><th>Windows 기반 PC</th></tr></thead>
+    <tbody>
+      <tr><td>고객기반의 규모</td><td>스티브 잡스가 설립한 회사의 고가·소량생산 워크스테이션, 사용자층 매우 제한적</td><td>IBM 호환 클론 제조사들이 대거 참여, 압도적인 사용자 기반</td></tr>
+      <tr><td>보완재의 가용성</td><td>SW 개발사들이 소규모 시장을 위해 프로그램을 만들 유인이 적어 응용 SW·주변기기 빈약</td><td>거대한 설치기반 덕분에 서드파티 SW·프린터·주변기기 생태계 폭발적 성장</td></tr>
+      <tr><td>결과</td><td>객체지향 OS, 우수한 하드웨어 설계 등 <b>기능적으로는 앞섰다</b>는 평가 BUT 시장에서 소외</td><td>기술적 최고는 아니었지만 설치기반과 보완재 생태계로 <b>표준(지배적 디자인)</b></td></tr>
+    </tbody>
+  </table></div>
+  <h3>▶ 가치의 구성 (p.21)</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 520 230" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+      <path d="M30 210H500" stroke="#2b1a07"/><path d="M30 20H500" stroke="#d14343" stroke-dasharray="5 4"/><text x="498" y="15" text-anchor="end" fill="#d14343">신기술의 한계가치</text>
+      <g stroke="#3b82f6" stroke-width="1.6" fill="#fff"><rect x="50" y="70" width="110" height="46"/><rect x="50" y="116" width="110" height="46"/><rect x="50" y="162" width="110" height="48"/></g>
+      <g text-anchor="middle"><text x="105" y="98">보완재의 가용성</text><text x="105" y="144">고객 기반</text><text x="105" y="190">기술적 효용</text></g>
+      <rect x="200" y="30" width="110" height="180" fill="#ffd966" opacity=".55" stroke="#3b82f6" stroke-width="1.6"/><text x="255" y="125" text-anchor="middle">기술적 효용만</text>
+      <g stroke-width="1.6"><rect x="350" y="30" width="110" height="26" fill="#ffd966" stroke="#3b82f6"/><rect x="350" y="70" width="110" height="46" fill="#fff" stroke="#2b1a07" stroke-dasharray="4 3"/><rect x="350" y="130" width="110" height="80" fill="#fff" stroke="#3b82f6"/></g>
+      <g text-anchor="middle"><text x="405" y="48">보완재의 가용성</text><text x="405" y="98">고객 기반</text><text x="405" y="175">기술적 효용</text>
+        <text x="105" y="226" font-size="11">(a) 기존 기술: 세 층의 합</text><text x="255" y="226" font-size="11">(b) 신기술이 독립적 효용만으로</text><text x="405" y="226" font-size="11">(c) 고객기반·보완재 호환 신기술</text></g>
+    </svg>
+    <figcaption>“기술적 효용 하나만으로 기존 기술의 세 층을 모두 합친 높이를 넘어야 해?”</figcaption>
+  </figure>
+  <div class="label"><span class="tag">신기술의 조건</span><p>기존의 지배적 기술을 성공적으로 시장에서 퇴출시키기 위한 신기술의 조건: <b>극적인 기술 향상</b> (예: 전기차 배터리, 폴더블 스마트폰, ChatGPT) 또는 <b>고객기반의 규모 및 보완재의 가용성</b> (기존 기술과 호환)</p></div>
+</section>
+
+<section class="card" id="perceived" data-toc="가치의 실제·인식·기대">
+  <h2>가치의 실제, 인식, 기대 요소</h2>
+  <span class="slide-ref">p.23 – 24</span>
+  <ul>
+    <li><b>주관적인 정보(인식 및 기대치)는 객관적인 정보(실제 수치)만큼 중요</b>할 수 있음</li>
+    <li>객관적 정보: 실제 기술적 이익, 고객기반이나 보완재에 대한 실제 정보</li>
+    <li>주관적 정보: 자신이 인식하는 기술적 이익, 고객기반, 보완재</li>
+    <li>미래 기대치: 기대되는 기술적 이익, 고객기반 및 보완재 등의 조합을 평가</li>
+  </ul>
+  <div class="cols">
+    <div class="box"><h4>미래 기대치 예시: 테슬라 NACS</h4><p>NACS(테슬라 독자 규격) 발표 당시, 실제 충전소 수는 경쟁 표준(CCS, 범용 규격) 대비 압도적으로 많았던 것은 아님 ☞ 테슬라가 시장을 주도할 것이라는 <b>기대감</b> 때문에 FORD, GM, 현대차 NACS 채택</p></div>
+    <div class="box"><h4>초기 GPT 모델</h4><p>실제: 사실 오류(할루시네이션), 최신 정보 부재 등 한계 / 인식: 검색엔진을 대체할 혁신 / 기대: 개발자·투자자 모든 산업에 결합될 것이라는 기대감</p><p style="font-size:14px">※ 각 차원에 기술적 효용, 고객기반, 보완재 가용성은 정비례하지 않을 수 있음 (복합적)</p></div>
+  </div>
+</section>
+
+<section class="card" id="cases" data-toc="경우 1·2·3 · 무차별 지역">
+  <h2>네트워크 외부성 시장에서의 지배적 디자인 경쟁</h2>
+  <span class="slide-ref">p.25 – 27</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>경우</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td><b>경우 1</b></td><td>기술적 효용성과 시장 점유율에 따른 네트워크 외부성의 효과가 경쟁에 어떤 영향? 네트워크 외부성 효과가 충분히 달성되려면 어느 정도 크기의 고객기반이 필요한지 — 시장점유에 따른 네트워크 외부성의 증가 (S자 그림)</td></tr>
+      <tr><td><b>경우 2</b> 네트워크 외부성의 이익 &gt; 기술적 효용</td><td>소비자는 각 기술에서 기대되는 <b>총가치</b>를 비교. 기술적 가치가 같으면 50/50에서 무차별. <b>기술적 가치가 열세라도 네트워크 효과가 우세</b>하면 승리 가능 (무차별 시기를 늦추기는 함, 예: 60/40). Question: 카카오톡(심플) vs 마이피플(대용량 파일 전송, 무료 음성통화 등 기능적으로 더 풍부)</td></tr>
+      <tr><td><b>경우 3</b> 낮은 점유율에서 이미 원하는 네트워크 이익을 얻은 경우</td><td>예시. <b>비디오 게임기</b> 시장을 Sony, Microsoft, Nintendo가 분할 — 각자의 <b>준거집단(relevant network)</b>이 다름</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="fig">
+    <svg viewBox="0 0 560 220" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+      <path d="M50 190V15M50 190H530" stroke="#2b1a07"/>
+      <rect x="220" y="20" width="120" height="170" fill="#ffd966" opacity=".5"/>
+      <path d="M60 175 C 120 175, 150 40, 220 38 L 340 38" fill="none" stroke="#ff6f1e" stroke-width="2.4"/>
+      <path d="M520 175 C 460 175, 430 40, 340 38 L 220 38" fill="none" stroke="#3b82f6" stroke-width="2.4"/>
+      <text x="80" y="160" fill="#ff6f1e" font-weight="600">B</text><text x="490" y="160" fill="#3b82f6" font-weight="600">A</text>
+      <text x="280" y="210" text-anchor="middle">무차별 지역</text><text x="135" y="32" text-anchor="middle" fill="#6b5d4f">B의 지배</text><text x="430" y="32" text-anchor="middle" fill="#6b5d4f">A의 지배</text>
+      <text x="22" y="100" text-anchor="middle" transform="rotate(-90 22 100)">사용자에 대한 가치</text>
+      <text x="525" y="210" text-anchor="end" font-size="11">시장점유율 (B는 역스케일)</text>
+    </svg>
+    <figcaption>※ <b>무차별 지역 (Plateau of Indifference)</b>: 두 개 이상의 경쟁 기술/표준이 <b>각자 임계점을 넘어서</b> 거의 동일해지는 시장점유율 구간</figcaption>
+  </figure>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>구분</th><th>Sony (PS5)</th><th>Microsoft (Xbox)</th><th>Nintendo (Switch)</th></tr></thead>
+    <tbody>
+      <tr><td>전체 콘솔 점유율</td><td>1위</td><td>2~3위</td><td>2~3위</td></tr>
+      <tr><td>준거집단</td><td>하드코어/멀티플레이어 게이머 전체</td><td>하드코어 게이머, 특히 북미</td><td>가족 단위, 캐주얼 게이머, 닌텐도 IP 팬 (마리오, 젤다, 동물의 숲 등 자체적 준거집단)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="policy" data-toc="승자독식은 소비자에게 좋은가?">
+  <h2>이론의 적용: 승자독식 시장은 소비자에게 좋은가?</h2>
+  <span class="slide-ref">p.28</span>
+  <ul>
+    <li>경제학은 시장에서 경쟁의 이점을 강조해 왔음 → 네트워크 외부성이라는 복잡한 문제 등장 (특정 기술이 시장을 지배할 때 사용자는 종종 <b>더 많은 가치</b>를 획득)</li>
+    <li>네트워크 외부성에 의해 특정 기업이 자연스럽게 독점을 형성하고 있다면 정부가 개입해야 하는가? → <b>네트워크 외부성의 이익 vs 독점 비용</b> 비교
+      <ul><li>네트워크 외부성의 이익: 시장 대부분이 동일 제품을 사용함에 따라 소비자가 얻게 되는 이익</li><li>독점 비용: 시장 대부분이 동일 제품을 사용함에 따라 소비자가 지불해야 하는 비용 — <b>독점적 가격 인상, 혁신 정체, 선택권 축소</b> 등 (“적절한 대안이 없어서 어쩔 수 없이 쓴다..” 예시. 최근 카카오톡 업데이트)</li></ul></li>
+    <li>예시. 미국 정부 vs. Microsoft Corp. (1998~2001) ☞ <b>기업분할 대신 API 공개와 호환성 확보</b> 선택 — 네트워크 효과의 이익은 보존하면서 독점 비용만 줄이려는 접근 (생각해 보기. 카카오택시 콜 몰아주기)</li>
+  </ul>
+</section>
+
+<h2 class="part-title"><small>part 3</small>모듈화와 플랫폼 경쟁</h2>
+
+<section class="card" id="modular" data-toc="모듈식 시스템 · 3단계">
+  <h2>모듈화와 플랫폼 경쟁</h2>
+  <span class="slide-ref">p.30 – 33</span>
+  <p>산업에 속한 기업들이 모듈성을 이용하여 모두가 참여할 수 있는 플랫폼 생태계를 구축</p>
+  <ul>
+    <li><b>모듈식 시스템</b>: 시스템의 구성요소, 범위, 기능이 분리되고 재결합 · <b>표준화된 인터페이스</b>는 구성요소의 호환성을 보장</li>
+    <li>서로 다른 기업의 구성요소를 재결합: 서로 다른 앱이 있는 스마트폰 / 단일 기업의 구성요소만 재결합: Ikea 선반 시스템</li>
+    <li>모듈성의 가치: (관리의 편리함) 재결합할 수 있는 다양한 기술 옵션 존재, (고객의 편리함) 고객의 이질적인 선호도</li>
+    <li>※ 자동차의 3대 모듈: 프론트엔드 모듈, 섀시 모듈, 칵핏 모듈</li>
+  </ul>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>단계</th><th>특징</th><th>예시</th></tr></thead>
+    <tbody>
+      <tr><td>① 전통적인 통합 제품 번들</td><td>공급자는 스스로 구매자의 니즈를 충족시키려 함 · 고객 맞춤화 없음 · 외부 호환성 없음</td><td><b>Magnavox Odyssey</b> (1972, 세계 최초 가정용 비디오 게임기, 전용 게임팩) · 요즘: 테슬라</td></tr>
+      <tr><td>② 제3자 생산 보완재가 있는 제품 번들</td><td>제3자 개발품과의 호환성이 고객의 선택을 확대</td><td><b>닌텐도 Wii U</b> · 요즘: iPhone AppStore</td></tr>
+      <tr><td>③ 모듈화와 플랫폼 경쟁</td><td>고객은 광범위한 선택을 할 수 있음</td><td><b>Android 기기</b> (iPhone과의 차이: SW만 동일, HW 각자)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="eco" data-toc="플랫폼 생태계 · 통합 vs 모듈화">
+  <h2>플랫폼 생태계</h2>
+  <span class="slide-ref">p.34 – 36</span>
+  <div class="cols">
+    <div class="box"><h4><span class="blank">플랫폼 생태계 (platform ecosystem)</span> ← 시스템의 구조</h4><ul>
+      <li>시스템 내 개체들이 일정 형태의 <b>상호의존성</b>을 갖고 있는 시스템</li>
+      <li>안정적인 핵심 부분으로서 일련의 부품, 보완재, 최종 사용자들을 <b>중재</b>하는 역할</li>
+      <li>예시. 비디오 게임기 &amp; 비디오 게임, 음악 스트리밍 서비스 &amp; 음원 (<b>플랫폼 안에서 선택</b>)</li>
+    </ul></div>
+    <div class="box"><h4><span class="blank">플랫폼 경계 (platform boundary)</span> ← 시스템의 경계 유동성</h4><ul>
+      <li>특정 플랫폼에 연결된 구성원들의 안정적인 집합, 또는 정해진 형태 없이 변화할 수 있지만 자유롭게 출입하면서 <b>여러 플랫폼에 동시에 참여</b>할 수 있는 구성원들의 집합</li>
+      <li>예시. HBO on Demand vs. Amazon Prime (<b>플랫폼 자체를 선택</b>)</li>
+    </ul></div>
+  </div>
+  <ul>
+    <li>생태계 개별 구성원의 성공은 다른 구성원의 성공에 일정 부분 의존</li>
+    <li>플랫폼과 보완재는 종종 서로에게 특화하기 위한 투자 진행 · 장기적인 관계를 위해 <b>배타적인 계약관계</b> 형성</li>
+  </ul>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>구분</th><th>완전한 통합</th><th>플랫폼 (중간/절충)</th><th>완전한 모듈화</th></tr></thead>
+    <tbody>
+      <tr><td>조합 결정권</td><td>제조사가 조합을 전적으로 결정</td><td>플랫폼 스폰서가 제3자 부품·보완재 맞춤화하여 관리</td><td>소비자/시장이 자유롭게 조합</td></tr>
+      <tr><td>상호 특화 수준</td><td>높은 수준의 상호 특화 (부품끼리 서로 맞춰 설계)</td><td>일부 상호 특화 (핵심 부분만 표준 규격)</td><td>상호 특화 없음 (표준 인터페이스만 지키면 무관)</td></tr>
+      <tr><td>품질·호환성 관리</td><td>제조사가 전적으로 통제</td><td>플랫폼 스폰서가 선택과 재구성을 관리감독</td><td>품질·호환성이 불확실 (보증 없음)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box"><h4>Apple 앱스토어 = 플랫폼(중간)의 실제 모습</h4><ul>
+    <li>조합 결정권: 애플이 <b>앱 심사(App Review)</b>로 등록 결정 (개발자가 자유롭게 만들지만 애플이 최종 게이트키핑)</li>
+    <li>상호 특화: 개발자는 iOS SDK·Swift·가이드라인 표준 인터페이스만 지키면 됨</li>
+    <li>품질 관리: 버그·보안·정책 위반 앱 심사·퇴출, <b>30% 수수료</b>로 생태계 유지비 충당</li>
+  </ul></div>
+</section>
+
+<section class="card" id="disc" data-toc="토론문제">
+  <h2>토론문제</h2>
+  <span class="slide-ref">p.37</span>
+  <ul>
+    <li>기술이 널리 사용될수록 효용이 증가하는 이유에는 어떠한 것이 있는가?</li>
+    <li>기술 전파로 효용이 증가하는 산업의 다른 예는?</li>
+    <li>기업 입장에서 기술의 총가치를 증가시키고 지배적 디자인이 될 가능성을 높이는 방법은?</li>
+    <li>산업이 하나 또는 여러 개의 지배적 디자인을 갖는지의 여부는 무엇에 의해 결정되는가?</li>
+    <li>지배적 디자인은 소비자 / 경쟁자 / 보완재 생산업자 / 공급업자 입장에서 바람직한가?</li>
+  </ul>
+</section>
+
+<section class="card tint" id="quiz06" data-toc="셀프 체크">
+  <h2>Self-check</h2>
+  <details class="quiz"><summary>수익체증의 두 원천은?</summary><div class="ans">학습효과(학습곡선)와 네트워크 외부성.</div></details>
+  <details class="quiz"><summary>직접 vs 간접 네트워크 효과 예시?</summary><div class="ans">직접: 철도·통신 (사용자 수). 간접: Windows (보완재·호환성).</div></details>
+  <details class="quiz"><summary>NeXT 가 기능적으로 앞섰는데 진 이유?</summary><div class="ans">고객기반 규모가 작고 보완재(SW·주변기기)가 빈약 → 네트워크 외부성 가치 부족.</div></details>
+  <details class="quiz"><summary>무차별 지역이란?</summary><div class="ans">경쟁 기술들이 각자 임계점을 넘어 사용자 가치가 거의 동일해지는 시장점유율 구간 (예: 게임기 3사 공존).</div></details>
+  <details class="quiz"><summary>플랫폼 생태계 vs 플랫폼 경계의 예시?</summary><div class="ans">생태계: 게임기 &amp; 게임, 스트리밍 &amp; 음원 (플랫폼 안에서 선택). 경계: HBO on Demand vs Amazon Prime (플랫폼 자체를 선택).</div></details>
+  <div class="quiz-cta"><div class="qc-text"><span class="hand">다 풀어 봤으면?</span><b>06장 퀴즈</b><span>객관식으로 바로 채점하고 틀린 건 오답노트에 모아 줘요.</span></div><div class="qc-btns"><a class="pill primary" href="quiz.html?ch=06">06장 퀴즈 풀기 →</a><a class="pill small" href="quiz.html?ch=all">전체 퀴즈</a></div></div>
+</section>
+
+<nav class="ch-nav"></nav>
+    </main>
+  </div>
+</div>
+</body>
+</html>

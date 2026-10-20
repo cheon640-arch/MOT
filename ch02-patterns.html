@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02. 혁신 패턴 — mot notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Gaegu:wght@400;700&family=Geist:wght@400;500&family=Gowun+Dodum&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script defer src="assets/notes.js"></script>
+</head>
+<body data-ch="02">
+
+<div class="wrap">
+  <div class="hero">
+    <span class="kicker">2장 · Patterns in Innovative Activity (+ Supplement 확산모형)</span>
+    <h1 class="display">waves, curves<br>&amp; adopters</h1>
+    <p class="lede">혁신과 혁신 활동은 특정 <span class="mk">패턴</span>을 따른다 — 기술 파동과 기술경제적 패러다임, S-곡선, 지배적 디자인, 제품수명주기, 혁신 확산(로저스·캐즘·배스 모형).</p>
+    <div class="meta">원본: Chapter 02. Patterns in Innovative activity.pdf (37 slides) · Chapter 02. (Supplement) Models of diffusion.pdf (8 slides)</div>
+    <div data-sticker="route" data-rot="-6" style="right:6%;top:90px;width:120px;height:60px"></div>
+    <div data-sticker="star" data-rot="8" style="right:22%;top:200px;width:46px;height:46px"></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="toc"></aside>
+    <main class="lesson">
+
+<h2 class="part-title"><small>part 1</small>The (really) big picture</h2>
+
+<section class="card" id="long" data-toc="장기적 기술 변화 패턴">
+  <h2>Long-term patterns of technological change</h2>
+  <span class="slide-ref">p.5</span>
+  <ul>
+    <li>기술적 변화는 일반적으로 <span class="blank">누적적이고 진화적인 성격</span> (cumulative and evolutionary)을 가진다.</li>
+    <li>대부분의 혁신은 기존 기술의 <b>새로운 조합(new combinations)</b>이거나, 기존 시스템에 새로운 요소를 도입하는 것이다.</li>
+    <li>기술 발전은 매끄럽고 자동적인 과정이 아니라, <b>간헐적이고 급격한 도약</b>을 통해 이루어진다.</li>
+    <li>일부 변화는 본질적으로 ‘혁명적(revolutionary)’인 것으로 파악될 수 있으며, 이는 ‘<b>기술 혁명</b>(technological revolutions)’이라 불리는 거대한 변화의 물결이나 새로운 ‘<b>기술경제적 패러다임</b>(techno-economic paradigms)’으로 이어진다.</li>
+  </ul>
+</section>
+
+<section class="card" id="revolutions" data-toc="역사 속 기술 혁명">
+  <h2>역사 속 기술 혁명</h2>
+  <span class="slide-ref">p.6 – 9</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>혁명</th><th>내용</th><th>결과 Consequences</th></tr></thead>
+    <tbody>
+      <tr><td><b>인쇄기</b> Printing press<br><small>커뮤니케이션 혁명</small></td><td>요하네스 구텐베르크 (독일, 1452년경). 구텐베르크 성경 &lt;42줄 성경&gt;, 1분에 2~10장 인쇄. 일반 대중에게도 독서가 가능 (필사 성경 한 질 가격 = 집 10채 값)</td><td>대중 교육, 성직자의 권력 상실, 종교 개혁 (루터 95개조 반박문 30만 부 인쇄 → 독일 전역 확산), 저작권<br><b>Q. 직지와 차이? → “확산(diffusion)”</b></td></tr>
+      <tr><td><b>방적기 혁명</b> (Spinning Jenny)</td><td>제임스 하그리브스 (영국, 1765). 방적 생산성 10배 향상<br><small>*방적기: 솜을 꼬아 실로 / *방직기: 실을 교차시켜 천으로</small></td><td>대량 생산, 산업화, 사회적 격변(실업에 대한 두려움), <b>산업혁명</b> (공장, 공장 노동자, 도시화, 자본주의, 마르크스, 공산주의…)</td></tr>
+      <tr><td><b>증기 기관</b> The steam engine</td><td>제임스 와트 (스코틀랜드, 1767) — <span class="blank">범용 기술 General Purpose Technology</span></td><td>대량 수송 (증기선, 철도, 대서양 횡단, 미국 해안 간 연결). 그 밖에: 전신(1844, Morse), 전화(Bell), 라디오(1896, Marconi), 하버-보쉬 공정(인공 질소 비료)<br><b>Note: 위대한 발명품이 ‘항상’ 더 큰 공익으로 이어지는 것은 아니다</b></td></tr>
+      <tr><td><b>인터넷</b> The Internet</td><td>기관 차원의 혁신 주체 (Institutional innovators): 미국 국방부 산하 ARPA, 1969년 ARPANET. 냉전시대, 핵 공격에도 견딜 수 있는 분산형 통신망이 목적. UCLA와 SRI 등 4개 대학 컴퓨터 연결. 동기: 국방, 과학(초고속 컴퓨팅)</td><td>팀 버너스리: WWW, URL, HTTP 고안 → 인터넷이 전문가의 영역을 벗어나 일반 대중이 사용할 수 있는 형태로</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="gpt" data-toc="범용기술 GPT 의 조건">
+  <h2>범용기술 GPT (General Purpose Technology)</h2>
+  <span class="slide-ref">p.10</span>
+  <div class="label"><span class="tag">조건 3</span><p>
+    첫째, <span class="blank">다양한 산업 분야에 걸쳐 확산</span><br>
+    둘째, <span class="blank">지속적인 후속 개선</span><br>
+    셋째, <span class="blank">새로운 제품과 서비스 같은 다른 혁신을 가능하게</span></p></div>
+  <p>Question. AI는 GPT가 될 수 있을까? AI, 생성형 AI</p>
+</section>
+
+<section class="card" id="kondratiev" data-toc="콘드라티예프 장기파동">
+  <h2>혁신으로 인한 사회경제적 전환 — 콘드라티예프 장기파동</h2>
+  <span class="slide-ref">p.11</span>
+  <ul>
+    <li>Kondratiev (1925, 러시아 경제학자), <i>The Major Economic Cycles</i></li>
+    <li>자본주의 경제가 약 <b>40~60년 주기</b>로 호황과 불황을 반복하는 장기적인 순환 구조를 가진다</li>
+    <li>장기파동은 특정 시기에 등장한 혁신적 기술(범용기술, New pervasive technologies)이 경제 전반으로 광범위하게 확산(Far-reaching implications)되어 발생</li>
+    <li>새로운 기술이 등장 ▶ 관련 산업에 대규모 투자 ▶ 생산성과 경제 성장 급증(상승국면) ▶ 기술 성숙/시장 포화 성장 둔화 및 침체(하강국면) ▶ 또 다른 혁신 기술의 등장</li>
+  </ul>
+  <figure class="fig">
+    <svg viewBox="0 0 720 230" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+      <path d="M30 180H700" stroke="#2b1a07"/>
+      <g fill="#fff0e6" stroke="#ff6f1e" stroke-width="1.6">
+        <path d="M40 180 C 90 40, 150 40, 210 180Z"/><path d="M210 180 C 255 45, 310 45, 360 180Z"/><path d="M360 180 C 400 50, 450 50, 490 180Z"/><path d="M490 180 C 525 55, 565 55, 595 180Z"/><path d="M595 180 C 620 60, 650 60, 675 180Z" stroke-dasharray="5 4"/>
+      </g>
+      <g text-anchor="middle" font-size="11">
+        <text x="125" y="140">1st wave</text><text x="285" y="140">2nd</text><text x="425" y="140">3rd</text><text x="542" y="140">4th</text><text x="635" y="140">5th</text>
+        <text x="125" y="28">수력·섬유·철</text><text x="285" y="28">증기·철도·강철</text><text x="425" y="28">전기·화학·내연기관</text><text x="542" y="28">석유화학·전자·항공</text><text x="640" y="28">디지털·SW·뉴미디어</text>
+      </g>
+      <g text-anchor="middle" fill="#6b5d4f" font-size="11"><text x="40" y="198">1785</text><text x="210" y="198">1845</text><text x="360" y="198">1900</text><text x="490" y="198">1950</text><text x="595" y="198">1990</text><text x="690" y="198">2020</text>
+        <text x="125" y="218">60년</text><text x="285" y="218">55년</text><text x="425" y="218">50년</text><text x="542" y="218">40년</text><text x="640" y="218">30년</text></g>
+    </svg>
+    <figcaption>Schumpeter's waves accelerate — ※ Wave는 점점 짧아진다. 벌써 <b>6th wave with AI</b></figcaption>
+  </figure>
+</section>
+
+<section class="card" id="tep" data-toc="새로운 기술-경제 패러다임의 결과">
+  <h2>새로운 기술-경제 패러다임이 초래하는 결과</h2>
+  <span class="slide-ref">p.12</span>
+  <div class="cols">
+    <div class="box"><ul>
+      <li>새로운 GPT의 등장으로 <b>승자와 패자</b>(국가 &amp; 기업) 발생</li>
+      <li>새로운 GPT(AI)의 등장으로 변화하는 분야: 자본 재고(Capital Stock: 공장, 기계, 설비, SW 등), 노동력(새로운 스킬 필요), 노사 관계, 규제 (예시. European AI Act)</li>
+      <li>경쟁력은 점점 <b>혁신 및 연구개발, 지식·창의성 및 학습</b>에 기반</li>
+    </ul></div>
+    <div class="box"><h4>AI 시대 새로운 질서</h4><ol>
+      <li>인프라 하드웨어: NVIDIA, AMD, Intel, TSMC, SK하이닉스, 삼성전자</li>
+      <li>클라우드/컴퓨팅 인프라: AWS, Azure, Google Cloud</li>
+      <li>파운데이션 모델/AI: OpenAI, Google DeepMind, Anthropic, Mistral</li>
+      <li>어플리케이션: 기업 AI 솔루션(Copilot, Salesforce), 버티컬 AI(테슬라)</li>
+    </ol></div>
+  </div>
+</section>
+
+<h2 class="part-title"><small>part 2</small>Patterns in technological evolution</h2>
+
+<section class="card" id="scurve" data-toc="S-곡선 4단계">
+  <h2>S 곡선 S-curve</h2>
+  <span class="slide-ref">p.14 – 15</span>
+  <div class="cols">
+    <figure class="fig" style="margin:0">
+      <svg viewBox="0 0 360 240" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+        <defs><marker id="s1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b1a07"/></marker></defs>
+        <path d="M40 200V15" stroke="#2b1a07" marker-end="url(#s1)"/><path d="M40 200H345" stroke="#2b1a07" marker-end="url(#s1)"/>
+        <path d="M40 40H330" stroke="#d14343" stroke-dasharray="5 4"/><text x="330" y="34" text-anchor="end" fill="#d14343">기술의 한계</text>
+        <path d="M50 195 C 120 192, 140 175, 170 130 S 230 50, 330 46" fill="none" stroke="#ff6f1e" stroke-width="2.6"/>
+        <g fill="#ce500a" font-weight="600"><text x="85" y="186">1</text><text x="160" y="140">2</text><text x="225" y="70">3</text><text x="300" y="62">4</text></g>
+        <text x="190" y="225" text-anchor="middle">Input (R&amp;D 총지출 / 총소요 시간)</text>
+        <text x="18" y="110" text-anchor="middle" transform="rotate(-90 18 110)">Output (기술의 성능)</text>
+      </svg>
+    </figure>
+    <div class="box"><h4>Four stages</h4><ol>
+      <li><span class="blank">출현 Emergence</span></li>
+      <li><span class="blank">급격한 성장 Rapid improvement</span></li>
+      <li><span class="blank">성장 둔화 Declining improvement</span></li>
+      <li><span class="blank">성숙기 Maturity</span></li>
+    </ol>
+    <p style="font-size:15px">x축 = Input variable (예: 연구개발 총지출, 총소요 시간), y축 = Output variable (기술의 성능)</p></div>
+  </div>
+  <h3>기존 기술(Red) → 새로운 기술(Blue)</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 460 220" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+      <defs><marker id="s2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b1a07"/></marker></defs>
+      <path d="M40 190V10" stroke="#2b1a07" marker-end="url(#s2)"/><path d="M40 190H445" stroke="#2b1a07" marker-end="url(#s2)"/>
+      <path d="M50 185 C 100 182, 120 160, 140 125 S 190 82, 260 80" fill="none" stroke="#d14343" stroke-width="2.4"/><path d="M40 78H270" stroke="#d14343" stroke-dasharray="4 4"/>
+      <path d="M150 188 C 230 186, 250 160, 280 110 S 340 30, 430 26" fill="none" stroke="#3b82f6" stroke-width="2.4"/><path d="M200 24H440" stroke="#3b82f6" stroke-dasharray="4 4"/>
+      <text x="230" y="72" fill="#d14343">기존 기술의 한계</text><text x="436" y="18" text-anchor="end" fill="#3b82f6">새 기술의 한계</text>
+      <text x="420" y="210" text-anchor="end">시간 Time</text>
+    </svg>
+    <figcaption>관리자라면, 기존 기술에서 새 기술로 전환하시겠습니까? 그럼 <b>언제</b>? (x축을 “시간”으로 표시해 오해를 없앰)</figcaption>
+  </figure>
+</section>
+
+<section class="card" id="sailing" data-toc="범선 효과">
+  <h2>범선 효과 The sailing ship phenomenon</h2>
+  <span class="slide-ref">p.16 – 17</span>
+  <p>※ S 곡선 예시. 증기선이 등장하자 범선이 오히려 더 빨라졌다 (기존 기술의 마지막 개선).</p>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>배</th><th>연도</th><th>속도</th><th>종류</th></tr></thead>
+    <tbody>
+      <tr><td>USS Constellation "Yankee Racehorse"</td><td>1797</td><td>14 노트</td><td>범선</td></tr>
+      <tr><td>Robert Fulton’s “Clermont”</td><td>1807</td><td>5 노트</td><td>증기선</td></tr>
+      <tr><td>Cutty Sark</td><td>1870</td><td>17.15 노트</td><td>범선</td></tr>
+      <tr><td>RMS Titanic</td><td>1911</td><td>24 노트</td><td>증기선</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:15px">1노트 = 1.852 km/h</p>
+  <div class="note"><span class="hand">Q. Cutty Sark가 더 빠름에도 경쟁력을 잃은 이유? (힌트. Canal)</span>수에즈 운하(1869) — 바람이 약한 운하·홍해를 범선은 지나기 어렵지만 증기선은 통과 가능 → 항로가 짧아진 증기선이 승리.</div>
+</section>
+
+<section class="card" id="sissue" data-toc="S-곡선의 이슈 · 성배인가?">
+  <h2>S-곡선 관련 이슈</h2>
+  <span class="slide-ref">p.18 – 20</span>
+  <div class="cols">
+    <div class="box"><h4>이슈 1. 입력 변수(x축)의 선택</h4><p>곡선의 모양은 <b>입력 변수의 선택</b>에 따라 달라진다. (총 R&amp;D 지출 vs 시간, Brockhoff)</p></div>
+    <div class="box"><h4>이슈 2. 곡선의 형태(shape)</h4><p>광학 리소그래피에 사용되는 렌즈의 크기(개구수 NA): <b>곡선의 오목한 끝부분이 없음</b> (성숙기 없이 계속 성장).</p></div>
+  </div>
+  <h3>S-곡선, 기술 평가의 성배(Holy Grail)인가?</h3>
+  <ul>
+    <li>S-곡선 개념은 새로운 기술로 전환할 시점을 결정하는 데 도움이 될 수 있다(?) ☞ <b>실제로 S-곡선을 정확히 예측하기는 어렵다.</b></li>
+    <li>S-커브 개념은 <b>자연의 법칙이 아니며</b>, S-곡선에 따라서 많은 것을 예측하기에 문제점이 많다.</li>
+    <li>그럼에도, 기존 주류 기술이 처음에는 열등해 보이는 새로운 대체 기술로 대체될 수 있다는 고민과 판단에 매우 유용하다.</li>
+    <li>따라서 S-곡선 개념은 기존 기업들이 흔히 겪는 다음 문제들을 피하는 데 도움이 된다:
+      <ul><li>현재 사용 중인 기술을 과대평가</li><li>R&amp;D 예산이 매출에 연동</li><li>편향된 태도로 인해 시장 신호를 잘못 해석</li><li>이미 고착된 조직 구조/문화의 유연성 부족</li></ul></li>
+  </ul>
+  <p style="font-size:15px">Question. BCG Matrix와 함께 S-곡선 고려해 보기</p>
+</section>
+
+<section class="card" id="dd" data-toc="지배적 디자인 (자동차 산업)">
+  <h2>지배적 디자인 Dominant design</h2>
+  <span class="slide-ref">p.21 – 24</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>연도</th><th>미국 자동차 산업</th></tr></thead>
+    <tbody>
+      <tr><td>1896</td><td>미국에서 자동차 최초 판매 → 다수의 기업이 시장에 진출</td></tr>
+      <tr><td>1908</td><td>미국 내 자동차 제조업체 250개 이상 (중소 업체 난립 초기 산업 형성기) · <b>포드 모델 T</b> 출시 (*표준화된 제품: 컨베이어 벨트, 전용 기계)</td></tr>
+      <tr><td>~1920</td><td><b>첫 번째 통합 물결</b> (first wave of consolidation): 표준화된 대량생산 체제를 못 갖춘 소규모 업체 퇴출/인수</td></tr>
+      <tr><td>1923</td><td><b>폐쇄형 스틸 차체</b>(closed steel body)가 업계 표준</td></tr>
+      <tr><td>~1940</td><td><b>두 번째 통합 물결</b>: 제조사 수가 <b>9개</b>로 감소 (대규모 자본·기술 투자를 감당 못한 업체 도태)</td></tr>
+    </tbody>
+  </table></div>
+  <p>휴대폰도 마찬가지: Motorola 8900X-2 → Nokia → … → Apple iPhone → Galaxy S → Sony Xperia Z — 결국 <b>터치스크린 바 형태</b>로 수렴.</p>
+  <h3>지배적 디자인이 나타날 때 산업 및 기업 차원에서 나타나는 변화</h3>
+  <ol>
+    <li><b>기업의 시장에서의 퇴출 혹은 생존</b> — 지배적 설계에 적응한 기업 vs 적응하지 못한 기업 (2009년 휴대폰 점유율: 노키아 36.4%, 삼성 19.5%, LG 10.1%, 모토로라 6.2%, 소니에릭슨 5.4%)</li>
+    <li><b>제품 혁신에서 공정 혁신으로의 전환</b> — 다양한 설계를 실험 → 기업들이 효율성 향상과 비용 절감에 초점
+      <ul><li>① 포드 모델 T: 이동식 조립라인 (1913)</li><li>② 도요타: TPS / 린 생산 (1950~70년대, JIT, Kanban)</li><li>③ 철강: 잉곳 주조 → 연속 주조</li><li>④ 반도체: 웨이퍼 대형화 (200 → 300 → 450mm 시도)</li><li>⑤ 아마존: 물류센터 로봇 자동화 (Kiva Systems, 2012~)</li></ul></li>
+  </ol>
+</section>
+
+<section class="card" id="plc" data-toc="제품수명주기 (Utterback-Abernathy)">
+  <h2>제품수명주기 The product life cycle (PLC)</h2>
+  <span class="slide-ref">p.25</span>
+  <figure class="fig">
+    <svg viewBox="0 0 560 250" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+      <defs><marker id="p1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2b1a07"/></marker></defs>
+      <path d="M50 200V15" stroke="#2b1a07" marker-end="url(#p1)"/><path d="M50 200H545" stroke="#2b1a07" marker-end="url(#p1)"/>
+      <path d="M200 30V200M360 30V200" stroke="#a8a29e" stroke-dasharray="4 4"/>
+      <path d="M55 185 C 110 40, 150 40, 200 90 S 320 175, 530 188" fill="none" stroke="#ff6f1e" stroke-width="2.6"/>
+      <path d="M55 195 C 180 192, 230 70, 290 70 S 400 160, 530 175" fill="none" stroke="#3b82f6" stroke-width="2.6"/>
+      <text x="120" y="38" fill="#ce500a" text-anchor="middle">제품 혁신</text><text x="300" y="60" fill="#3b82f6" text-anchor="middle">공정 혁신</text>
+      <g text-anchor="middle" font-weight="600"><text x="125" y="220">유동기 fluid</text><text x="280" y="220">전환기 transitional</text><text x="450" y="220">고착기 specific</text></g>
+      <text x="200" y="26" text-anchor="middle" fill="#d14343" font-size="11">지배적 디자인 확립</text>
+      <text x="22" y="110" text-anchor="middle" transform="rotate(-90 22 110)">발명 건수 / 시간</text>
+      <text x="545" y="196" text-anchor="end" fill="#6b5d4f" font-size="11">시간</text>
+      <text x="125" y="238" text-anchor="middle" font-size="11" fill="#6b5d4f">다양한 실험이 목적</text><text x="450" y="238" text-anchor="middle" font-size="11" fill="#6b5d4f">생산 효율성이 목적</text>
+    </svg>
+    <figcaption>Source: Utterback and Abernathy (1975), Abernathy and Utterback (1988)</figcaption>
+  </figure>
+  <div class="trap"><h4>PLC 이론의 한계 (Question)</h4><ul>
+    <li><b>분석 단위</b>(unit of analysis): 산업/제품군을 대상으로 만들어진 이론</li>
+    <li><b>서비스 또는 복잡한 제품</b>에 대한 적용 가능성: 제조업 제품으로 만들어진 이론</li>
+  </ul></div>
+</section>
+
+<section class="card" id="plcstage" data-toc="제품수명주기 단계 표">
+  <h2>제품수명주기의 단계</h2>
+  <span class="slide-ref">p.26</span>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>구분</th><th>1단계. 유동기 (Fluid)</th><th>2단계. 전환기 (Transitional)</th><th>3단계. 고착기 (Specific)</th></tr></thead>
+    <tbody>
+      <tr><td>혁신</td><td>빈번한 대규모 <b>제품</b> 변화</td><td>수요 증가에 따른 대규모 <b>공정</b> 변화 필요</td><td>제품의 점진적 개선 및 누적적 향상</td></tr>
+      <tr><td>제품</td><td>다양한 디자인, 종종 맞춤 제작</td><td>대량생산에 적합할 만큼 안정된 단일 제품 디자인</td><td>대부분 차별화되지 않은 표준화 제품</td></tr>
+      <tr><td>연구개발</td><td>불확실성으로 인해 초점이 불명확함</td><td>특정 제품 특성에 초점</td><td>점진적 제품 기술에 초점</td></tr>
+      <tr><td>생산설비</td><td>소규모, 사용자 인근에 위치</td><td>특화된 부문을 갖춘 범용 설비</td><td>제품에 매우 특화된 대규모 설비</td></tr>
+      <tr><td>공정 변화 비용</td><td>낮음</td><td>중간</td><td>높음</td></tr>
+      <tr><td>경쟁의 기반</td><td><span class="blank">기능적 제품 성능</span></td><td><span class="blank">제품 다양성</span></td><td><span class="blank">가격</span></td></tr>
+      <tr><td>산업 선도기업의 취약점</td><td>모방자 및 성공적인 혁신(breakthrough)에 취약</td><td>더 효율적이고 품질이 높은 생산자에 취약</td><td>우수한 제품 대체재를 제시하는 기술 혁신에 취약</td></tr>
+      <tr><td>조직 통제</td><td>비공식적이고 기업가적(entrepreneurial)</td><td>프로젝트 및 태스크 그룹을 통한 통제</td><td>구조, 규칙 및 목표를 통한 통제</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="plccomp" data-toc="수명주기와 경쟁 (진입·퇴출)">
+  <h2>제품수명주기와 경쟁</h2>
+  <span class="slide-ref">p.27</span>
+  <p>Automobiles, Typewriters, TV sets — 시장 내 기업 수(firms in the market), 진입(entries), 퇴출(exits)의 추이: 기업 수가 급증했다가 지배적 디자인 이후 급감 (shake-out).</p>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>Phase</th><th>경쟁의 기반</th><th>진입 vs 퇴출</th></tr></thead>
+    <tbody>
+      <tr><td>Phase 1</td><td>성능 performance</td><td><b>entries &gt; exits</b></td></tr>
+      <tr><td>Phase 2</td><td>차별화 differentiation</td><td><b>entries = exits</b></td></tr>
+      <tr><td>Phase 3</td><td>가격 price</td><td><b>entries &lt; exits</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<h2 class="part-title"><small>part 3</small>Patterns in the adoption of innovation</h2>
+
+<section class="card" id="rogers" data-toc="로저스 혁신 수용 곡선">
+  <h2>로저스의 혁신 수용 곡선 Rogers' Diffusion of Innovation Curve</h2>
+  <span class="slide-ref">p.29 – 31</span>
+  <figure class="fig">
+    <svg viewBox="0 0 600 230" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+      <path d="M20 180H585" stroke="#2b1a07"/>
+      <path d="M30 179 C 120 178, 170 150, 220 100 S 280 30, 310 30 S 370 50, 410 100 S 520 178, 580 179" fill="#fff0e6" stroke="#ff6f1e" stroke-width="2.2"/>
+      <g stroke="#2b1a07" stroke-dasharray="4 4"><path d="M130 40V180"/><path d="M220 40V180"/><path d="M310 25V180"/><path d="M400 40V180"/></g>
+      <path d="M220 60V180" stroke="#d14343" stroke-width="3"/><text x="226" y="56" fill="#d14343" font-weight="600">캐즘</text>
+      <g text-anchor="middle" font-size="12" font-weight="600">
+        <text x="80" y="170">2.5%</text><text x="175" y="170">13.5%</text><text x="265" y="170">34%</text><text x="355" y="170">34%</text><text x="490" y="170">16%</text></g>
+      <g text-anchor="middle" font-size="11.5">
+        <text x="80" y="200">혁신 수용자</text><text x="80" y="215" fill="#6b5d4f">Innovators</text>
+        <text x="175" y="200">초기 수용자</text><text x="175" y="215" fill="#6b5d4f">Early Adopters</text>
+        <text x="265" y="200">초기 다수</text><text x="265" y="215" fill="#6b5d4f">Early Majority</text>
+        <text x="355" y="200">후기 다수</text><text x="355" y="215" fill="#6b5d4f">Late Majority</text>
+        <text x="490" y="200">최후 수용자</text><text x="490" y="215" fill="#6b5d4f">Laggards</text></g>
+    </svg>
+  </figure>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>분류</th><th>특징 (Rogers 2003)</th></tr></thead>
+    <tbody>
+      <tr><td><b>혁신 수용자</b> (Innovators) 2.5%</td><td>"<b>모험적인</b>" 성향 · 정보를 적극적으로 탐색 · 범지역적, 글로벌한 폭넓은 사회적 관계망 · 높은 수준의 불확실성을 감내 · 새로운 아이디어가 시스템 내로 유입되는 흐름에서 "<b>게이트키핑</b>(gatekeeping)" 역할</td></tr>
+      <tr><td><b>초기 수용자</b> (Early Adopters) 13.5%</td><td>흔히 <b>오피니언 리더</b> 역할 · 혁신 수용자보다 지역 사회 시스템에 더 통합된 위치 · 변화 주도자(change agents)들이 "<b>지역 전도사</b>(local missionary)"로 활용하고자 하는 대상 · 새 아이디어를 채택함으로써 불확실성을 감소시킴 (*"<b>승인 도장</b>(stamp of approval)"을 찍어 주는 역할)</td></tr>
+      <tr><td><b>초기 다수 수용자</b> (Early majority) 34%</td><td>"deliberate (신중한/사려 깊은)" · 주변 동료들과 자주 상호작용 · 오피니언 리더 지위를 갖는 경우는 드묾 · 전체 구성원의 약 <b>1/3</b></td></tr>
+      <tr><td><b>후기 다수 수용자</b> (Late majority) 34%</td><td>수용이 <b>경제적 필요</b>에 의한 것일 수 있음 · 또는 <b>동료 압력</b>(peer pressure) 증가의 결과 · 시스템 규범(system norms)이 혁신에 우호적이어야 함</td></tr>
+      <tr><td><b>최후 수용자</b> (Laggards) 16%</td><td>매우 지역적(localite), 사회적 네트워크상 거의 고립 · <b>과거가 판단의 기준점</b>(point of reference) · 자원이 제한적 · 혁신과 변화 주도자에 대해 의심하는 경향</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="card" id="bassvcr" data-toc="확산의 측정 (VCR · Bass)">
+  <h2>확산의 측정 및 모델링: VCRs</h2>
+  <span class="slide-ref">p.32 – 33</span>
+  <p>Frank M. Bass (1999): Actual and fitted adoption of VCRs, 1980-1989 (응답기 Answering Machines 1982-1993도 같은 모양)</p>
+  <ul>
+    <li><b>Actual Adoption</b> (실제 채택, 빨간색): 실제로 시장에서 판매/채택된 VCR 수량 — 실제 관측된 데이터</li>
+    <li><b>Fitted Adoption</b> (적합 채택, 초록색): <b>Bass Diffusion Model</b> 수학적 모델을 실제 데이터에 맞춰서(fit) 예측한 값 — 모델의 파라미터를 추정</li>
+  </ul>
+</section>
+
+<section class="card" id="chasm" data-toc="캐즘을 넘어서 (Moore)">
+  <h2>캐즘(Chasm)을 넘어서</h2>
+  <span class="slide-ref">p.34</span>
+  <p>제프리 무어 Jeffrey Moore (1991): <i>Crossing the Chasm: Marketing and Selling High-Tech Products to Mainstream Customers</i> — Early market | Mainstream market</p>
+  <ul>
+    <li><b>심리유형</b>(psychographics) 개념의 도입</li>
+    <li>혁신수용자 분류(adopter category) 간 전환에 <b>간극(gap)</b>의 개념 도입</li>
+    <li><span class="blank">초기 수용자(early adopters)와 초기 다수 수용자(early majority) 사이</span>의 간극이 가장 크며, 이를 "캐즘(chasm)"이라 부름</li>
+  </ul>
+  <div class="label"><span class="tag">핵심 질문</span><p>어떻게 캐즘을 건널 것인가? → "<b>완전완비제품</b>(whole product)"을 만들 것 · <b>포지셔닝</b>(Positioning) · <b>유통 채널</b>(Distribution channels) · 캐즘은 단순한 마케팅 문제 이상의 것 (초기 다수는 매우 조심스럽고, 기술에 대한 신뢰가 필요함)</p></div>
+</section>
+
+<section class="card" id="diffusion" data-toc="확산 모형: 채택을 증가시키는 요인">
+  <h2>확산 모형 Models of diffusion</h2>
+  <span class="slide-ref">p.35</span>
+  <ul>
+    <li>채택을 증가시키는 요인: <b>지각된 가치</b>(perceived value), <b>참신성의 정도</b>(degree of novelty), <b>사회적 수용</b>(예: 소셜미디어), <b>입소문</b>(word of mouth)</li>
+    <li>우리는 입소문을 퍼뜨리는 커뮤니티에 소속되어서 살아감</li>
+    <li>더 많은 사람이 사용할수록, 더 많은 사람이 채택하게 되고, 그로 인해 성장이 가속화 ☞ “<b>네트워크 효과</b>” (예: 인스타그램, 페이스북 — 사용자가 많을수록 더욱 흥미로워짐)</li>
+  </ul>
+  <div class="note"><span class="hand">슬라이드 각주</span>※ 자세한 수식 및 그래프 설명은 Supplement 시간에! → 아래 <b>보충자료</b> 구간</div>
+</section>
+
+<section class="card" id="wrap" data-toc="Wrap-up">
+  <h2>Wrap-up</h2>
+  <span class="slide-ref">p.36</span>
+  <ul>
+    <li>혁신은 종종 일정한 패턴을 따르는 경향이 있다.</li>
+    <li>그중 상당수는 <b>사후적으로만</b> 파악할 수 있다.</li>
+    <li>그럼에도, 패턴이 존재한다는 사실을 안다면 혁신 관리를 훨씬 수월하게 할 수 있다!</li>
+    <li>특히, 혁신 그 자체(어떤 유형의 혁신이, 왜 이루어지는지) 뿐만 아니라 혁신의 <b>확산과 영향</b>까지 설명하는 패턴들이 존재한다.</li>
+    <li>따라서, 특정 패턴이 적용될 것이거나 이미 확립되고 있다는 신뢰할 만한 증거가 있다면, 기업들은 이를 혁신 관리에 반영할 수 있다.</li>
+  </ul>
+</section>
+
+<h2 class="part-title supp-title"><small>supplement · 여기부터 보충자료</small>(Supplement) 확산모형 Models of diffusion</h2>
+<p class="supp-note">📎 원본: <b>Chapter 02. (Supplement) Models of diffusion.pdf</b> (8 slides). 보라색 점선 카드 = 보충자료. 위의 Wrap-up 까지가 본 강의(37 slides)예요.</p>
+
+<section class="card supp" id="supp-model" data-supp="보충자료 · Supp p.2 – 3" data-toc="두 가지 힘 · 확산 모델이란">
+  <h2>혁신의 효과 + 네트워크 효과 · 확산 모델이란</h2>
+  <span class="slide-ref">Supp p.2 – 3</span>
+  <p style="font-size:15px;color:var(--muted)">Supp p.2 는 본 강의 p.35 와 같은 슬라이드에 아래 두 줄이 추가된 것.</p>
+  <div class="note"><span class="hand">두 가지 힘</span>☞ “<b>혁신의 효과</b>” (독립적으로 채택, p) &nbsp;+&nbsp; ☞ “<b>네트워크 효과</b>” (남을 따라 채택, q)</div>
+  <h3>확산 모델이란</h3>
+  <ul>
+    <li>확산 모델은 채택자 수(N)를 시간의 함수로 표현해야 함: \(N(t)\)</li>
+    <li>확산 모델은 미분방정식으로 정의됨: \(dN/dt = \dots\) — 시간에 따른 채택자 수의 "<b>변화율</b>" (짧은 시간 dt 동안 채택자 수가 dN만큼 증가. 전체 확산 과정이 1년이라면 dt는 1주일 정도)</li>
+    <li>이 증가율(dN/dt)은 무엇에 의해 결정되는가? 특정 시점 t, 시점 t까지의 누적 채택자 수 N(t), 가격·경쟁·제품 품질 등 기타 요인</li>
+    <li>☞ 어떤 모델 설정이 가능한가? / 개인의 채택 행동은 어떤 방식으로 이루어지는가?</li>
+  </ul>
+</section>
+
+<section class="card supp" id="models" data-supp="보충자료 · Supp p.4 – 7" data-toc="5가지 확산 모델 (A·B·C)">
+  <h2>확산 모델: 단순 → 복잡</h2>
+  <span class="slide-ref">Supp p.4 – 7</span>
+  <div class="trap"><h4>※ 주의</h4><ul><li><b>p, q는 상수(파라미터)</b>이며, 가격(price)·수량(quantity)이 아님! · \(N_{total}\) = 잠재적 채택자의 총수 (시장 potential)</li></ul></div>
+  <div class="tbl-wrap"><table class="t">
+    <thead><tr><th>모델</th><th>식</th><th>의미</th><th>해 / 곡선</th></tr></thead>
+    <tbody>
+      <tr><td>A-1 (단순)</td><td>\(\dfrac{dN}{dt} = p\)</td><td>다른 사람을 모방하지 않는, 서로 <b>독립적인 채택</b> 결정들의 연속. 시장 규모(\(N_{total}\))의 유한성을 고려하지 않음 (*일정한 증가)</td><td>일정한 <b>선형 성장</b>: \(N(t) = N_0 + pt\)</td></tr>
+      <tr><td>A-2 (단순)</td><td>\(\dfrac{dN}{dt} = p(N_{total} - N)\)</td><td>모델 1과 같으나 <b>시장 규모의 유한성</b>은 고려. 새로 사는 사람이 많을수록 사지 않은 사람이 적어지므로 시장 포화를 반영 (*아직 사지 않은 사람 수에 비례). <b>p = 혁신계수</b>(Coefficient of Innovation, 외부효과계수)</td><td><b>negative exponential growth</b> (지수적 감소 성장): \(N(t) = N_{total}(1 - e^{-p(t-t_0)})\)</td></tr>
+      <tr><td>A-3 (단순)</td><td>\(\dfrac{dN}{dt} = qN\)</td><td>모델 1과 같으나 "<b>타인으로부터 학습</b>"(네트워크 효과). 이미 산 사람(N)이 많을수록 신규 채택 속도가 빨라짐 → 입소문/모방 (*이미 구매한 사람 수에 비례). <b>q = 모방계수</b>(Coefficient of Imitation). 아직 남은 사람 수를 고려하지 않음 (현실성 낮음)</td><td><b>exponential growth</b> (지수적 증가): \(N(t) = N_0 e^{qt}\)</td></tr>
+      <tr><td>B (더 복잡, 더 현실적)</td><td>\(\dfrac{dN}{dt} = qN(N_{total} - N)\)</td><td>시장 규모의 유한성 + 모방 효과를 동시에 고려 (*이미 구매한 사람 수 × 아직 사지 않은 사람 수, <b>네트워크 효과(q)만!</b>)</td><td><b>로지스틱 곡선</b>: \(N(t) = \dfrac{N_{total}}{1 + e^{-qN_{total}(t-t_0)}}\). 하루 판매량 최대치는 <b>\(N = N_{total}/2\)</b> 지점 → 이후 줄어듦 (좌우대칭)</td></tr>
+      <tr><td>C (훨씬 더 복잡, 훨씬 더 현실적)</td><td>\(\dfrac{dN}{dt} = (p + qN)(N_{total} - N)\)</td><td>유한성 + 네트워크 효과(qN 항) + <b>독립적 채택(p 항)</b>도 별도로 모형화. 독립적 채택과 모방 효과의 상대적 중요도는 <b>p와 q의 상대적 크기</b>로 표현</td><td>“<span class="blank">배스 확산모형 (Bass Diffusion Model)</span>” ※ q가 0이라도 p가 있으면 <b>초기에 빠르게 치고 올라감</b> (*p는 광고의 효과라고도 함)</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="fig">
+    <svg viewBox="0 0 700 200" font-family="Geist, Gowun Dodum, sans-serif" font-size="12">
+      <g fill="none" stroke-width="2.4">
+        <g transform="translate(10,10)"><path d="M10 150V10M10 150H160" stroke="#2b1a07" stroke-width="1"/><path d="M12 140L155 40" stroke="#ff6f1e"/><text x="85" y="175" text-anchor="middle" fill="#2b1a07" stroke="none">① dN/dt = p · 선형</text></g>
+        <g transform="translate(180,10)"><path d="M10 150V10M10 150H160" stroke="#2b1a07" stroke-width="1"/><path d="M10 30H160" stroke="#a8a29e" stroke-dasharray="4 4" stroke-width="1"/><path d="M12 148 C 40 70, 80 38, 158 32" stroke="#ff6f1e"/><text x="85" y="175" text-anchor="middle" fill="#2b1a07" stroke="none">② p(N<tspan font-size="9">total</tspan>−N) · 포화</text></g>
+        <g transform="translate(350,10)"><path d="M10 150V10M10 150H160" stroke="#2b1a07" stroke-width="1"/><path d="M12 146 C 90 144, 130 110, 156 15" stroke="#ff6f1e"/><text x="85" y="175" text-anchor="middle" fill="#2b1a07" stroke="none">③ qN · 지수 증가</text></g>
+        <g transform="translate(520,10)"><path d="M10 150V10M10 150H160" stroke="#2b1a07" stroke-width="1"/><path d="M10 30H160" stroke="#a8a29e" stroke-dasharray="4 4" stroke-width="1"/><path d="M12 146 C 60 145, 70 34, 158 32" stroke="#ff6f1e"/><path d="M12 146 C 30 110, 60 60, 158 32" stroke="#3b82f6" stroke-dasharray="5 4"/><text x="85" y="175" text-anchor="middle" fill="#2b1a07" stroke="none">B 로지스틱 · <tspan fill="#3b82f6">C 배스</tspan></text></g>
+      </g>
+    </svg>
+    <figcaption>세로축 N(누적 채택자), 가로축 time. 배스(파란 점선)는 p 덕분에 처음부터 올라가고, 로지스틱은 S자.</figcaption>
+  </figure>
+  <div class="note"><span class="hand">외우는 법</span>p = <b>p</b>ioneer(혁신·광고, 혼자 산다) · q = 따라 사는 모방(네트워크) · \((N_{total}-N)\) = 남은 사람(포화) · 둘 다 곱하면 S자, p까지 더하면 배스.</div>
+</section>
+
+
+
+<section class="card tint" id="quiz02" data-toc="셀프 체크">
+  <h2>Self-check</h2>
+  <details class="quiz"><summary>GPT 의 조건 3가지는?</summary><div class="ans">다양한 산업에 걸쳐 확산 · 지속적인 후속 개선 · 다른 혁신(새 제품·서비스)을 가능하게.</div></details>
+  <details class="quiz"><summary>콘드라티예프 장기파동의 주기와 추세는?</summary><div class="ans">약 40~60년 주기. 파동은 점점 짧아진다 (60 → 55 → 50 → 40 → 30년), 6th wave with AI.</div></details>
+  <details class="quiz"><summary>PLC 유동기·전환기·고착기의 경쟁 기반은?</summary><div class="ans">기능적 제품 성능 → 제품 다양성 → 가격. (진입·퇴출: entries &gt; exits → = → &lt;)</div></details>
+  <details class="quiz"><summary>캐즘은 어디와 어디 사이?</summary><div class="ans">초기 수용자(13.5%)와 초기 다수 수용자(34%) 사이. 해결: 완전완비제품, 포지셔닝, 유통 채널.</div></details>
+  <details class="quiz"><summary>dN/dt = qN(N_total − N) 의 곡선과 판매량 최대 지점은?</summary><div class="ans">로지스틱(S자) 곡선, 판매량(dN/dt) 최대는 N = N_total/2 (좌우대칭).</div></details>
+  <div class="quiz-cta"><div class="qc-text"><span class="hand">다 풀어 봤으면?</span><b>02장 퀴즈</b><span>객관식으로 바로 채점하고 틀린 건 오답노트에 모아 줘요.</span></div><div class="qc-btns"><a class="pill primary" href="quiz.html?ch=02">02장 퀴즈 풀기 →</a><a class="pill small" href="quiz.html?ch=all">전체 퀴즈</a></div></div>
+</section>
+
+<nav class="ch-nav"></nav>
+    </main>
+  </div>
+</div>
+</body>
+</html>

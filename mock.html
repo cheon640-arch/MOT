@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>모의고사 — mot notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Gaegu:wght@400;700&family=Geist:wght@400;500&family=Gowun+Dodum&family=JetBrains+Mono&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script defer src="assets/app.js"></script>
+<script defer src="assets/mock-data.js"></script>
+<style>
+  .exam-bar { position: sticky; top: 64px; z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; background: var(--cream); border: 1.5px solid var(--charcoal); border-radius: 14px; padding: 10px 16px; margin: 0 0 22px; box-shadow: var(--shadow-card); font-family: var(--font-ui); font-size: 14px; }
+  .exam-bar .timer { font-family: var(--font-mono); font-size: 20px; color: var(--cocoa); min-width: 70px; }
+  .exam-bar .timer.low { color: #dc2626; }
+  .exam-bar .score { font-family: var(--font-display); font-size: 22px; font-weight: 600; }
+  .set-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .set-tabs button { font-family: var(--font-ui); font-size: 14px; border: 1.5px solid var(--mist); background: var(--cream); border-radius: 20px; padding: 6px 16px; cursor: pointer; color: var(--charcoal); }
+  .set-tabs button.on { border-color: var(--charcoal); background: #fff; box-shadow: var(--shadow-btn); }
+  .sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .sec-head .rule { font-family: var(--font-ui); font-size: 13px; color: var(--muted); }
+  .q { border-top: 1px dashed rgba(23,23,23,.18); padding: 16px 0 6px; }
+  .q:first-of-type { border-top: 0; }
+  .q .qn { font-family: var(--font-ui); font-weight: 600; color: var(--sienna); margin-right: 6px; }
+  .q .stem { margin: 0 0 10px; }
+  div.stem { line-height: 1.7; }
+  .row-ox { display: flex; gap: 10px; }
+  .row-ox button, .mc-opt { font: inherit; font-size: 16px; border: 1.5px solid var(--charcoal); background: #fff; border-radius: 10px; padding: 6px 18px; cursor: pointer; color: var(--cocoa); }
+  .row-ox button { font-family: var(--font-display); font-size: 22px; padding: 4px 22px; }
+  .row-ox button.sel, .mc-opt.sel { background: #fff0e6; border-color: var(--orange); box-shadow: inset 0 0 0 1px var(--orange); }
+  .mc-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .q .stem .tbl-wrap { margin: 10px 0 0; }
+  .mc-opt { text-align: left; display: flex; gap: 10px; align-items: baseline; }
+  .mc-opt .k { font-family: var(--font-ui); font-weight: 600; color: var(--sienna); }
+  .graded .row-ox button, .graded .mc-opt { cursor: default; }
+  .row-ox button.right, .mc-opt.right { border-color: #15803d; background: #e8f7ee; box-shadow: inset 0 0 0 1px #15803d; }
+  .row-ox button.wrong, .mc-opt.wrong { border-color: #dc2626; background: #fdecec; box-shadow: inset 0 0 0 1px #dc2626; }
+  .mc-opt.missed { border-style: dashed; border-color: #15803d; }
+  textarea.ans { width: 100%; min-height: 70px; font: inherit; font-size: 16px; border: 1.5px solid var(--charcoal); border-radius: 10px; padding: 8px 12px; background: #fff; color: var(--cocoa); resize: vertical; }
+  textarea.ans.big { min-height: 120px; }
+  .key { display: none; margin-top: 10px; background: #fff; border: 1.5px dashed var(--sienna); border-radius: 10px; padding: 10px 14px; font-size: 16px; }
+  .graded .key { display: block; }
+  .key .k-title { font-family: var(--font-hand); color: var(--sienna); font-size: 21px; }
+  .self { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; font-family: var(--font-ui); font-size: 14px; }
+  .self button { font-family: var(--font-ui); font-size: 13px; border: 1.5px solid var(--mist); background: var(--cream); border-radius: 16px; padding: 4px 12px; cursor: pointer; }
+  .self button.on { border-color: var(--charcoal); background: #fff; box-shadow: var(--shadow-btn); }
+  .self input { width: 64px; font: inherit; border: 1.5px solid var(--charcoal); border-radius: 8px; padding: 3px 8px; }
+  .pts { font-family: var(--font-ui); font-size: 13px; color: var(--muted); margin-left: 6px; }
+  .got { font-family: var(--font-ui); font-size: 13px; font-weight: 600; margin-left: 8px; }
+  .got.p { color: #15803d; } .got.n { color: #dc2626; } .got.z { color: var(--muted); }
+  .part { margin: 14px 0 0 0; padding-left: 14px; border-left: 3px solid #ffd2b8; }
+  .part .pq { margin: 0 0 6px; }
+  .result-card { text-align: center; }
+  .result-card .big { font-family: var(--font-display); font-weight: 600; font-size: 72px; line-height: 1; color: var(--cocoa); }
+  @media (max-width: 640px) { .mc-grid { grid-template-columns: 1fr; } .exam-bar { top: 56px; } }
+</style>
+</head>
+<body data-ch="mock">
+
+<div class="wrap">
+  <div class="hero">
+    <span class="kicker">중간고사 대비 · 50분 · 25문항 · 100점</span>
+    <h1 class="display">mock<br>exam</h1>
+    <p class="lede">시험이 <span class="mk">객관식</span>이라 전부 4지선다로 만들었어요 — 개념 확인 10 · 사례 적용 10 · 계산·종합 5 (각 4점). 1·2회는 기본, 3~5회는 심화(ㄱㄴㄷㄹ 보기 조합형, 함정 사례, 숫자 바꾼 계산). 채점하면 정답과 해설이 나오고, 틀린 문제는 다시 풀기 탭에 모여요.</p>
+    <div class="set-tabs" id="setTabs"></div>
+    <div data-sticker="star" data-rot="8" style="right:8%;top:80px;width:64px;height:64px"></div>
+    <div data-sticker="factory" data-rot="-10" style="right:20%;top:200px;width:60px;height:60px"></div>
+  </div>
+
+  <div class="exam-bar" id="bar">
+    <div><span class="timer" id="timer">50:00</span> <button class="pill small" type="button" id="timerBtn">시작</button></div>
+    <div class="score" id="score">— / 100</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pill small primary" type="button" id="gradeBtn">채점하기</button><button class="pill small" type="button" id="resetBtn">답안 지우기</button></div>
+  </div>
+
+  <main id="exam"></main>
+</div>
+
+<script>
+(function () {
+  const R = String.raw;
+  /* ================= 문제: assets/mock-data.js ================= */
+  let SETS = [];
+
+  /* ================= 화면 ================= */
+  const S = { get: k => window.RL_STORE ? window.RL_STORE.get(k) : null, set: (k, v) => window.RL_STORE && window.RL_STORE.set(k, v) };
+  const $ = id => document.getElementById(id);
+  let cur = S.get('mock-set') || 1;
+  let st = {};
+  const key = () => 'mock-' + cur;
+  const save = () => S.set(key(), st);
+  const render = el => window.RL_RENDER_MATH && window.RL_RENDER_MATH(el);
+
+  function drawTabs() {
+    const n = wrongList().filter(w => !w.done).length;
+    $('setTabs').innerHTML = SETS.map(s => `<button type="button" class="${s.id === cur ? 'on' : ''}" data-s="${s.id}">${s.name}</button>`).join('') +
+      `<button type="button" class="${cur === 'w' ? 'on' : ''}" data-s="w">📒 틀린 문제 다시 풀기${n ? ` (${n})` : ''}</button>` +
+      `<button type="button" class="${cur === 'a' ? 'on' : ''}" data-s="a">📊 약점 분석</button>`;
+  }
+  $('setTabs').onclick = e => { const b = e.target.closest('[data-s]'); if (!b) return; cur = ['w', 'a'].includes(b.dataset.s) ? b.dataset.s : +b.dataset.s; if (cur === 'w') wCh = 0; S.set('mock-set', cur); stopTimer(); load(); };
+
+  function load() {
+    const qp = new URLSearchParams(location.search);
+    if (!load.once) { load.once = true; if (qp.has('wrong')) cur = 'w'; if (qp.has('weak')) cur = 'a'; }
+    if (cur === 'w') { $('bar').hidden = true; drawTabs(); drawWrong(); return; }
+    if (cur === 'a') { $('bar').hidden = true; drawTabs(); drawAnalysis(); return; }
+    $('bar').hidden = false;
+    st = S.get(key()) || { a: {}, self: {}, graded: false, left: 50 * 60 };
+    drawTabs(); draw(); drawTimer();
+  }
+
+  /* ---------- 틀린 문제 모음 ---------- */
+  const NUM = '①②③④⑤';
+  function wrongList() {
+    const done = S.get('mock-wrong-done') || {}, out = [];
+    for (const set of SETS) {
+      const s = S.get('mock-' + set.id);
+      if (!s || !s.graded) continue;
+      set.sections.forEach((sec, si) => sec.items.forEach((it, qi) => {
+        const k = `${si}-${qi}`, ans = s.a[k], base = { set, sec, si, qi, it };
+        const push = (status, extra = {}) => { const id = `${set.id}:${extra.pk || k}`; out.push({ ...base, ...extra, id, status, done: !!done[id] }); };
+        if (sec.type === 'ox') { if (ans == null) push('미기재'); else if (ans !== it.a) push('오답', { mine: ans ? 'O' : 'X' }); }
+        else if (sec.type === 'mc') { const a = ans || []; if (!a.length) push('미기재'); else if (!(a.length === it.a.length && a.every(i => it.a.includes(i)))) push('오답', { mine: a.map(i => NUM[i]).join(', ') }); }
+        else if (sec.type === 'sa') { const t = (ans || '').trim(); if (!t) push('미기재'); else if (s.self[k] === 'wrong') push('오답', { mine: t }); else if (!s.self[k]) push('채점 안 함', { mine: t }); }
+        else it.parts.forEach((p, pi) => { const pk = `${k}-${pi}`, t = (s.a[pk] || '').trim(), sc = s.self[pk];
+          if (!t && sc == null) push('미기재', { part: p, pi, pk }); else if (sc == null) push('채점 안 함', { part: p, pi, pk, mine: t }); else if (sc < p.p) push(`부분점수 ${sc}/${p.p}`, { part: p, pi, pk, mine: t }); });
+      }));
+    }
+    return out;
+  }
+  /* 문항이 어느 장인지: 해설의 "(N장" 표기 → 없으면 키워드로 추정 */
+  const CHN = { 1: '혁신이란', 2: '혁신 패턴', 3: '유형·원천', 4: '누가 혁신?', 5: '혁신 전략', 6: '플랫폼', 7: '수익화', 8: 'IP 보호' };
+  const CHF = { 1: 'ch01-intro.html', 2: 'ch02-patterns.html', 3: 'ch03-sources.html', 4: 'ch04-who.html', 5: 'ch05-strategy.html', 6: 'ch06-platform.html', 7: 'ch07-profit.html', 8: 'ch08-ip.html' };
+  const KW = [[8, /특허|저작권|디자인|PCT|파리협약|상표|실용신안/], [7, /전유|보완적 자산|이중마진|홀드업|Teece/], [6, /네트워크|플랫폼|지배적 디자인/], [5, /전략|VRIN|Five Forces/], [4, /애로우|자기잠식|파괴적|InnovaPNU/], [3, /급진적|구조적|원천/], [2, /S-곡선|확산|수명주기|캐즘/], [1, /슘페터|발명/]];
+  function chOf(sec, it, part) {
+    const txt = [it.ex, it.ans, part && part.ans, part && part.rubric].filter(Boolean).join(' ');
+    const m = txt.match(/\((\d)장/) || txt.match(/(\d)장 /);
+    if (m) return +m[1];
+    const t = sec.title + ' ' + it.q + ' ' + (part ? part.q : '');
+    for (const [c, re] of KW) if (re.test(t)) return c;
+    return 0;
+  }
+
+  /* ---------- 다시 풀기 ---------- */
+  let wFilter = 'all', wShowDone = false, wCh = 0;
+  const RT = () => S.get('mock-retry') || {};
+  const setRT = r => S.set('mock-retry', r);
+  function retryOk(w, r) {
+    if (w.sec.type === 'ox') return r.v === w.it.a;
+    if (w.sec.type === 'mc') { const a = r.m || []; return a.length === w.it.a.length && a.every(i => w.it.a.includes(i)); }
+    return null;
+  }
+  function drawWrong() {
+    const all = wrongList().map(w => ({ ...w, ch: chOf(w.sec, w.it, w.part) }));
+    const list = all.filter(w => (wShowDone || !w.done) && (!wCh || w.ch === wCh) && (wFilter === 'all' || (wFilter === 'auto' ? ['ox', 'mc'].includes(w.sec.type) : w.sec.type === wFilter)));
+    const graded = SETS.filter(s => (S.get('mock-' + s.id) || {}).graded).length, R = RT();
+    const chip = (v, t) => `<button type="button" class="${wFilter === v ? 'on' : ''}" data-wf="${v}">${t}</button>`;
+    const tried = list.filter(w => R[w.id] && R[w.id].checked && ['ox', 'mc'].includes(w.sec.type));
+    let h = `<section class="card"><div class="sec-head"><h2>📒 틀린 문제 다시 풀기</h2><span class="rule">채점한 회차 ${graded} / ${SETS.length} · 남은 문제 ${all.filter(w => !w.done).length}개</span></div>
+      <p style="font-size:15px;color:var(--muted);margin:0 0 10px">채점한 회차의 <b>오답 · 안 푼 문제</b>를 모았어요. 여기서 바로 다시 풀고 <b>확인</b>을 누르세요. 이해했으면 “이해했어요 ✓”로 목록에서 빼요.</p>
+      <div class="set-tabs">${chip('all', '전체')}
+        <button type="button" class="${wShowDone ? 'on' : ''}" data-wd="1">이해한 것도 보기</button></div>
+      ${wCh ? `<p style="margin:10px 0 0;font-family:var(--font-ui);font-size:14px">📊 <b>${wCh}장 ${CHN[wCh]}</b> 문제만 보는 중 <button type="button" class="pill small" data-wch="0">전체 장 보기</button></p>` : ''}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button type="button" class="pill small primary" data-rall="1">푼 문제 한꺼번에 확인</button><button type="button" class="pill small" data-rclear="1">다시 푼 답 지우기</button>
+      ${tried.length ? `<span style="font-family:var(--font-ui);font-size:14px;align-self:center">다시 푼 ${tried.length}문제 중 <b>${tried.filter(w => retryOk(w, R[w.id])).length}</b>개 정답</span>` : ''}</div></section>`;
+    if (!graded) h += `<section class="card tint"><p style="margin:0">아직 채점한 회차가 없어요. 모의고사를 풀고 <b>채점하기</b>를 누르면 여기에 틀린 문제가 모여요.</p></section>`;
+    else if (!list.length) h += `<section class="card tint"><p style="margin:0">${all.length ? '이 조건에 해당하는 문제가 없어요.' : '틀린 문제가 하나도 없어요! 🎉'}</p></section>`;
+    const groups = {};
+    list.forEach(w => (groups[w.set.id] = groups[w.set.id] || []).push(w));
+    for (const id in groups) {
+      const set = SETS.find(s => s.id === +id);
+      h += `<section class="card"><h2>${set.name}</h2>${groups[id].map(w => itemHtml(w, R[w.id] || {})).join('')}</section>`;
+    }
+    $('exam').innerHTML = h;
+    render($('exam'));
+  }
+  function itemHtml(w, r) {
+    const n = `${w.set.sections.slice(0, w.si).reduce((t, x) => t + x.items.length, 0) + w.qi + 1}.`;
+    const tone = w.status === '오답' ? '#dc2626' : w.status.startsWith('부분') ? '#ce500a' : '#6b5d4f';
+    const ok = r.checked ? retryOk(w, r) : null;
+    let stem = w.part ? `<div style="font-size:15px;color:var(--muted);margin-bottom:6px">${w.it.q}</div><p class="stem"><span class="qn">${n}</span><span class="pts">(${w.part.p}점)</span> ${w.part.q}</p>` : `<div class="stem"><span class="qn">${n}</span>${w.it.q}</div>`;
+    let input;
+    if (w.sec.type === 'ox') {
+      const cls = v => { let c = r.v === v ? 'sel' : ''; if (r.checked) { if (v === w.it.a && r.v === v) c += ' right'; if (r.v === v && v !== w.it.a) c += ' wrong'; } return c; };
+      input = `<div class="row-ox">${[true, false].map(v => `<button type="button" class="${cls(v)}" data-rk="${w.id}" data-rv="${v}">${v ? 'O' : 'X'}</button>`).join('')}</div>`;
+    } else if (w.sec.type === 'mc') {
+      const sel = new Set(r.m || []);
+      const cls = i => { let c = sel.has(i) ? 'sel' : ''; if (r.checked) { const t = w.it.a.includes(i); if (t && sel.has(i)) c += ' right'; else if (!t && sel.has(i)) c += ' wrong'; else if (t) c += ' missed'; } return c; };
+      input = `<div class="mc-grid">${w.it.c.map((c, i) => `<button type="button" class="mc-opt ${cls(i)}" data-rk="${w.id}" data-ri="${i}"><span class="k">${NUM[i]}</span><span>${c}</span></button>`).join('')}</div>`;
+    } else input = `<textarea class="ans${w.part ? ' big' : ''}" data-rt="${w.id}" placeholder="다시 풀어 보세요">${esc(r.t || '')}</textarea>`;
+    const correct = w.sec.type === 'ox' ? `<span class="k-title">정답 ${w.it.a ? 'O' : 'X'}</span> — ${w.it.ex}` : w.sec.type === 'mc' ? `<span class="k-title">정답 ${w.it.a.map(i => NUM[i]).join(', ')}</span> — ${w.it.ex}` : w.part ? `<span class="k-title">모범답안</span><div>${w.part.ans}</div><div style="font-size:14px;color:var(--muted);margin-top:6px">채점 기준: ${w.part.rubric}</div>` : `<span class="k-title">모범답안</span><div>${w.it.ans}</div>`;
+    const verdict = !r.checked ? '' : ok === true ? `<div style="color:#15803d;font-weight:600;font-family:var(--font-ui);margin-top:8px">✓ 이번엔 맞았어요!</div>` : ok === false ? `<div style="color:#dc2626;font-weight:600;font-family:var(--font-ui);margin-top:8px">✗ 또 틀렸어요 — 해설을 읽고 한 번 더</div>` : `<div style="font-family:var(--font-ui);font-size:14px;margin-top:8px;color:var(--muted)">모범답안과 비교해 보고 맞았으면 “이해했어요”를 눌러 목록에서 빼세요.</div>`;
+    return `<div class="q" style="${w.done ? 'opacity:.55' : ''}">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-family:var(--font-ui);font-size:13px;margin-bottom:6px"><span style="color:${tone};font-weight:600">● 처음: ${w.status}</span><span style="color:var(--muted)">${w.ch ? `${w.ch}장 ${CHN[w.ch]} · ` : ''}${w.sec.title}</span></div>
+      ${stem}${input}
+      ${w.mine != null ? `<div style="font-family:var(--font-ui);font-size:13px;margin:6px 0 0;color:var(--muted)">처음 쓴 답: <span style="white-space:pre-wrap">${esc(w.mine)}</span></div>` : ''}
+      ${verdict}
+      ${r.checked ? `<div class="key" style="display:block">${correct}</div>` : ''}
+      <div class="self">${r.checked ? `<button type="button" data-rre="${w.id}">다시 풀기 ↺</button>` : `<button type="button" class="on" data-rcheck="${w.id}">확인</button>`}
+        <button type="button" class="${w.done ? 'on' : ''}" data-wdone="${w.id}">${w.done ? '다시 목록에 넣기' : '이해했어요 ✓'}</button><button type="button" data-wgo="${w.set.id}">${w.set.name} 열기 →</button></div></div>`;
+  }
+
+  /* ---------- 약점 분석 ---------- */
+  function analysis() {
+    const by = {}, type = { 0: [0, 0], 1: [0, 0], 2: [0, 0] };
+    const add = (c, t, got, max) => { const b = by[c] = by[c] || { got: 0, max: 0, n: 0, miss: 0 }; b.got += got; b.max += max; b.n++; if (got < max) b.miss++; type[t][0] += got; type[t][1] += max; };
+    for (const set of SETS) {
+      const s = S.get('mock-' + set.id);
+      if (!s || !s.graded) continue;
+      set.sections.forEach((sec, si) => sec.items.forEach((it, qi) => {
+        const k = `${si}-${qi}`, ans = s.a[k];
+        if (sec.type === 'ox') add(chOf(sec, it), 'ox', ans === it.a ? sec.pts : 0, sec.pts);
+        else if (sec.type === 'mc') { const a = ans || []; add(chOf(sec, it), si, a.length === it.a.length && a.every(i => it.a.includes(i)) ? sec.pts : 0, sec.pts); }
+        else if (sec.type === 'sa') add(chOf(sec, it), 'sa', s.self[k] === 'right' && (ans || '').trim() ? sec.pts : 0, sec.pts);
+        else it.parts.forEach((p, pi) => add(chOf(sec, it, p), 'es', s.self[`${k}-${pi}`] || 0, p.p));
+      }));
+    }
+    return { by, type };
+  }
+  function drawAnalysis() {
+    const { by, type } = analysis(), qs = S.get('quiz-stats') || {}, qw = S.get('quiz-wrong') || [];
+    const graded = SETS.filter(s => (S.get('mock-' + s.id) || {}).graded).length;
+    const rows = [1, 2, 3, 4, 5, 6, 7, 8].map(c => {
+      const b = by[c], pct = b && b.max ? Math.round(b.got / b.max * 100) : null, q = qs['0' + c], qwN = qw.filter(id => id.startsWith('0' + c + '-')).length;
+      const vals = [pct, q ? q.last : null].filter(v => v != null);
+      return { c, b, pct, q, qwN, score: vals.length ? vals.reduce((x, y) => x + y, 0) / vals.length : null };
+    });
+    const known = rows.filter(r => r.score != null).sort((a, b) => a.score - b.score);
+    const weak = known.filter(r => r.score < 70).slice(0, 3);
+    const bar = (v, tone) => v == null ? '<span style="color:var(--muted)">—</span>' : `<div style="display:flex;align-items:center;gap:8px"><div style="flex:1;min-width:80px;height:10px;border-radius:6px;background:#f7efe9;border:1px solid rgba(23,23,23,.12);overflow:hidden"><i style="display:block;height:100%;width:${v}%;background:${tone || (v < 50 ? '#dc2626' : v < 70 ? '#ff6f1e' : '#15803d')}"></i></div><b style="font-family:var(--font-ui);font-size:14px;min-width:40px">${v}%</b></div>`;
+    const TN = { 0: '1. 개념 확인', 1: '2. 사례 적용', 2: '3. 계산 · 종합' };
+    let h = `<section class="card"><div class="sec-head"><h2>📊 약점 분석</h2><span class="rule">채점한 모의고사 ${graded}회 + 퀴즈 기록</span></div>
+      <p style="font-size:15px;color:var(--muted);margin:0">모의고사는 <b>장별 득점률</b>(얻은 점수 / 배점), 퀴즈는 장별 <b>최근 점수</b>예요. 둘을 평균해서 70% 미만인 장을 약점으로 골라요.</p></section>`;
+    if (!known.length) h += `<section class="card tint"><p style="margin:0">아직 분석할 기록이 없어요. 모의고사를 풀고 <b>채점하기</b>를 누르거나, <a href="quiz.html">퀴즈</a>를 풀면 여기에 나타나요.</p></section>`;
+    else {
+      h += `<section class="card tint"><h2>지금 약한 곳</h2>${weak.length ? weak.map((r, i) => `<div class="q"><p class="stem" style="margin:0 0 6px"><span class="qn">${i + 1}</span><b>${r.c}장 ${CHN[r.c]}</b> — 종합 ${Math.round(r.score)}%${r.b ? ` · 모의고사에서 ${r.b.n}문항 중 ${r.b.miss}문항 감점` : ''}${r.qwN ? ` · 퀴즈 오답노트 ${r.qwN}개` : ''}</p>
+        <div class="self"><a class="pill small" href="${CHF[r.c]}">${r.c}장 다시 읽기 →</a>${r.b && r.b.miss ? `<button type="button" data-wch="${r.c}">${r.c}장 틀린 문제만 다시 풀기</button>` : ''}<a class="pill small" href="quiz.html?ch=0${r.c}">${r.c}장 퀴즈</a></div></div>`).join('') : '<p style="margin:0">70% 미만인 장이 없어요. 잘하고 있어요! 👏 아래 표에서 상대적으로 낮은 장을 한 번 더 보세요.</p>'}</section>`;
+      h += `<section class="card"><h2>장별 정답률</h2><div class="tbl-wrap"><table class="t" style="font-size:15px"><thead><tr><th>장</th><th>모의고사 득점률</th><th>퀴즈 최근</th><th>퀴즈 오답</th></tr></thead><tbody>${rows.map(r => `<tr><td><a href="${CHF[r.c]}">${r.c}장 ${CHN[r.c]}</a></td><td>${bar(r.pct)}${r.b ? `<div style="font-size:12px;color:var(--muted)">${r.b.got} / ${r.b.max}점 · ${r.b.n}문항</div>` : ''}</td><td>${bar(r.q ? r.q.last : null, '#3b82f6')}</td><td style="font-family:var(--font-ui)">${r.qwN || '—'}</td></tr>`).join('')}</tbody></table></div></section>`;
+      h += `<section class="card"><h2>영역별</h2><div class="tbl-wrap"><table class="t" style="font-size:15px"><thead><tr><th>영역</th><th>득점률</th></tr></thead><tbody>${Object.entries(type).map(([t, [g, m]]) => `<tr><td>${TN[t]}</td><td>${m ? bar(Math.round(g / m * 100)) + `<div style="font-size:12px;color:var(--muted)">${g} / ${m}점</div>` : '<span style="color:var(--muted)">—</span>'}</td></tr>`).join('')}</tbody></table></div>
+        <p style="font-size:14px;color:var(--muted);margin:8px 0 0">개념이 낮으면 슬라이드 문장(정의·구분 기준)을 정확히, 사례가 낮으면 사례 ↔ 개념 연결을, 계산이 낮으면 애로우·이중마진화·확산 모형 풀이를 손으로 다시 풀어 보세요.</p></section>`;
+    }
+    $('exam').innerHTML = h;
+    render($('exam'));
+  }
+
+  $('exam').addEventListener('click', e => {
+    if (cur !== 'w' && cur !== 'a') return;
+    const b = e.target.closest('button'); if (!b) return;
+    const R = RT(), d = b.dataset;
+    if (d.wch != null) { wCh = +d.wch; wFilter = 'all'; cur = 'w'; S.set('mock-set', cur); load(); scrollTo(0, 0); return; }
+    if (cur !== 'w') return;
+    if (d.wf) { wFilter = d.wf; drawWrong(); }
+    else if (d.wd) { wShowDone = !wShowDone; drawWrong(); }
+    else if (d.wdone) { const dn = S.get('mock-wrong-done') || {}; if (dn[d.wdone]) delete dn[d.wdone]; else dn[d.wdone] = 1; S.set('mock-wrong-done', dn); drawTabs(); drawWrong(); }
+    else if (d.wgo) { cur = +d.wgo; S.set('mock-set', cur); load(); scrollTo(0, 0); }
+    else if (d.rk) { const r = R[d.rk] = R[d.rk] || {}; if (r.checked) return; if (d.rv != null) { const v = d.rv === 'true'; r.v = r.v === v ? undefined : v; } else { const i = +d.ri; r.m = (r.m || [])[0] === i ? [] : [i]; } setRT(R); drawWrong(); }
+    else if (d.rcheck) { const r = R[d.rcheck] = R[d.rcheck] || {}; r.checked = true; setRT(R); drawWrong(); }
+    else if (d.rre) { delete R[d.rre]; setRT(R); drawWrong(); }
+    else if (d.rall) { wrongList().forEach(w => { const r = R[w.id]; if (r && !r.checked && (r.v != null || (r.m && r.m.length) || (r.t || '').trim())) r.checked = true; }); setRT(R); drawWrong(); }
+    else if (d.rclear) { if (confirm('다시 푼 답을 모두 지울까요? (처음 모의고사 답안과 “이해했어요” 표시는 그대로예요)')) { setRT({}); drawWrong(); } }
+  });
+  $('exam').addEventListener('input', e => {
+    const t = e.target; if (cur !== 'w' || !t.dataset.rt) return;
+    const R = RT(), r = R[t.dataset.rt] = R[t.dataset.rt] || {}; r.t = t.value; setRT(R);
+  });
+
+  function draw() {
+    const set = SETS.find(s => s.id === cur);
+    $('exam').innerHTML = set.sections.map((sec, si) => `<section class="card ${st.graded ? 'graded' : ''}" id="sec${si + 1}">
+      <div class="sec-head"><h2>${sec.title}</h2><span class="rule">${sec.rule}</span></div>
+      ${sec.items.map((it, qi) => qHtml(sec, si, it, qi)).join('')}
+    </section>`).join('') + `<section class="card tint result-card" id="resCard" ${st.graded ? '' : 'hidden'}></section>`;
+    $('exam').querySelectorAll('textarea.ans').forEach(t => t.oninput = () => { st.a[t.dataset.k] = t.value; save(); if (st.graded) score(); });
+    render($('exam'));
+    score();
+  }
+
+  function qHtml(sec, si, it, qi) {
+    const k = `${si}-${qi}`, n = `${si + 1}-${qi + 1})`, ans = st.a[k];
+    if (sec.type === 'ox') {
+      const cls = v => { let c = ans === v ? 'sel' : ''; if (st.graded) { if (v === it.a) c += ans === v ? ' right' : ''; if (ans === v && v !== it.a) c += ' wrong'; } return c; };
+      return `<div class="q"><p class="stem"><span class="qn">${n}</span>${it.q} ( )<span class="got" data-got="${k}"></span></p>
+        <div class="row-ox">${[true, false].map(v => `<button type="button" class="${cls(v)}" data-k="${k}" data-v="${v}">${v ? 'O' : 'X'}</button>`).join('')}</div>
+        <div class="key"><span class="k-title">정답 ${it.a ? 'O' : 'X'}</span> — ${it.ex}</div></div>`;
+    }
+    if (sec.type === 'mc') {
+      const set = SETS.find(x => x.id === cur), gn = set.sections.slice(0, si).reduce((t, x) => t + x.items.length, 0) + qi + 1;
+      const n = `${gn}.`;
+      const sel = new Set(ans || []);
+      const cls = i => { let c = sel.has(i) ? 'sel' : ''; if (st.graded) { const ok = it.a.includes(i); if (ok && sel.has(i)) c += ' right'; else if (!ok && sel.has(i)) c += ' wrong'; else if (ok) c += ' missed'; } return c; };
+      return `<div class="q"><div class="stem"><span class="qn">${n}</span>${it.q}<span class="got" data-got="${k}"></span></div>
+        <div class="mc-grid">${it.c.map((c, i) => `<button type="button" class="mc-opt ${cls(i)}" data-k="${k}" data-i="${i}"><span class="k">${'①②③④⑤'[i]}</span><span>${c}</span></button>`).join('')}</div>
+        <div class="key"><span class="k-title">정답 ${it.a.map(i => '①②③④⑤'[i]).join(', ')}</span> — ${it.ex}</div></div>`;
+    }
+    if (sec.type === 'sa') {
+      const sm = st.self[k];
+      return `<div class="q"><p class="stem"><span class="qn">${n}</span>${it.q}<span class="pts">(${sec.pts}점)</span><span class="got" data-got="${k}"></span></p>
+        <textarea class="ans" data-k="${k}" placeholder="답을 쓰세요" ${st.graded ? 'readonly' : ''}>${esc(ans || '')}</textarea>
+        <div class="key"><span class="k-title">모범답안</span><div>${it.ans}</div>
+          <div class="self">내 답은? ${['right', 'wrong'].map(v => `<button type="button" class="${sm === v ? 'on' : ''}" data-self="${k}" data-v="${v}">${v === 'right' ? '맞았어요 (+6)' : '틀렸어요 (−2)'}</button>`).join('')} <span style="color:var(--muted)">비워 두면 0점</span></div></div></div>`;
+    }
+    // 서술형
+    return `<div class="q"><p class="stem">${it.q}</p>${it.parts.map((p, pi) => {
+      const pk = `${k}-${pi}`, sv = st.self[pk];
+      return `<div class="part"><p class="pq"><span class="qn">${si + 1}-${pi + 1})</span><span class="pts">(${p.p}점)</span> ${p.q}<span class="got" data-got="${pk}"></span></p>
+        <textarea class="ans big" data-k="${pk}" placeholder="풀이와 답을 쓰세요" ${st.graded ? 'readonly' : ''}>${esc(st.a[pk] || '')}</textarea>
+        <div class="key"><span class="k-title">모범답안</span><div>${p.ans}</div><div style="font-size:14px;color:var(--muted);margin-top:6px">채점 기준: ${p.rubric}</div>
+          <div class="self">내 점수 <input type="number" min="0" max="${p.p}" step="1" value="${sv ?? ''}" data-score="${pk}" data-max="${p.p}"> / ${p.p}</div></div></div>`;
+    }).join('')}</div>`;
+  }
+  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+  $('exam').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.self) { st.self[b.dataset.self] = st.self[b.dataset.self] === b.dataset.v ? undefined : b.dataset.v; save(); draw(); return; }
+    if (st.graded) return;
+    const k = b.dataset.k; if (!k) return;
+    if (b.dataset.v != null) { const v = b.dataset.v === 'true'; st.a[k] = st.a[k] === v ? undefined : v; }
+    else if (b.dataset.i != null) { const i = +b.dataset.i; st.a[k] = (st.a[k] || [])[0] === i ? [] : [i]; }
+    save(); draw();
+  });
+  $('exam').addEventListener('input', e => {
+    const t = e.target; if (!t.dataset.score) return;
+    let v = t.value === '' ? undefined : Math.max(0, Math.min(+t.dataset.max, +t.value));
+    st.self[t.dataset.score] = v; save(); score();
+  });
+
+  function score() {
+    const set = SETS.find(s => s.id === cur);
+    let total = 0, auto = 0, pending = 0;
+    const mark = (k, v, txt) => { const el = document.querySelector(`[data-got="${k}"]`); if (!el) return; el.className = 'got ' + (v > 0 ? 'p' : v < 0 ? 'n' : 'z'); el.textContent = st.graded ? (txt ?? ((v > 0 ? '+' : '') + v + '점')) : ''; };
+    set.sections.forEach((sec, si) => sec.items.forEach((it, qi) => {
+      const k = `${si}-${qi}`, ans = st.a[k];
+      if (sec.type === 'ox') { const v = ans == null ? 0 : ans === it.a ? sec.pts : -2; total += v; mark(k, v); }
+      else if (sec.type === 'mc') { const a = ans || []; const v = !a.length ? 0 : (a.length === it.a.length && a.every(i => it.a.includes(i))) ? sec.pts : 0; total += v; mark(k, v, a.length && !v ? '오답 0점' : undefined); }
+      else if (sec.type === 'sa') {
+        const empty = !(ans || '').trim(), sm = st.self[k];
+        const v = empty ? 0 : sm === 'right' ? sec.pts : sm === 'wrong' ? -2 : 0;
+        if (!empty && !sm) pending++;
+        total += v; mark(k, v, !empty && !sm ? '채점 대기' : undefined);
+      } else it.parts.forEach((p, pi) => { const pk = `${k}-${pi}`, sv = st.self[pk]; if (sv == null) pending++; total += sv || 0; mark(pk, sv || 0, sv == null ? '채점 대기' : `${sv}/${p.p}점`); });
+    }));
+    $('score').textContent = st.graded ? `${total} / 100` : '— / 100';
+    const rc = $('resCard');
+    if (rc && st.graded) rc.innerHTML = `<span class="kicker">${set.name} 결과</span><div class="big">${total}<small style="font-size:24px;color:var(--muted)"> / 100</small></div>
+      <p style="margin:10px 0 0">채점 완료! 틀린 문제는 <b>📒 틀린 문제 다시 풀기</b> 탭에 모였어요. 관련 장으로 돌아가 다시 보세요.</p>`;
+  }
+
+  $('gradeBtn').onclick = () => { st.graded = true; stopTimer(); save(); draw(); $('sec1').scrollIntoView({ behavior: 'smooth' }); };
+  $('resetBtn').onclick = () => { if (!confirm('이 회차의 답안과 채점을 모두 지울까요?')) return; stopTimer(); st = { a: {}, self: {}, graded: false, left: 50 * 60 }; save(); draw(); drawTimer(); };
+
+  /* 타이머 */
+  let tick = null;
+  function drawTimer() { const l = Math.max(0, st.left ?? 3000); $('timer').textContent = `${String(Math.floor(l / 60)).padStart(2, '0')}:${String(l % 60).padStart(2, '0')}`; $('timer').classList.toggle('low', l <= 600); $('timerBtn').textContent = tick ? '일시정지' : (l < 3000 ? '계속' : '시작'); }
+  function stopTimer() { clearInterval(tick); tick = null; drawTimer(); }
+  $('timerBtn').onclick = () => {
+    if (tick) return stopTimer();
+    if (st.graded) return;
+    tick = setInterval(() => { st.left = (st.left ?? 3000) - 1; if (st.left % 10 === 0) save(); if (st.left <= 0) { stopTimer(); alert('시험 시간 종료! 채점하기를 눌러 보세요.'); } drawTimer(); }, 1000);
+    drawTimer();
+  };
+
+  document.addEventListener('DOMContentLoaded', () => { SETS = window.MOCK_SETS || []; cur = S.get('mock-set') || 1; load(); });
+})();
+</script>
+</body>
+</html>
