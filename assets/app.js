@@ -152,6 +152,18 @@
     }
   }
 
+  // 직접 고칠 수 있는 정리 상자(.edit-note): 고친 내용은 이 브라우저에 저장
+  function initEditNotes() {
+    document.querySelectorAll('.edit-note[data-key]').forEach(box => {
+      const k = 'editnote-' + box.dataset.key, saved = store.get(k);
+      if (saved) box.innerHTML = saved;
+      box.contentEditable = 'true';
+      box.spellcheck = false;
+      box.addEventListener('input', () => store.set(k, box.innerHTML));
+      box.addEventListener('blur', () => renderMath(box));
+    });
+  }
+
   function renderMath(el) {
     if (window.renderMathInElement) {
       renderMathInElement(el || document.body, {
@@ -181,6 +193,7 @@
     placeStickers(document);
     if (chId) { buildToc(chId); if (CHAPTERS.some(c => c.id === chId)) chapterNav(chId); }
     initBlanks();
+    initEditNotes();
     renderMath();
   });
 })();

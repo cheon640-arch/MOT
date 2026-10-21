@@ -690,3 +690,9 @@ section.card.supp::before { content: attr(data-supp); display: inline-block; fon
 .part-title.supp-title small { color: #7c3aed; }
 .supp-note { font-family: var(--font-ui); font-size: 14px; color: #5b21b6; background: #f3edff; border: 1px solid #d8c8fb; border-radius: 10px; padding: 8px 12px; margin: 0 0 12px; }
 .toc a.supp-link span:last-child::before { content: "보충 "; font-size: 11px; color: #fff; background: #7c3aed; border-radius: 6px; padding: 0 5px; margin-right: 4px; }
+
+/* 직접 고칠 수 있는 정리 상자 */
+.edit-note { border: 1.5px dashed var(--orange); background: #fffaf5; border-radius: 12px; padding: 10px 14px; margin: 10px 0 14px; outline: none; cursor: text; }
+.edit-note:focus { border-style: solid; background: #fff; box-shadow: 0 0 0 3px #ffe3cf; }
+.edit-note p { margin: 4px 0; }
+.edit-note .hand { display: block; color: var(--sienna); font-size: 19px; }
