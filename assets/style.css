@@ -706,3 +706,7 @@ section.card.supp::before { content: attr(data-supp); display: inline-block; fon
 body.mode-text main.lesson { cursor: text; }
 body.mode-text main.lesson section.card { user-select: none; -webkit-user-select: none; }
 .note-dock .dm[data-m="text"] { font-family: var(--font-display); font-weight: 600; }
+
+/* 애로우 그래프 3개 캡션 */
+.lesson .arrow-figs figure.fig figcaption, .lesson .arrow-figs figure.fig figcaption * { font-family: var(--font-ui) !important; font-size: 13px !important; line-height: 1.5; color: var(--charcoal); margin-top: 4px; }
+.arrow-figs figcaption b { font-size: 14px; }
