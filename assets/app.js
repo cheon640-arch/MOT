@@ -137,6 +137,21 @@
       (next ? `<a class="pill" href="${next.file}">${next.id}. ${next.title} →</a>` : `<a class="pill" href="index.html">홈으로 →</a>`);
   }
 
+  // 빈칸(.blank) 누르면 정답 보이기 + 머리말에 모두 보기/가리기
+  function initBlanks() {
+    const bl = [...document.querySelectorAll('.blank')];
+    if (!bl.length) return;
+    bl.forEach(b => { b.title = '눌러서 정답 보기'; b.addEventListener('click', () => b.classList.toggle('show')); });
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      const bar = document.createElement('div');
+      bar.className = 'blank-bar';
+      bar.innerHTML = `<span>📝 빈칸 ${bl.length}개 — 누르면 정답이 보여요</span><button type="button" class="pill small" data-b="show">모두 보기</button><button type="button" class="pill small" data-b="hide">모두 가리기</button>`;
+      bar.onclick = e => { const b = e.target.closest('[data-b]'); if (!b) return; bl.forEach(x => x.classList.toggle('show', b.dataset.b === 'show')); };
+      hero.appendChild(bar);
+    }
+  }
+
   function renderMath(el) {
     if (window.renderMathInElement) {
       renderMathInElement(el || document.body, {
@@ -165,6 +180,7 @@
     document.body.insertAdjacentHTML('beforeend', footer());
     placeStickers(document);
     if (chId) { buildToc(chId); if (CHAPTERS.some(c => c.id === chId)) chapterNav(chId); }
+    initBlanks();
     renderMath();
   });
 })();
