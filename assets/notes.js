@@ -102,12 +102,13 @@
     const ch = document.body.dataset.ch;
     if (!ch || !window.RL_STORE) return;
     const S = window.RL_STORE;
-    const K = { hl: 'hl-' + ch, memo: 'memo-' + ch, mimg: 'memoimg-' + ch, ink: 'ink-' + ch, free: 'free-' + ch, rev: 'review-' + ch };
+    const K = { hl: 'hl-' + ch, memo: 'memo-' + ch, mimg: 'memoimg-' + ch, ink: 'ink-' + ch, free: 'free-' + ch, rev: 'review-' + ch, txt: 'txt-' + ch };
     let hls = S.get(K.hl) || [];
     let memos = S.get(K.memo) || {};
     let memoImgs = S.get(K.mimg) || {};
     let inks = S.get(K.ink) || [];
     let frees = S.get(K.free) || [];
+    let txts = S.get(K.txt) || [];
     let reviews = S.get(K.rev) || {};
     let curColor = S.get('hl-color') || 'y';
     let mode = S.get('tool-mode') || '';
@@ -118,6 +119,7 @@
     const saveMemo = () => { S.set(K.memo, memos); S.set(K.mimg, memoImgs); refreshDock(); };
     const saveInk = () => { S.set(K.ink, inks); refreshDock(); };
     const saveFree = () => { S.set(K.free, frees); refreshDock(); };
+    const saveTxt = () => { S.set(K.txt, txts.filter(x => (x.t || '').trim())); refreshDock(); };
     const saveRev = () => { S.set(K.rev, reviews); refreshDock(); };
     const sections = [...document.querySelectorAll('section.card[id]')];
     const secById = id => document.getElementById(id);
@@ -282,6 +284,35 @@
       L.appendChild(el);
       return el;
     }
+    function txtEl(x, L) {
+      let el = L.querySelector(`.ann-text[data-tid="${x.id}"]`);
+      if (el) return el;
+      el = document.createElement('div');
+      el.className = 'ann-text'; el.dataset.tid = x.id;
+      el.style.color = STROKE[x.c] || STROKE.o;
+      el.innerHTML = '<span class="at-grip" title="끌어서 옮기기">⠿</span><div class="at-body" contenteditable="true" spellcheck="false"></div>';
+      const body = el.querySelector('.at-body');
+      body.textContent = x.t || '';
+      let tm;
+      body.addEventListener('input', () => { clearTimeout(tm); tm = setTimeout(() => { x.t = body.innerText; saveTxt(); }, 300); });
+      body.addEventListener('blur', () => {
+        x.t = body.innerText;
+        if (!x.t.trim()) { txts = txts.filter(y => y !== x); el.remove(); }
+        saveTxt();
+      });
+      const grip = el.querySelector('.at-grip');
+      grip.addEventListener('pointerdown', e => {
+        e.preventDefault();
+        const sec = secById(x.sec), sc = sec.getBoundingClientRect().width / (x.w0 || 1);
+        const sx = e.clientX, sy = e.clientY, a0 = [x.x, x.y];
+        grip.setPointerCapture(e.pointerId);
+        const mv = ev => { x.x = a0[0] + (ev.clientX - sx) / sc; x.y = a0[1] + ev.clientY - sy; layoutSec(sec); };
+        const up = () => { grip.removeEventListener('pointermove', mv); grip.removeEventListener('pointerup', up); saveTxt(); };
+        grip.addEventListener('pointermove', mv); grip.addEventListener('pointerup', up);
+      });
+      L.appendChild(el);
+      return el;
+    }
     function miniEl(o, L) {
       let m = L.querySelector(`.st-mini[data-nid="${o.id}"]`);
       if (m) return m;
@@ -331,6 +362,14 @@
         const el = noteEl(f, L, 'free'); el.hidden = false;
         el.style.left = x + 'px'; el.style.top = y + 'px';
       }
+      // 아무 데나 적은 글자
+      const tkeep = new Set();
+      for (const x of txts.filter(x => x.sec === sec.id)) {
+        tkeep.add(x.id);
+        const el = txtEl(x, L), sc = sr.width / (x.w0 || sr.width);
+        el.style.left = x.x * sc + 'px'; el.style.top = x.y + 'px';
+      }
+      L.querySelectorAll('.ann-text').forEach(t => { if (!tkeep.has(t.dataset.tid)) t.remove(); });
       L.querySelectorAll('.sticky').forEach(s => { if (!keep.has(s.dataset.nid)) s.remove(); });
       L.querySelectorAll('.st-mini').forEach(m => { const f = frees.find(x => x.id === m.dataset.nid); if (!f || !(notesHidden || f.min)) m.remove(); });
     }
@@ -345,7 +384,7 @@
 
     /* ---------- 직접 그리기 · 지우개 · 메모 붙이기 ---------- */
     const undo = [];
-    const blockTarget = t => t.closest('.card-tools,.sticky,.st-mini,.memo-box,.note-dock,.note-drawer,.hl-pop,.img-lb,input,textarea,select,button,a');
+    const blockTarget = t => t.closest('.card-tools,.ann-text,.sticky,.st-mini,.memo-box,.note-dock,.note-drawer,.hl-pop,.img-lb,input,textarea,select,button,a');
     function secAt(e) { const s = e.target.closest && e.target.closest('section.card[id]'); return s && sections.includes(s) ? s : null; }
     let drawing = null;
     document.addEventListener('pointerdown', e => {
@@ -354,6 +393,13 @@
       if (!sec || blockTarget(e.target)) return;
       e.preventDefault();
       const sr = sec.getBoundingClientRect(), p = [r1(e.clientX - sr.left), r1(e.clientY - sr.top)];
+      if (mode === 'text') {
+        const x = { id: uid('tx'), sec: sec.id, x: p[0] - 4, y: p[1] - 12, w0: sr.width, t: '', c: curColor };
+        txts.push(x); layoutSec(sec);
+        const el = sec.querySelector(`.ann-text[data-tid="${x.id}"] .at-body`);
+        if (el) setTimeout(() => el.focus({ preventScroll: true }), 20);
+        return;
+      }
       if (mode === 'note') {
         const f = { id: uid('fn'), sec: sec.id, x: p[0] - 20, y: p[1] - 18, w0: sr.width, n: '', c: curColor, imgs: [] };
         frees.push(f); saveFree(); setMode('');
@@ -566,7 +612,7 @@
     });
 
     /* ---------- 오른쪽 아래 도구 ---------- */
-    const MODES = [['', '✋', '보통 (글자 드래그하면 색 고르기)'], ['hl', '🖍', '형광펜: 드래그하자마자 칠하기'], ['draw', '✏️', '그리기: 동그라미·밑줄 직접 그리기'], ['erase', '🧽', '지우개: 그린 선 위를 문지르기'], ['note', '📝', '메모 붙이기: 원하는 곳을 클릭']];
+    const MODES = [['', '✋', '보통 (글자 드래그하면 색 고르기)'], ['hl', '🖍', '형광펜: 드래그하자마자 칠하기'], ['draw', '✏️', '그리기: 동그라미·밑줄 직접 그리기'], ['erase', '🧽', '지우개: 그린 선 위를 문지르기'], ['text', 'T', '글자 쓰기: 원하는 곳을 클릭하고 바로 타이핑'], ['note', '📝', '메모 붙이기: 원하는 곳을 클릭']];
     const dock = document.createElement('div');
     dock.className = 'note-dock';
     dock.innerHTML = `<span class="dock-modes">${MODES.map(([m, ic, tt]) => `<button type="button" class="dm" data-m="${m}" title="${tt}">${ic}</button>`).join('')}</span>
@@ -576,7 +622,7 @@
       <button type="button" class="dock-open">📒 내 노트 <span class="cnt"></span></button>
       <div class="dock-hint"></div>`;
     document.body.appendChild(dock);
-    function setMode(m) { mode = m; if (m !== 'note') S.set('tool-mode', m); refreshDock(); }
+    function setMode(m) { mode = m; if (m !== 'note' && m !== 'text') S.set('tool-mode', m); refreshDock(); }
     dock.querySelector('.dock-modes').onclick = e => { const b = e.target.closest('[data-m]'); if (!b) return; setMode(mode === b.dataset.m && b.dataset.m ? '' : b.dataset.m); };
     dock.querySelector('.dock-colors').onclick = e => { const b = e.target.closest('[data-c]'); if (!b) return; curColor = b.dataset.c; S.set('hl-color', curColor); refreshDock(); };
     dock.querySelector('.dock-undo').onclick = undoInk;
@@ -584,15 +630,15 @@
     dock.querySelector('.dock-open').onclick = () => (drawer.classList.contains('open') ? closeDrawer() : openDrawer());
     function refreshDock() {
       dock.querySelectorAll('.dm').forEach(b => b.classList.toggle('on', b.dataset.m === mode));
-      ['hl', 'draw', 'erase', 'note'].forEach(m => document.body.classList.toggle('mode-' + m, mode === m));
+      ['hl', 'draw', 'erase', 'note', 'text'].forEach(m => document.body.classList.toggle('mode-' + m, mode === m));
       document.body.classList.toggle('pen-mode', mode === 'hl');
       dock.querySelector('.dock-undo').hidden = !(mode === 'draw' || mode === 'erase');
       dock.querySelector('.dock-show').textContent = notesHidden ? '📝 숨김' : '📝 보임';
       dock.querySelector('.dock-show').classList.toggle('off', notesHidden);
       dock.querySelectorAll('.dock-colors .dot').forEach(d => d.classList.toggle('on', d.dataset.c === curColor));
-      const hint = { hl: '🖍 형광펜 모드 · 글자를 드래그하면 바로 칠해져요', draw: '✏️ 그리기 모드 · 본문 위에 마우스/펜으로 그려요 (Esc 로 끝)', erase: '🧽 지우개 · 지울 선 위를 문질러요', note: '📝 메모장을 붙일 곳을 클릭하세요' }[mode] || '';
+      const hint = { hl: '🖍 형광펜 모드 · 글자를 드래그하면 바로 칠해져요', draw: '✏️ 그리기 모드 · 본문 위에 마우스/펜으로 그려요 (Esc 로 끝)', erase: '🧽 지우개 · 지울 선 위를 문질러요', note: '📝 메모장을 붙일 곳을 클릭하세요', text: 'T 글자 모드 · 원하는 곳을 클릭하고 바로 타이핑 (비우면 사라져요, ⠿ 로 옮기기)' }[mode] || '';
       const hb = dock.querySelector('.dock-hint'); hb.textContent = hint; hb.hidden = !hint;
-      const n = hls.length + Object.keys(memos).length + frees.length + Object.keys(reviews).length;
+      const n = hls.length + Object.keys(memos).length + frees.length + txts.length + Object.keys(reviews).length;
       dock.querySelector('.cnt').textContent = n ? n : '';
     }
 

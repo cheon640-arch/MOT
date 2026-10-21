@@ -696,3 +696,13 @@ section.card.supp::before { content: attr(data-supp); display: inline-block; fon
 .edit-note:focus { border-style: solid; background: #fff; box-shadow: 0 0 0 3px #ffe3cf; }
 .edit-note p { margin: 4px 0; }
 .edit-note .hand { display: block; color: var(--sienna); font-size: 19px; }
+
+/* T 글자 쓰기 (아무 데나 바로 타이핑) */
+.ann-text { position: absolute; pointer-events: auto; display: flex; align-items: flex-start; gap: 2px; max-width: 420px; z-index: 7; }
+.ann-text .at-body { font-family: var(--font-hand); font-size: 21px; line-height: 1.25; min-width: 14px; min-height: 26px; padding: 0 3px; outline: none; white-space: pre-wrap; word-break: keep-all; border-radius: 4px; cursor: text; }
+.ann-text .at-body:focus { background: rgba(255,255,255,.75); box-shadow: 0 0 0 1px currentColor; }
+.ann-text .at-grip { opacity: 0; cursor: grab; font-size: 13px; color: var(--muted); padding-top: 4px; user-select: none; touch-action: none; }
+.ann-text:hover .at-grip, .ann-text:focus-within .at-grip { opacity: 1; }
+body.mode-text main.lesson { cursor: text; }
+body.mode-text main.lesson section.card { user-select: none; -webkit-user-select: none; }
+.note-dock .dm[data-m="text"] { font-family: var(--font-display); font-weight: 600; }
